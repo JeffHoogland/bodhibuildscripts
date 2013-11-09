@@ -1,0 +1,13 @@
+Source: rain
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: enlightenment
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: rain
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: rain
+ rain module for your Enlightenment desktop

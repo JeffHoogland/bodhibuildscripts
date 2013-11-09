@@ -1,0 +1,13 @@
+Source: slideshow
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: enlightenment
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: slideshow
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Slideshow
+ Enlightenment slideshow module

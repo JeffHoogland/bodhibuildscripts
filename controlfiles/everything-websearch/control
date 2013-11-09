@@ -1,0 +1,13 @@
+Source: everything-websearch
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: libcurl4-dev, enlightenment
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: everything-websearch
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: everything-websearch
+ Enlightenment module to extend Run Everything

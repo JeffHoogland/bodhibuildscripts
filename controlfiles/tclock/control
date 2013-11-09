@@ -1,0 +1,13 @@
+Source: tclock
+Section: unknown
+Priority: extra
+Maintainer: Jeff Hoogland <jeffhoogland@linux.com>
+Build-Depends: enlightenment
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: tclock
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: tclock Module
+ A digital date and time clock for the E desktop. Enlightenment Module

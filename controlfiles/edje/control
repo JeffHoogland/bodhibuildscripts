@@ -1,0 +1,15 @@
+Source: edje
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: ecore, embryo, liblua5.1-0-dev
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: edje
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Graphical layout and animation library
+ Edje is a graphical layout and animation library for animated resizable,
+ compressed and scalable themes. It is the theming engine behind
+ Enlightenment DR 0.17.

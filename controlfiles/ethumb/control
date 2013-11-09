@@ -1,0 +1,13 @@
+Source: ethumb
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: edje, edbus, emotion, epdf, libexif-dev
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: ethumb
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Enlightenment thumbnailing library
+ Thumbnailing library.

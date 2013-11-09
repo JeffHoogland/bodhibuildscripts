@@ -1,0 +1,13 @@
+Source: mem
+Section: unknown
+Priority: extra
+Maintainer: Jeff Hoogland <jeffhoogland@linux.com>
+Build-Depends: enlightenment
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: mem
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Memory Module
+ Enlightenment Module. Real time memory updates on your E desktop.

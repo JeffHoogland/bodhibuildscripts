@@ -1,0 +1,15 @@
+Source: eskiss
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: libcurl4-openssl-dev, debhelper (>= 7.0.50~), autotools-dev, edje, m4, gettext, evas, libasound2-dev, libcroco3, locales, efreet, automake, eina, liblua5.1-0-dev, libldap-2.4-2, edbus, subversion, libaprutil1, libgcrypt11, embryo, libltdl-dev, libkeyutils1, libgnutls26, libudev-dev, libsvn1, exchange, mime-support, git-core, libsasl2-2, libtasn1-3, libgtk2.0-dev, libdbus-1-dev, bison, mawk, libk5crypto3, eet, libapr1, libkrb5support0, autopoint, autoconf-archive, libtool, libfontconfig1-dev, libxml2-dev, libgpg-error0, libpam0g-dev, xfonts-utils, libunistring0, ecore, libsqlite3-0, libgssapi-krb5-2, eeze, libkrb5-3, libpcre3, autoconf, libchipmunk0d1, eskiss-game
+Standards-Version: 3.8.4
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Git: git://git.debian.org/collab-maint/eskiss.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/eskiss.git;a=summary
+
+Package: eskiss
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: eskiss
+ a physics based game written using the EFLs

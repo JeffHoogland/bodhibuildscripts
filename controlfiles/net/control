@@ -1,0 +1,13 @@
+Source: net
+Section: unknown
+Priority: extra
+Maintainer: Jeff Hoogland <jeffhoogland@linux.com>
+Build-Depends: enlightenment
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: net
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: net module
+ net module

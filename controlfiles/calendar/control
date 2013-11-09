@@ -1,0 +1,13 @@
+Source: calendar
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: enlightenment, edje
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: calendar
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Enlightenment Calendar Module
+ Gadget that shows the current date and shows calendar when clicked on for the Enlightenment Desktop.

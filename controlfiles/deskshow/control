@@ -1,0 +1,13 @@
+Source: deskshow
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: enlightenment, edje
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: deskshow
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: deskshow
+ Enlightenment module to show the desktop

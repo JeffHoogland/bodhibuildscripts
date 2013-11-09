@@ -1,0 +1,15 @@
+Source: shotgun
+Section: unknown
+Priority: extra
+Maintainer: Jeff Hoogland <jeffhoogland@linux.com>
+Build-Depends: enlightenment
+Standards-Version: 3.8.4
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Git: git://git.debian.org/collab-maint/shotgun.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/shotgun.git;a=summary
+
+Package: shotgun
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: shotgun IM client
+ An instant messenger client written in EFLs

@@ -1,0 +1,13 @@
+Source: snow
+Section: unknown
+Priority: extra
+Maintainer: Jeff Hoogland <jeffhoogland@linux.com>
+Build-Depends: enlightenment
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: snow
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Snow Module
+ Perfect little module for winter time. Bring snow and fun to your desktop. Enlightenment Module

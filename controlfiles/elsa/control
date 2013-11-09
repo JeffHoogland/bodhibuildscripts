@@ -1,0 +1,13 @@
+Source: elsa
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: libcurl4-openssl-dev, debhelper (>= 7), xtrans-dev, edje, mime-support, m4, gettext, intltool, evas, libxcb1-dev, libasound2-dev, libgtk2.0-dev,  libdbus-1-dev, bison, autotools-dev, mawk, locales, eet, xserver-xorg-dev, efreet, automake, autoconf-archive, libtool, eina, liblua5.1-0-dev, libfontconfig1-dev, libgl1-mesa-glx, emotion, edbus, libpam0g-dev, embryo, libltdl-dev, xfonts-utils, ecore, elementary, ethumb, libpcre3, libgstreamer0.10-dev, autoconf
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: elsa
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: elsa
+ elsa EFL login manager

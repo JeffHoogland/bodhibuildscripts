@@ -1,0 +1,15 @@
+Source: trash
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: enlightenment
+Standards-Version: 3.8.4
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Git: git://git.debian.org/collab-maint/trash.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/trash.git;a=summary
+
+Package: trash
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: trash module
+ trash module for enlightenment

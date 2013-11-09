@@ -1,0 +1,13 @@
+Source: efm-nav
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: libcurl4-openssl-dev, debhelper (>= 7), xtrans-dev, edje, mime-support, git-core, m4, gettext, evas, libasound2-dev, libgtk2.0-dev, enlightenment, libdbus-1-dev, bison, autotools-dev, mawk, libcroco3, locales, eet, efreet, automake, autopoint, autoconf-archive, libtool, eina, liblua5.1-0-dev, libfontconfig1-dev, edbus, embryo, libltdl-dev, xfonts-utils, libunistring0, libudev-dev, ecore, eeze, libpcre3, libgstreamer0.10-dev, autoconf
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: efm-nav
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: efmnav
+ Enlightenment Module - EFM file manager extension

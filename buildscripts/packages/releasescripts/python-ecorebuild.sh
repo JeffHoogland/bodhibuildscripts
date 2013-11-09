@@ -1,0 +1,14 @@
+#!/bin/sh
+
+cd /home/jeff/$2/python-ecore-$2 && make distclean
+./autogen.sh
+cp -R /home/jeff/$2/python-ecore-$2 /media/sda5/Bodhi/e17_debs/$1/python-ecore_$1
+cd /media/sda5/Bodhi/e17_debs/$1
+tar czvf /media/sda5/Bodhi/e17_debs/$1/python-ecore_$1.tar.gz python-ecore_$1/
+
+cd /media/sda5/Bodhi/e17_debs/$1/python-ecore_$1
+dh_make -p python-ecore_$1 -e jeffhoogland@linux.com -f ../python-ecore_$1.tar.gz
+
+cp /media/sda5/Bodhi/e17_debs/controlfiles/python-ecore/* debian/
+dpkg-buildpackage -rfakeroot
+dpkg -i ../python-ecore*.deb

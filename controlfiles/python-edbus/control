@@ -1,0 +1,17 @@
+Source: python-edbus
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: debhelper (>= 5.0.38), cdbs (>= 0.4.49),
+ python-all-dev,
+ cython, python-pyrex, 
+ edbus, python-dbus
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: python-edbus
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python-support
+Description: Python bindings for the Enlightenment D-Bus wrapper library (edbus)
+ edbus is a wrapper around D-Bus to ease integrating D-Bus with EFL based
+ applications.

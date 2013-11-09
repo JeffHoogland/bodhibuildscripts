@@ -1,0 +1,13 @@
+Source: cpu
+Section: unknown
+Priority: extra
+Maintainer: Jeff Hoogland <jeffhoogland@linux.com>
+Build-Depends: enlightenment, edje
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: cpu
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: cpu
+ Enlightenment Module for measuring CPU usage

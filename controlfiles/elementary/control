@@ -1,0 +1,15 @@
+Source: elementary
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: edje, eet
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: elementary
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: EFL-based widget set library
+ Elementary is a widget set based on the Enlightenment Foundation Libraries,
+ primarily aimed at creating graphical user interfaces for mobile and embedded
+ devices.

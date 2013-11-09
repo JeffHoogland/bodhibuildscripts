@@ -1,0 +1,13 @@
+Source: moon
+Section: unknown
+Priority: extra
+Maintainer: Jeff Hoogland <jeffhoogland@linux.com>
+Build-Depends: enlightenment
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: moon
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Moon Module
+ View the current cycle of the moon on your desktop. Enlightenment Module

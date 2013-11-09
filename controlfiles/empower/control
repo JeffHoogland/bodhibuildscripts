@@ -1,0 +1,13 @@
+Source: empower
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: elementary
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: empower
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: empower
+ a GUI sudo tool written in EFLs

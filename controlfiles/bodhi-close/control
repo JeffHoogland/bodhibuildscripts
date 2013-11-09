@@ -1,0 +1,13 @@
+Source: bodhi-close
+Section: unknown
+Priority: extra
+Maintainer: Jeff Hoogland <jeffhoogland@linux.com>
+Build-Depends: enlightenment
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: bodhi-close
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Bodhi Close
+ A gadget that when pressed closes the current running application. Built for the Bodhi tablet profile

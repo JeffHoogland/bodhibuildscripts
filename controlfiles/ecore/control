@@ -1,0 +1,13 @@
+Source: ecore
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: evas, libgnutls-dev, libcurl4-gnutls-dev, libxcursor-dev, libxss-dev, libxinerama-dev, libxrandr-dev, libxext-dev, libxp-dev, libxcomposite-dev, libxi-dev, libxdamage-dev, libxtst-dev, libglib2.0-dev, libc-ares-dev
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: ecore
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Ecore
+ Enlightenment Desktop core package

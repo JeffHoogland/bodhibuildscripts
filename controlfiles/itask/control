@@ -1,0 +1,15 @@
+Source: itask
+Section: unknown
+Priority: extra
+Maintainer: Jeff Hoogland <jeffhoogland@linux.com>
+Build-Depends: enlightenment
+Standards-Version: 3.8.4
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Git: git://git.debian.org/collab-maint/itask.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/itask.git;a=summary
+
+Package: itask
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: itask module
+ a taskbar module for e17

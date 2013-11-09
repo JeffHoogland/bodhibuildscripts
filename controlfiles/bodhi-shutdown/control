@@ -1,0 +1,13 @@
+Source: bodhi-shutdown
+Section: unknown
+Priority: extra
+Maintainer: Jeff Hoogland <jeffhoogland@linux.com>
+Build-Depends: enlightenment
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: bodhi-shutdown
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Bodhi Shutdown
+ A gadget that allows the user to quickly shutdown or log out of their computer
