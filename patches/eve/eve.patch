@@ -1,0 +1,48 @@
+Index: src/bin/main.c
+===================================================================
+--- src/bin/main.c	(revision 56695)
++++ src/bin/main.c	(working copy)
+@@ -296,7 +296,7 @@
+    evas_object_smart_callback_add
+       (win->win, "delete-request", on_win_del_req, app);
+ 
+-   evas_object_resize(win->win, 480, 800);
++   evas_object_resize(win->win, 240, 320);
+    evas_object_show(win->win);
+ 
+    return win;
+Index: src/bin/chrome.c
+===================================================================
+--- src/bin/chrome.c	(revision 56695)
++++ src/bin/chrome.c	(working copy)
+@@ -1953,7 +1953,7 @@
+    Evas_Object *img;
+    Ewk_View_Smart_Data *sd;
+    Ewk_View_Private_Data *priv;
+-   Eina_Rectangle rect = { 0, 0, 480, 800 };
++   Eina_Rectangle rect = { 0, 0, 240, 320 };
+    cairo_surface_t *surface;
+    cairo_format_t format;
+    cairo_t *cairo;
+Index: data/themes/default.edc
+===================================================================
+--- data/themes/default.edc	(revision 56695)
++++ data/themes/default.edc	(working copy)
+@@ -295,7 +295,7 @@
+                 type: RECT;
+                 description { state: "default" 0.0;
+                     color: 0 0 0 255;
+-                    min: 480 800;
++                    min: 240 320;
+                 }
+             }
+         }
+@@ -526,7 +526,7 @@
+                 type: RECT;
+                 description { state: "default" 0.0;
+                     color: 0 0 0 255;
+-                    min: 480 800;
++                    min: 240 320;
+                 }
+             }
+             part { name: "view";
