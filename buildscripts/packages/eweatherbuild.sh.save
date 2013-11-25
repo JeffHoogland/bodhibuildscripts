@@ -1,0 +1,15 @@
+#!/bin/sh
+
+cd /home/jeff/e17_src/forecasts && make distclean
+./autogen.sh
+cp -R /home/jeff/e17_src/foreacasts /media/sda5/Bodhi/e17_debs/$1/forecasts-$1
+cd /media/sda5/Bodhi/e17_debs/$1
+tar czvf /media/sda5/Bodhi/e17_debs/$1/forecasts-$1.tar.gz forecasts-$1/
+
+cd /media/sda5/Bodhi/e17_debs/$1/forecasts-$1
+make distclean
+dh_make -e jeffhoogland@linux.com -f ../forecasts-$1.tar.gz
+
+cp /media/sda5/Bodhi/e17_debs/controlfiles/forecasts/control debian/
+dpkg-buildpackage -rfakeroot
+dpkg -i ../forecasts*.deb
