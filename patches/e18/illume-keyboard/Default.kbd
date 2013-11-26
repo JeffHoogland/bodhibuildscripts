@@ -1,0 +1,173 @@
+##KBDCONF-1.0
+kbd 130 30
+fuzz 20
+
+# keyboard type
+type ALPHA
+# an icon for the keyboard so you know which one you have
+icon alpha.png
+
+# if the key out is in quotes - q for example, then this key is used for
+# typing words and can be part of a dictionary match, any other key when
+# pressed will end the dictionary match (u can disable dictionary matching in
+# a layout by not having any outputs in quotes)
+key  5  0  10  10
+  normal   q q
+  shift    Q Q
+  capslock    Q Q
+  altgr    1 1
+key 15  0  10  10
+  normal   w w
+  shift    W W
+  capslock    W W
+  altgr    2 2
+key 25  0  10  10
+  normal   e e
+  shift    E E
+  capslock    E E
+  altgr    3 3
+key 35  0  10  10
+  normal   r r
+  shift    R R
+  capslock    R R
+  altgr    4 4
+key 45  0  10  10
+  normal   t t
+  shift    T T
+  capslock    T T
+  altgr    5 5
+key 55  0  10  10
+  normal   y y
+  shift    Y Y
+  capslock    Y Y
+  altgr    6 6
+key 65  0  10  10
+  normal   u u
+  shift    U U
+  capslock    U U
+  altgr    7 7
+key 75  0  10  10
+  normal   i i
+  shift    I I
+  capslock    I I
+  altgr    8 8
+key 85  0  10  10
+  normal   o o
+  shift    O O
+  capslock    O O
+  altgr    9 9
+key 95  0  10  10
+  normal   p p
+  shift    P P
+  capslock    P P
+  altgr    0 0
+key 105 0  20  10
+  normal   backspace.png BackSpace
+
+key 0 10 10 10
+  normal   ↑
+#  shift    ⇈
+  is_shift
+key 10 10  10  10
+  normal   a a
+  shift    A A
+  capslock    A A
+  altgr    @ at
+key 20 10  10  10
+  normal   s s
+  shift    S S
+  capslock    S S
+  altgr    # numbersign
+key 30 10  10  10
+  normal   d d
+  shift    D D
+  capslock    D D
+  altgr    $ dollar
+key 40 10  10  10
+  normal   f f
+  shift    F F
+  capslock    F F
+  altgr    % percent
+key 50 10  10  10
+  normal   g g
+  shift    G G
+  capslock    G G
+  altgr    ^ asciicircum
+key 60 10  10  10
+  normal   h h
+  shift    H H
+  capslock    H H
+  altgr    & ampersand
+key 70 10  10  10
+  normal   j j
+  shift    J J
+  capslock    J J
+  altgr    * asterisk
+key 80 10  10  10
+  normal   k k
+  shift    K K
+  capslock    K K
+  altgr    ( parenleft
+key 90 10  10  10
+  normal   l l
+  shift    L L
+  capslock    L L
+  altgr    ) parenright
+key 100 10 10  10
+  normal   / slash
+  shift    ! exclam
+  altgr    ? question
+key 110 10  20  10
+  normal   enter.png Return
+
+key 5 20 10  10
+  normal numeric.png
+#  normal   ⎇
+  is_altgr
+key 15 20  10  10
+  normal   z z
+  shift    Z Z
+  capslock    Z Z
+  altgr    ~ asciitilde
+key 25 20  10  10
+  normal   x x
+  shift    X X
+  capslock    X X
+  altgr    - minus
+key 35 20  10  10
+  normal   c c
+  shift    C C
+  capslock    C C
+  altgr    _ underscore
+key 45 20  10  10
+  normal   v v
+  shift    V V
+  capslock    V V
+  altgr    : colon
+key 55 20  10  10
+  normal   b b
+  shift    B B
+  capslock    B B
+  altgr    ' apostrophe
+key 65 20  10  10
+  normal   n n
+  shift    N N
+  capslock    N N
+  altgr    < less
+key 75 20  10  10
+  normal   m m
+  shift    M M
+  capslock    M M
+  altgr    > greater
+key  85 20 20  10
+  normal   space space
+key 105 20 10 10
+  normal   . period
+  shift    , comma
+  altgr    " quotedbl
+key 115 20 10  10
+  normal ctrl
+  is_ctrl
+#  normal   ' apostrophe
+#  shift    / slash
+#  altgr    " quotedbl

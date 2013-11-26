@@ -1,0 +1,15 @@
+Source: emotion-generic-players
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: debhelper (>= 8.0.0), autotools-dev
+Standards-Version: 3.9.2
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Git: git://git.debian.org/collab-maint/emotion-generic-players.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/emotion-generic-players.git;a=summary
+
+Package: emotion-generic-players
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Emotion Generic Loaders
+ Additional "generic" loaders for Emotion

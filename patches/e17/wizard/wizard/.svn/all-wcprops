@@ -1,0 +1,167 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/e/!svn/ver/79953/trunk/e/src/modules/wizard
+END
+page_040.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_040.c
+END
+page_130.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_130.c
+END
+page_140.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_140.c
+END
+page_050.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_050.c
+END
+page_150.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_150.c
+END
+page_060.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_060.c
+END
+page_070.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79952/trunk/e/src/modules/wizard/page_070.c
+END
+page_160.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_160.c
+END
+page_080.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_080.c
+END
+page_170.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_170.c
+END
+e_wizard.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79953/trunk/e/src/modules/wizard/e_wizard.c
+END
+page_090.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_090.c
+END
+page_180.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_180.c
+END
+e_wizard.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79911/trunk/e/src/modules/wizard/e_wizard.h
+END
+module.desktop.in
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/e/!svn/ver/79519/trunk/e/src/modules/wizard/module.desktop.in
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79024/trunk/e/src/modules/wizard/.gitignore
+END
+e-module-wizard.edj
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/e/!svn/ver/51047/trunk/e/src/modules/wizard/e-module-wizard.edj
+END
+e_mod_main.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/e_mod_main.c
+END
+page_000.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_000.c
+END
+page_010.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_010.c
+END
+page_100.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_100.c
+END
+page_020.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_020.c
+END
+page_011.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_011.c
+END
+page_110.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_110.c
+END
+page_200.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_200.c
+END
+page_030.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_030.c
+END
+page_120.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/e/!svn/ver/79908/trunk/e/src/modules/wizard/page_120.c
+END

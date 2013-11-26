@@ -8,9 +8,9 @@ Homepage: <insert the upstream URL, if relevant>
 
 Package: efl
 Architecture: any
-Provides: eio, ecore, eet, eina, eio, embryo, eobj, evas
-Replaces: eio, ecore, eet, eina, eio, embryo, eobj, evas
-Conflicts: eio, ecore, eet, eina, eio, embryo, eobj, evas
+Provides: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics
+Replaces: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics
+Conflicts: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: EFLs
  Enlightenment Desktop core package

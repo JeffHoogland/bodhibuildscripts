@@ -1,0 +1,111 @@
+From 43b4cc66745b8dbde7e6ac7f5a5fe4240c1319d2 Mon Sep 17 00:00:00 2001
+From: Chris Michael <devilhorns@comcast.net>
+Date: Mon, 25 Nov 2013 15:37:52 +0000
+Subject: [PATCH 1/2] Fix wizard makefile
+
+Signed-off-by: Chris Michael <devilhorns@comcast.net>
+---
+ src/modules/Makefile_wizard.am | 61 +++++-------------------------------------
+ 1 file changed, 7 insertions(+), 54 deletions(-)
+
+diff --git a/src/modules/Makefile_wizard.am b/src/modules/Makefile_wizard.am
+index 32da4eb..30334af 100644
+--- a/src/modules/Makefile_wizard.am
++++ b/src/modules/Makefile_wizard.am
+@@ -1,12 +1,16 @@
+ wizarddir = $(MDIR)/wizard
+ wizard_DATA = wizard/data/def-ibar.txt
+ 
++wizard_desksdir= $(MDIR)/wizard/extra_desktops
++wizard_desks_DATA = wizard/data/extra_desktops/mplayer.desktop \
++		    wizard/data/extra_desktops/xterm.desktop
++
+ wizard_desktopdir = $(MDIR)/wizard/desktop
+ wizard_desktop_DATA = wizard/data/desktop/home.desktop \
+ 		      wizard/data/desktop/root.desktop \
+ 		      wizard/data/desktop/tmp.desktop
+ 
+-EXTRA_DIST += $(wizard_DATA) $(wizard_desktop_DATA)
++EXTRA_DIST += $(wizard_DATA) $(wizard_desks_DATA) $(wizard_desktop_DATA)
+ 
+ ### dont install these - this way e wont list the module for people to
+ #wizard_DATA = wizard/e-module-wizard.edj \
+@@ -15,25 +19,9 @@ EXTRA_DIST += $(wizard_DATA) $(wizard_desktop_DATA)
+ wizardpkgdir = $(MDIR)/wizard/$(MODULE_ARCH)
+ wizardpkg_LTLIBRARIES  = wizard/module.la \
+ 			 wizard/page_000.la \
+-			 wizard/page_010.la \
+-			 wizard/page_011.la \
+ 			 wizard/page_020.la \
+-			 wizard/page_030.la \
+-			 wizard/page_040.la \
+-			 wizard/page_050.la \
+-			 wizard/page_060.la \
+-			 wizard/page_070.la \
++			 wizard/page_025.la \
+ 			 wizard/page_080.la \
+-			 wizard/page_090.la \
+-			 wizard/page_100.la \
+-			 wizard/page_110.la \
+-			 wizard/page_120.la \
+-			 wizard/page_130.la \
+-			 wizard/page_140.la \
+-			 wizard/page_150.la \
+-			 wizard/page_160.la \
+-			 wizard/page_170.la \
+-			 wizard/page_180.la \
+ 			 wizard/page_200.la
+ 
+ wizard_module_la_SOURCES = wizard/e_mod_main.c \
+@@ -42,47 +30,12 @@ wizard_module_la_SOURCES = wizard/e_mod_main.c \
+ 
+ wizard_page_000_la_SOURCES        = wizard/page_000.c
+ 
+-wizard_page_010_la_SOURCES        = wizard/page_010.c
+-
+-wizard_page_011_la_SOURCES        = wizard/page_011.c
+-
+ wizard_page_020_la_SOURCES        = wizard/page_020.c
+ 
+-wizard_page_030_la_SOURCES        = wizard/page_030.c
+-
+-wizard_page_040_la_SOURCES        = wizard/page_040.c
+-
+-wizard_page_050_la_SOURCES        = wizard/page_050.c
+-
+-wizard_page_060_la_SOURCES        = wizard/page_060.c
+-
+-wizard_page_070_la_SOURCES        = wizard/page_070.c
++wizard_page_025_la_SOURCES        = wizard/page_025.c
+ 
+ wizard_page_080_la_SOURCES        = wizard/page_080.c
+ 
+-wizard_page_090_la_SOURCES        = wizard/page_090.c
+-
+-wizard_page_100_la_SOURCES        = wizard/page_100.c
+-
+-wizard_page_110_la_SOURCES        = wizard/page_110.c
+-if USE_MODULE_CONNMAN
+-wizard_page_110_la_LIBADD         = @ECONNMAN_LIBS@
+-endif
+-
+-wizard_page_120_la_SOURCES        = wizard/page_120.c
+-
+-wizard_page_130_la_SOURCES        = wizard/page_130.c
+-
+-wizard_page_140_la_SOURCES        = wizard/page_140.c
+-
+-wizard_page_150_la_SOURCES        = wizard/page_150.c
+-
+-wizard_page_160_la_SOURCES        = wizard/page_160.c
+-
+-wizard_page_170_la_SOURCES        = wizard/page_170.c
+-
+-wizard_page_180_la_SOURCES        = wizard/page_180.c
+-
+ wizard_page_200_la_SOURCES        = wizard/page_200.c
+ 
+ .PHONY: wizard install-wizard
+-- 
+1.8.1.5
+

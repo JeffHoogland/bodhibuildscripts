@@ -1,19 +1,19 @@
-Source: enlightenment
+Source: e18
 Section: unknown
 Priority: extra
 Maintainer: root <jeffhoogland@linux.com>
 Depends: bodhi-profiles
-Build-Depends: edje, efreet,  ecore, edbus, libasound2-dev [linux-any], libxext-dev, libpam0g-dev, libxcb-shape0-dev, dbus-x11, eeze, ethumb, emotion, eobj, libxcb-keysyms1-dev
+Build-Depends: efl, libasound2-dev [linux-any], libxext-dev, libpam0g-dev, libxcb-shape0-dev, dbus-x11, libxcb-keysyms1-dev
 Standards-Version: 3.8.3
 Homepage: <insert the upstream URL, if relevant>
 
-Package: enlightenment
+Package: e18
 Architecture: any
-Provides: e17
-Replaces: e17, e18
-Conflicts: e17, e18
+Provides: enlightenment, e17
+Replaces: enlightenment, e17
+Conflicts: enlightenment, e17
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: The Enlightenment DR17 Window Manager
+Description: The Enlightenment Window Manager
  Enlightenment is an advanced window manager for X11. Unique
  features include: a fully animated background, nice drop shadows
  around windows, backed by an extremely clean and optimized

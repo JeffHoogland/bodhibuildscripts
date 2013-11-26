@@ -1,0 +1,17 @@
+K 10
+svn:ignore
+V 127
+.deps
+.libs
+Makefile
+Makefile.in
+*.lo
+*.la
+module.desktop
+.dirstamp
+e_mod_comp_cfdata.c
+e_mod_comp_cfdata.h
+e_mod_comp_main.h
+
+
+END

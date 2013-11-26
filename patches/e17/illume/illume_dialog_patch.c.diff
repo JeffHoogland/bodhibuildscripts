@@ -1,0 +1,41 @@
+Index: policy.c
+===================================================================
+--- policy.c	(revision 63044)
++++ policy.c	(working copy)
+@@ -821,6 +821,9 @@
+ 
+    if ((!bd) || (!cz)) return;
+ 
++   if ((!bd->lock_client_location) || (!bd->lock_user_location))
++     return;
++
+    mw = bd->w;
+    mh = bd->h;
+ 
+@@ -1270,7 +1273,7 @@
+    /* set this border to borderless */
+ #ifdef DIALOG_USES_PIXEL_BORDER
+    if ((e_illume_border_is_dialog(bd)) && (e_illume_border_parent_get(bd)))
+-     eina_stringshare_replace(&bd->bordername, "pixel");
++     eina_stringshare_replace(&bd->bordername, "dialog");
+    else
+      bd->borderless = 1;
+ #else
+@@ -1294,11 +1297,15 @@
+    bd->lock_client_size = 1;
+    bd->lock_client_shade = 1;
+    bd->lock_client_maximize = 1;
+-   bd->lock_client_location = 1;
+    bd->lock_client_stacking = 1;
+ 
+    /* do not allow the user to change these properties */
+-   bd->lock_user_location = 1;
++   if (!e_illume_border_is_dialog(bd)) 
++     {
++        bd->lock_client_location = 1;
++        bd->lock_user_location = 1;
++     }
++
+    bd->lock_user_size = 1;
+    bd->lock_user_shade = 1;
+ 

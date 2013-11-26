@@ -12,5 +12,5 @@
 %:
 	dh  $@
 
-#override_dh_auto_configure:
-#	dh_auto_configure -- --enable-ecore-x-xcb --enable-ecore-evas-opengl-x11
+override_dh_auto_configure:
+	dh_auto_configure -- --with-tests=none

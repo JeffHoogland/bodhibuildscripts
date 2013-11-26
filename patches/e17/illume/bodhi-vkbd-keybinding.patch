@@ -1,0 +1,77 @@
+Index: e_mod_main.c
+===================================================================
+--- e_mod_main.c	(revision 58230)
++++ e_mod_main.c	(working copy)
+@@ -7,11 +7,13 @@
+ static void _il_kbd_stop(void);
+ static void _il_kbd_start(void);
+ static Eina_Bool _il_kbd_cb_exit(void *data, int type, void *event);
++static void _il_kbd_cb_action(E_Object *obj __UNUSED__, const char *params __UNUSED__, Ecore_Event_Key *ev __UNUSED__);
+ 
+ /* local variables */
+ static E_Kbd_Int *ki = NULL;
+ static Ecore_Exe *_kbd_exe = NULL;
+ static Ecore_Event_Handler *_kbd_exe_exit_handler = NULL;
++static E_Action *_il_kbd_action = NULL;
+ 
+ EAPI E_Module_Api e_modapi = { E_MODULE_API_VERSION, "Illume Keyboard" };
+ 
+@@ -19,6 +21,23 @@
+ e_modapi_init(E_Module *m) 
+ {
+    if (!il_kbd_config_init(m)) return NULL;
++   _il_kbd_action = e_action_add("vkbd_show");
++   if (_il_kbd_action) 
++     {
++        _il_kbd_action->func.go_key = _il_kbd_cb_action;
++        e_action_predef_name_set(_("Illume Keyboard"), _("Show Virtual Keyboard"), 
++                                 "vkbd_show", NULL, NULL, 0);
++     }
++   if (!e_bindings_key_get("vkbd_show")) 
++     {
++        e_managers_keys_ungrab();
++        e_bindings_key_add(E_BINDING_CONTEXT_ANY, "k", 
++                           E_BINDING_MODIFIER_CTRL | E_BINDING_MODIFIER_ALT, 
++                           0, "vkbd_show", NULL);
++        e_managers_keys_grab();
++        e_config_save_queue();
++     }
++
+    _il_kbd_start();
+    return m;
+ }
+@@ -27,6 +46,13 @@
+ e_modapi_shutdown(E_Module *m __UNUSED__) 
+ {
+    _il_kbd_stop();
++   if (_il_kbd_action) 
++     {
++        e_action_predef_name_del(_("Illume Keyboard"), 
++                                 _("Show Virtual Keyboard"));
++        e_action_del("vkbd_show");
++        _il_kbd_action = NULL;
++     }
+    il_kbd_config_shutdown();
+    return 1;
+ }
+@@ -123,3 +149,20 @@
+    if (ev->exe == _kbd_exe) _kbd_exe = NULL;
+    return ECORE_CALLBACK_PASS_ON;
+ }
++
++static void 
++_il_kbd_cb_action(E_Object *obj __UNUSED__, const char *params __UNUSED__, Ecore_Event_Key *ev __UNUSED__)
++{
++   E_Zone *zone;
++   E_Border *bd;
++
++   if (!(bd = e_border_focused_get())) return;
++   zone = e_util_zone_current_get(e_manager_current_get());
++   if (bd->zone != zone) return;
++   if (bd->client.vkbd.state == ECORE_X_VIRTUAL_KEYBOARD_STATE_ON)
++     ecore_x_e_virtual_keyboard_state_set(bd->client.win, 
++                                          ECORE_X_VIRTUAL_KEYBOARD_STATE_OFF);
++   else
++     ecore_x_e_virtual_keyboard_state_set(bd->client.win, 
++                                          ECORE_X_VIRTUAL_KEYBOARD_STATE_ON);
++}
