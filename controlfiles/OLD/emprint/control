@@ -1,0 +1,13 @@
+Source: emprint
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: xtrans-dev, libfontconfig1-dev, mime-support, m4, gettext, libxml2-dev, libltdl-dev, libasound2-dev, xfonts-utils, bison, autotools-dev, mawk, ecore, locales, automake, libpcre3, autoconf-archive, libtool, autoconf
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: emprint
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A command line tool for taking screenshots
+ A command line tool for taking screenshots

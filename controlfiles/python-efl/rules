@@ -13,5 +13,5 @@
 %:
 	dh  $@
 
-override_dh_auto_configure:
-	dh_auto_configure -- --with-tests=none
+#override_dh_auto_configure:
+#	dh_auto_configure -- --with-tests=none

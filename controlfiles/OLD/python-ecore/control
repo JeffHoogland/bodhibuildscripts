@@ -1,0 +1,16 @@
+Source: python-ecore
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: debhelper (>= 5.0.38), cdbs (>= 0.4.49),
+ python-support,
+ cython, 
+ python-evas, ecore
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: python-ecore
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python-support
+Description: python-ecore
+ python bindings for ecore

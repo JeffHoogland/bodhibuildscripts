@@ -1,0 +1,13 @@
+Source: evas
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: debhelper (>= 7), mime-support, m4, gettext, libsasl2-2, libtasn1-3, libasound2-dev, bison, mawk, libk5crypto3, locales, eet, libapr1, libgif-dev, automake, libkrb5support0, autoconf-archive, libtool, eina, libxml2-dev, mesa-common-dev, libaprutil1, libgpg-error0, libgcrypt11, libltdl-dev, libtiff4-dev, libkeyutils1, xfonts-utils, librsvg2-dev, libgnutls26, libsvn1, libsqlite3-0, libgssapi-krb5-2, libkrb5-3, libpcre3, autoconf
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: evas
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: evas
+ Enlightenment Desktop core package

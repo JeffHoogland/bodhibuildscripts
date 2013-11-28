@@ -4,15 +4,24 @@
 #./configure
 cp -R /home/jeff/$2/enlightenment-$2 /media/sda5/Bodhi/e17_debs/$1/e18-$1
 
-cd /media/sda5/Bodhi/e17_debs/$1/e18-$1/src/modules
-#rm Makefile.in
-#rm Makefile_wizard.am
-#rm -rf wizard
-#cp -a /media/sda5/Bodhi/patches/e18/wizard/* .
-mv *.patch ../..
-cd ../..
+cd /media/sda5/Bodhi/e17_debs/$1/e18-$1
+cp -a /media/sda5/Bodhi/patches/e18/wizard/*.patch .
+
 patch -p1 < 0001-Fix-wizard-makefile.patch
 patch -p1 < 0002-Update-bodhi-wizard-code-to-build-again.patch
+
+cp /media/sda5/Bodhi/patches/e18/wizard/page_025.c /media/sda5/Bodhi/e17_debs/$1/e18-$1/src/modules/wizard/
+
+cd /media/sda5/Bodhi/e17_debs/$1/e18-$1/src/modules/wizard/
+
+#Remove pages we don't want
+rm page_030*
+rm page_040*
+rm page_050*
+rm page_060*
+rm page_070*
+rm page_090*
+rm page_1*
 
 cp /media/sda5/Bodhi/patches/e18/illume-keyboard/* /media/sda5/Bodhi/e17_debs/$1/e18-$1/src/modules/illume-keyboard/keyboards/
 

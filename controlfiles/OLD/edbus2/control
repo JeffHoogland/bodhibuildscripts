@@ -1,0 +1,12 @@
+Source: edbus2
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: libdbus-1-dev,  ecore
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: edbus2
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: D-Bus and HAL wrapper libraries for use with the EFL

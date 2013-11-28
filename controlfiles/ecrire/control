@@ -1,0 +1,13 @@
+Source: ecrire
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: elementary, efl
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: ecrire
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: ecrire
+ A simple text editor written in EFL.
