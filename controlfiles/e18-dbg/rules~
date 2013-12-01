@@ -8,7 +8,7 @@
 
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
-CFLAGS = -g -O2 #-fvisibility=hidden -ffast-math
+CFLAGS = -g -ggdb3 -O2 -fvisibility=hidden -ffast-math
 CXXFLAGS = -g -O2
 LDFLAGS = 
 CPPFLAGS = 
@@ -18,6 +18,3 @@ CPPFLAGS =
 
 #override_dh_auto_configure:
 #	dh_auto_configure -- --with-tests=none
-
-override_dh_strip:
-	dh_strip --dbg-package=python-efl

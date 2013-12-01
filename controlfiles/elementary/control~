@@ -6,10 +6,10 @@ Build-Depends: efl | efl-dbg
 Standards-Version: 3.8.3
 Homepage: <insert the upstream URL, if relevant>
 
-Package: elementary
+Package: elementary-dbg
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: EFL-based widget set library
+Description: EFL-based widget set library with Debug Symbols
  Elementary is a widget set based on the Enlightenment Foundation Libraries,
  primarily aimed at creating graphical user interfaces for mobile and embedded
  devices.

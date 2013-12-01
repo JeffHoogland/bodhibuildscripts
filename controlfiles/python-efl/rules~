@@ -20,4 +20,4 @@ CPPFLAGS =
 #	dh_auto_configure -- --with-tests=none
 
 override_dh_strip:
-	dh_strip --dbg-package=python-efl
+	dh_strip --dbg-package=python-efl-dbg

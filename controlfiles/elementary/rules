@@ -8,10 +8,16 @@
 
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
-export CFLAGS="-g -ggdb3"
+CFLAGS = -g -O2 -fvisibility=hidden -ffast-math
+CXXFLAGS = -g -O2
+LDFLAGS = 
+CPPFLAGS = 
 
 %:
 	dh  $@
 
 #override_dh_auto_configure:
 #	dh_auto_configure -- --with-tests=none
+
+#override_dh_strip:
+#	dh_strip --dbg-package=elementary
