@@ -8,9 +8,9 @@ Homepage: <insert the upstream URL, if relevant>
 
 Package: efl-dbg
 Architecture: any
-Provides: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics
-Replaces: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics
-Conflicts: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics
+Provides: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics, efl
+Replaces: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics, efl
+Conflicts: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics, efl
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: EFLs with Debug Symbols
  Enlightenment Desktop core package

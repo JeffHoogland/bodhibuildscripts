@@ -8,9 +8,9 @@ Homepage: <insert the upstream URL, if relevant>
 
 Package: python-efl-dbg
 Architecture: any
-Provides: python-ecore, python-edbus, python-edje, python-elementary, python-emotion, python-epdf, python-ethumb, python-evas
-Replaces: python-ecore, python-edbus, python-edje, python-elementary, python-emotion, python-epdf, python-ethumb, python-evas
-Conflicts: python-ecore, python-edbus, python-edje, python-elementary, python-emotion, python-epdf, python-ethumb, python-evas
+Provides: python-ecore, python-edbus, python-edje, python-elementary, python-emotion, python-epdf, python-ethumb, python-evas, python-efl
+Replaces: python-ecore, python-edbus, python-edje, python-elementary, python-emotion, python-epdf, python-ethumb, python-evas, python-efl
+Conflicts: python-ecore, python-edbus, python-edje, python-elementary, python-emotion, python-epdf, python-ethumb, python-evas, python-efl
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Python EFLs with Debug Symbols
  Python bindings for the EFLs

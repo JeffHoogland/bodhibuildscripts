@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd packages
+
 ./bodhi-closebuild.sh $1
 ./bodhi-shutdownbuild.sh $1
 ./cpubuild.sh $1

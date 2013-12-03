@@ -9,9 +9,9 @@ Homepage: <insert the upstream URL, if relevant>
 
 Package: e18-dbg
 Architecture: any
-Provides: enlightenment, e17
-Replaces: enlightenment, e17
-Conflicts: enlightenment, e17
+Provides: enlightenment, e17, e18
+Replaces: enlightenment, e17, e18
+Conflicts: enlightenment, e17, e18
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: The Enlightenment Window Manager - With debug symbols
  Enlightenment is an advanced window manager for X11. Unique
