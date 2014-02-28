@@ -6,15 +6,10 @@ cp -R /home/jeff/$2/enlightenment-$2 /media/sda5/Bodhi/e17_debs/$1/e19-$1
 cp /media/sda5/Bodhi/patches/e19/illume-keyboard/* /media/sda5/Bodhi/e17_debs/$1/e19-$1/src/modules/illume-keyboard/keyboards/
 
 cd /media/sda5/Bodhi/e17_debs/$1/e19-$1/src/bin
-patch < /media/sda5/Bodhi/patches/e19/e/bodhi_menu.diff
-patch < /media/sda5/Bodhi/patches/e19/e/module-patch.diff
+patch < /media/sda5/Bodhi/patches/e/bodhi_menu.diff
+patch < /media/sda5/Bodhi/patches/e/module-patch.diff
 
-#cp -f /media/sda5/Bodhi/patches/e19/wizard/page_025.c /media/sda5/Bodhi/e17_debs/$1/e19-$1/src/modules/wizard/
 cp -f /media/sda5/Bodhi/patches/e19/wizard/*.patch /media/sda5/Bodhi/e17_debs/$1/e19-$1/
-
-cd /media/sda5/Bodhi/e17_debs/$1/e19-$1
-#patch -p1 < 0001-Fix-wizard-makefile.patch
-#patch -p1 < 0002-Update-bodhi-wizard-code-to-build-again.patch
 
 cd /media/sda5/Bodhi/e17_debs/$1
 tar czvf e19-$1.tar.gz e19-$1/

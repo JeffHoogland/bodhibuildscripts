@@ -1,0 +1,19 @@
+Source: e19
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: efl, libasound2-dev [linux-any], libxext-dev, libpam0g-dev, libxcb-shape0-dev, dbus-x11, libxcb-keysyms1-dev
+Standards-Version: 3.8.3
+Homepage: http://enlightenment.org
+
+Package: e19
+Architecture: any
+Provides: enlightenment, e17, e18
+Replaces: enlightenment, e17, e18
+Conflicts: enlightenment, e17, e18
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: The Enlightenment Window Manager
+ Enlightenment is an advanced window manager for X11. Unique
+ features include: a fully animated background, nice drop shadows
+ around windows, backed by an extremely clean and optimized
+ foundation of APIs.
