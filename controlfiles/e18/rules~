@@ -8,10 +8,7 @@
 
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
-CFLAGS = -g -ggdb3 -O2 -fvisibility=hidden -ffast-math
-CXXFLAGS = -g -O2
-LDFLAGS = 
-CPPFLAGS = 
+CFLAGS += -g -ggdb3
 
 %:
 	dh  $@

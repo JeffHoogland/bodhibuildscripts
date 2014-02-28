@@ -1,0 +1,16 @@
+Source: elfe-e18
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: libcurl4-gnutls-dev, xtrans-dev, m4, gettext, enlightenment,  bison, mawk, libltdl-dev, libpcre3, elementary
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: elfe-e18
+Architecture: any
+Provides: elfe
+Replaces: elfe
+Conflicts: elfe
+Depends: ${shlibs:Depends}, ${misc:Depends}, e18
+Description: elfe
+ Enlightenment Module. Launcher for tablet profile

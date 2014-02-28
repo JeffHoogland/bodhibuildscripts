@@ -57,7 +57,7 @@ diff -uN /home/jeff/e17_src/e/src/bin/e_int_menus.c /home/jeff/a/src/bin/e_int_m
     if (about) e_theme_about_show(about);
  }
  
-+#define BODHI_VERSION "     2.4.0"
++#define BODHI_VERSION "     2.5.0"
 +#define BODHI_ABOUT_TITLE "About Bodhi     "
 +#define BODHI_ABOUT_TEXT "Bodhi Linux - Enlightened Linux Desktop"
 +#define BODHI_ABOUT_AUTHORS \
