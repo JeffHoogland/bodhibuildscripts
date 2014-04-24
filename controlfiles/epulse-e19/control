@@ -1,0 +1,13 @@
+Source: epulse-e19
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: e19, pulseaudio
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: epulse-e19
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: epulse
+ Enlightenment Module. Control for pulseaudio
