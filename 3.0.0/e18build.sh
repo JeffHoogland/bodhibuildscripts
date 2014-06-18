@@ -24,6 +24,6 @@ autoreconf
 make distclean
 dh_make -e jeffhoogland@linux.com -f ../e18-$1.tar.gz
 
-cp -f /media/sda5/Bodhi/e17_debs/controlfiles/e18/* debian/
+cp -f /media/sda5/Bodhi/bodhibuildscripts/controlfiles/e18/* debian/
 dpkg-buildpackage -rfakeroot -b
 dpkg -i ../e18*.deb

@@ -1,0 +1,443 @@
+diff --git a/src/bin/e_int_menus.c b/src/bin/e_int_menus.c
+index d6463b8..2f364b8 100644
+--- a/src/bin/e_int_menus.c
++++ b/src/bin/e_int_menus.c
+@@ -63,6 +63,9 @@ static void         _e_int_menus_item_label_set(Efreet_Menu *entry, E_Menu_Item
+ static Efreet_Menu *_e_int_menus_apps_thread_new(E_Menu *m, const char *dir);
+ static Eina_Bool    _e_int_menus_efreet_desktop_cache_update(void *d, int type, void *e);
+ //static void _e_int_menus_apps_drag_finished(E_Drag *drag, int dropped __UNUSED__);
++static void _e_int_menus_bodhi_about(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_Item *mi __UNUSED__);
++static void _e_int_menus_bodhi_about(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_Item *mi __UNUSED__);
++static void _e_int_menus_bodhi_quick_start(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_Item *mi __UNUSED__);
+ 
+ /* local subsystem globals */
+ static Eina_Hash *_e_int_menus_augmentation = NULL;
+@@ -73,6 +76,22 @@ static Efreet_Menu *_e_int_menus_app_menu_default = NULL;
+ static Ecore_Timer *_e_int_menus_app_cleaner = NULL;
+ static Eina_List *handlers = NULL;
+ 
++#define BODHI_VERSION "     3.0.0"
++#define BODHI_ABOUT_TITLE "About Bodhi     "
++#define BODHI_ABOUT_TEXT "Bodhi Linux - Enlightened Linux Desktop"
++#define BODHI_ABOUT_AUTHORS \
++   "Jeff Hoogland (Jef91)<br>Joris van Dijk (aeonius)<br>Ken LaBuda (Trace)<br>" \
++     "Christopher Michael (devilhorns)<br>Kristi Elvide (TheWife)<br>" \
++     "Anthony Cervantes (AntCer)<br>Stephen Houston (okra)<br>" \
++     "Agustin Verdegal (Agust)<br>Bob Eley<br>Jason Thomas (Tristam)<br>" \
++     "Robert Wiley (y_lee)<br>Kaleb Elwert (belak)<br>" \
++     "Karen Hoogland<br>Micah Denn (M1C4HTRON13)<br>" \
++     "Gareth Williams (hippytaff)<br>Víctor Parra García (esmirlin)<br>" \
++     "Timmy Larsson (Timmy)<br>Renato Rener (r1to)<br>" \
++     "David La Monaca (cercamon)<br>Alexandre Eldredge (Spoonite)<br>Jose Manimala (Ittan)<br>Erik Zervas (Tolcarael)<br>" \
++     "Jason Peel (Jarope)<br>Andreas Pachler<br>Georg Eckert<br>Michael Rokosz (mrokosz)<br>Adrian Koryl (husarz)<br>F. Junger<br>Joao Teixeira<br>Matt Carter (Matt)<br>Hendra Kusuma"
++
++
+ static Eina_List *
+ _e_int_menus_augmentation_find(const char *key)
+ {
+@@ -215,6 +234,25 @@ e_int_menus_main_new(void)
+    if (l) _e_int_menus_augmentation_add(m, l);
+ 
+    subm = e_menu_new();
++   mi = e_menu_item_new(m);
++   e_menu_item_label_set(mi, _("Bodhi Linux"));
++   e_util_menu_item_theme_icon_set(mi, "bodhi");
++   e_menu_item_submenu_set(mi, subm);
++
++   mi = e_menu_item_new(subm);
++   e_menu_item_label_set(mi, _("About"));
++   e_util_menu_item_theme_icon_set(mi, "help-about");
++   e_menu_item_callback_set(mi, _e_int_menus_bodhi_about, NULL);
++
++   mi = e_menu_item_new(subm);
++   e_menu_item_label_set(mi, _("Quick Start"));
++   e_util_menu_item_theme_icon_set(mi, "help-faq");
++   e_menu_item_callback_set(mi, _e_int_menus_bodhi_quick_start, NULL);
++
++   mi = e_menu_item_new(subm);
++   e_menu_item_separator_set(mi, 1);
++
++   subm = e_menu_new();
+    dat->enlightenment = subm;
+ 
+    l = _e_int_menus_augmentation_find("enlightenment/0");
+@@ -600,6 +638,40 @@ _e_int_menus_themes_about(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_It
+    if (about) e_theme_about_show(about);
+ }
+ 
++static void 
++_e_int_menus_bodhi_about(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_Item *mi __UNUSED__) 
++{
++   E_Obj_Dialog *dlg;
++   
++   dlg = e_obj_dialog_new(m->zone->comp, BODHI_ABOUT_TITLE, "E", "_about");
++   if (!dlg) return;
++   e_obj_dialog_obj_theme_set(dlg, "base/theme/about", "e/widgets/about/main");
++   e_obj_dialog_obj_part_text_set(dlg, "e.text.label", _("Close"));
++   e_obj_dialog_obj_part_text_set(dlg, "e.text.title", 
++                                 BODHI_ABOUT_TITLE);
++   e_obj_dialog_obj_part_text_set(dlg, "e.text.version", 
++                                  BODHI_VERSION);
++   e_obj_dialog_obj_part_text_set(dlg, "e.textblock.about", 
++                                  BODHI_ABOUT_TEXT);
++   e_obj_dialog_obj_part_text_set(dlg, "e.textblock.authors", 
++                                  BODHI_ABOUT_AUTHORS);
++
++   e_obj_dialog_show((E_Obj_Dialog *)dlg);
++   e_obj_dialog_icon_set((E_Obj_Dialog *)dlg, "help-about");  
++}
++
++static void 
++_e_int_menus_bodhi_quick_start(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_Item *mi __UNUSED__) 
++{
++   E_Zone *zone;
++   char buff[PATH_MAX];
++
++   snprintf(buff, sizeof(buff), "enlightenment_open "
++            "file:///usr/share/bodhi/quickstart/quickstartEN/index.html");
++   zone = e_util_zone_current_get(e_manager_current_get());
++   e_exec(zone, NULL, buff, NULL, NULL);
++}
++
+ /*
+    static void
+    _e_int_menus_fwin_favorites_item_cb(void *data, E_Menu *m, E_Menu_Item *mi)
+diff --git a/src/modules/wizard/e_wizard.c b/src/modules/wizard/e_wizard.c
+index f2926fb..44bec7e 100644
+--- a/src/modules/wizard/e_wizard.c
++++ b/src/modules/wizard/e_wizard.c
+@@ -149,10 +149,11 @@ e_wizard_page_show(Evas_Object *obj)
+         Evas_Coord minw = 0, minh = 0;
+ 
+         e_widget_size_min_get(obj, &minw, &minh);
+-        edje_extern_object_min_size_set(obj, minw, minh);
+-        edje_object_part_swallow(o_bg, "e.swallow.content", obj);
+-        evas_object_show(obj);
+-        e_widget_focus_set(obj, 1);
++        edje_extern_object_min_size_set(obj, 0, 0);
++	edje_extern_object_max_size_set(obj, 0, 0);
++        //edje_object_part_swallow(o_bg, "e.swallow.content", obj);
++        //evas_object_show(obj);
++        //e_widget_focus_set(obj, 1);
+         edje_object_signal_emit(o_bg, "e,action,page,new", "e");
+      }
+ }
+@@ -207,7 +208,7 @@ e_wizard_button_next_enable_set(int enable)
+ EAPI void
+ e_wizard_title_set(const char *title)
+ {
+-   edje_object_part_text_set(o_bg, "e.text.title", title);
++   edje_object_part_text_set(o_bg, "e.text.title", "Please Wait As We Are Loading Enlightenment Settings!");
+ }
+ 
+ EAPI void
+diff --git a/src/modules/wizard/page_010.c b/src/modules/wizard/page_010.c
+index 0b2eead..12f1c53 100644
+--- a/src/modules/wizard/page_010.c
++++ b/src/modules/wizard/page_010.c
+@@ -219,7 +219,7 @@ wizard_page_show(E_Wizard_Page *pg)
+    evas_object_show(of);
+    e_wizard_page_show(o);
+ //   pg->data = o;
+-   return 1; /* 1 == show ui, and wait for user, 0 == just continue */
++   return 0; /* 1 == show ui, and wait for user, 0 == just continue */
+ }
+ 
+ EAPI int
+@@ -227,14 +227,14 @@ wizard_page_hide(E_Wizard_Page *pg __UNUSED__)
+ {
+ //   evas_object_del(pg->data);
+ /* special - language inits its stuff the moment it goes away */
+-   eina_stringshare_del(e_config->language);
+-   e_config->language = eina_stringshare_ref(lang);
++   //eina_stringshare_del(e_config->language);
++   //e_config->language = eina_stringshare_ref(lang);
+    /* TODO:
+     * This should be on lang select,
+     * so if next page needs xdg we can't press next */
+-   e_wizard_xdg_desktops_reset();
+-   e_intl_language_set(e_config->language);
+-   e_wizard_labels_update();
++   //e_wizard_xdg_desktops_reset();
++   //e_intl_language_set(e_config->language);
++   //e_wizard_labels_update();
+    return 1;
+ }
+ 
+@@ -242,10 +242,10 @@ EAPI int
+ wizard_page_apply(E_Wizard_Page *pg __UNUSED__)
+ {
+    // do this again as we want it to apply to the new profile
+-   eina_stringshare_del(e_config->language);
+-   e_config->language = eina_stringshare_ref(lang);
+-   e_intl_language_set(e_config->language);
+-   e_wizard_labels_update();
++   //eina_stringshare_del(e_config->language);
++   //e_config->language = eina_stringshare_ref(lang);
++   //e_intl_language_set(e_config->language);
++   //e_wizard_labels_update();
+    return 1;
+ }
+ 
+diff --git a/src/modules/wizard/page_011.c b/src/modules/wizard/page_011.c
+index 2681dfc..dbcb04d 100644
+--- a/src/modules/wizard/page_011.c
++++ b/src/modules/wizard/page_011.c
+@@ -182,7 +182,7 @@ wizard_page_show(E_Wizard_Page *pg)
+    evas_object_show(ob);
+    evas_object_show(of);
+    e_wizard_page_show(o);
+-   return 1; /* 1 == show ui, and wait for user, 0 == just continue */
++   return 0; /* 1 == show ui, and wait for user, 0 == just continue */
+ }
+ 
+ EAPI int
+diff --git a/src/modules/wizard/page_020.c b/src/modules/wizard/page_020.c
+index 8a1b33b..59534d5 100644
+--- a/src/modules/wizard/page_020.c
++++ b/src/modules/wizard/page_020.c
+@@ -11,7 +11,7 @@ _profile_change(void *data __UNUSED__, Evas_Object *obj __UNUSED__)
+    char *dir;
+    Efreet_Desktop *desk = NULL;
+ 
+-   e_prefix_data_snprintf(buf, sizeof(buf), "data/config/%s", profile);
++   e_prefix_data_snprintf(buf, sizeof(buf), "data/config/bodhi");
+    dir = strdupa(buf);
+    snprintf(buf, sizeof(buf), "%s/profile.desktop", dir);
+    desk = efreet_desktop_new(buf);
+@@ -48,7 +48,7 @@ wizard_page_show(E_Wizard_Page *pg)
+    Evas_Object *ilist;
+ 
+    o = e_widget_list_add(pg->evas, 1, 0);
+-   e_wizard_title_set(_("Profile"));
++   e_wizard_title_set(_("Please Wait As We Are Loading Enlightenment Settings!"));
+    of = e_widget_framelist_add(pg->evas, _("Select one"), 0);
+ 
+    ob = e_widget_ilist_add(pg->evas, 32 * e_scale, 32 * e_scale, &profile);
+@@ -130,7 +130,8 @@ wizard_page_show(E_Wizard_Page *pg)
+    e_wizard_page_show(o);
+ //   pg->data = o;
+    e_wizard_button_next_enable_set(0);
+-   return 1; /* 1 == show ui, and wait for user, 0 == just continue */
++   _profile_change(NULL, NULL);
++   return 0; /* 1 == show ui, and wait for user, 0 == just continue */
+ }
+ 
+ EAPI int
+@@ -138,7 +139,7 @@ wizard_page_hide(E_Wizard_Page *pg __UNUSED__)
+ {
+ //   evas_object_del(pg->data);
+ // actually apply profile
+-   if (!profile) profile = "standard";
++   if (!profile) profile = "bodhi";
+    e_config_profile_set(profile);
+    e_config_profile_del(e_config_profile_get());
+    e_config_load();
+diff --git a/src/modules/wizard/page_030.c b/src/modules/wizard/page_030.c
+index 7346f8b..9d3eaa4 100644
+--- a/src/modules/wizard/page_030.c
++++ b/src/modules/wizard/page_030.c
+@@ -20,7 +20,7 @@ wizard_page_show(E_Wizard_Page *pg __UNUSED__)
+ 
+    snprintf(buf, sizeof(buf), "%s/etc/xdg/menus/enlightenment.menu",
+             e_prefix_get());
+-   e_config->default_system_menu = eina_stringshare_add(buf);
++//   e_config->default_system_menu = eina_stringshare_add(buf);
+    return 0; /* 1 == show ui, and wait for user, 0 == just continue */
+ }
+ /*
+diff --git a/src/modules/wizard/page_040.c b/src/modules/wizard/page_040.c
+index 71dd1fd..e66cef6 100644
+--- a/src/modules/wizard/page_040.c
++++ b/src/modules/wizard/page_040.c
+@@ -107,7 +107,7 @@ wizard_page_show(E_Wizard_Page *pg __UNUSED__)
+         _next_timer = NULL;
+         return 0; /* we didnt copy anything so advance anyway */
+      }
+-   return 1; /* 1 == show ui, and wait for user, 0 == just continue */
++   return 0; /* 1 == show ui, and wait for user, 0 == just continue */
+ }
+ 
+ EAPI int
+diff --git a/src/modules/wizard/page_050.c b/src/modules/wizard/page_050.c
+index e06b362..66340c6 100644
+--- a/src/modules/wizard/page_050.c
++++ b/src/modules/wizard/page_050.c
+@@ -169,7 +169,7 @@ wizard_page_show(E_Wizard_Page *pg)
+ 
+    e_wizard_page_show(o);
+ //   pg->data = o;
+-   return 1; /* 1 == show ui, and wait for user, 0 == just continue */
++   return 0; /* 1 == show ui, and wait for user, 0 == just continue */
+ }
+ 
+ EAPI int
+@@ -178,10 +178,10 @@ wizard_page_hide(E_Wizard_Page *pg __UNUSED__)
+    obs = eina_list_free(obs);
+ //   evas_object_del(pg->data);
+ 
+-   e_config->scale.use_dpi = 0;
++/*   e_config->scale.use_dpi = 0;
+    e_config->scale.use_custom = 1;
+    e_config->scale.factor = scale;
+-   e_scale_update();
++   e_scale_update();*/
+    return 1;
+ }
+ /*
+diff --git a/src/modules/wizard/page_060.c b/src/modules/wizard/page_060.c
+index 00a1bad..aec4ccb 100644
+--- a/src/modules/wizard/page_060.c
++++ b/src/modules/wizard/page_060.c
+@@ -24,7 +24,7 @@ wizard_page_show(E_Wizard_Page *pg)
+    if (e_config->focus_policy == E_FOCUS_CLICK) focus_mode = 0;
+ 
+    o = e_widget_list_add(pg->evas, 1, 0);
+-   e_wizard_title_set(_("Window Focus"));
++   e_wizard_title_set(_("Please Wait As We Are Loading Enlightenment Settings!"));
+ 
+    of = e_widget_framelist_add(pg->evas, _("Focus:"), 0);
+ 
+@@ -42,13 +42,13 @@ wizard_page_show(E_Wizard_Page *pg)
+ 
+    e_wizard_page_show(o);
+ //   pg->data = o;
+-   return 1; /* 1 == show ui, and wait for user, 0 == just continue */
++   return 0; /* 1 == show ui, and wait for user, 0 == just continue */
+ }
+ 
+ EAPI int
+ wizard_page_hide(E_Wizard_Page *pg __UNUSED__)
+ {
+-   if (!focus_mode)
++/*   if (!focus_mode)
+      {
+         e_config->focus_policy = E_FOCUS_CLICK;
+         e_config->focus_setting = E_FOCUS_NEW_WINDOW;
+@@ -74,7 +74,7 @@ wizard_page_hide(E_Wizard_Page *pg __UNUSED__)
+         e_config->pointer_slide = 1;
+         e_config->use_auto_raise = 1;
+         e_config->auto_raise_delay = 0.5;
+-     }
++     }*/
+ //   evas_object_del(pg->data);
+    return 1;
+ }
+diff --git a/src/modules/wizard/page_070.c b/src/modules/wizard/page_070.c
+index b681c7f..fb5bcf4 100644
+--- a/src/modules/wizard/page_070.c
++++ b/src/modules/wizard/page_070.c
+@@ -17,7 +17,7 @@ wizard_page_shutdown(E_Wizard_Page *pg __UNUSED__)
+ EAPI int
+ wizard_page_show(E_Wizard_Page *pg __UNUSED__)
+ {
+-   Eina_List *l, *themes = efreet_icon_theme_list_get();
++   /*Eina_List *l, *themes = efreet_icon_theme_list_get();
+    Efreet_Icon_Theme *th;
+    int i;
+    const char *selected = NULL;
+@@ -51,7 +51,7 @@ done:
+         if (e_config->icon_theme) eina_stringshare_del(e_config->icon_theme);
+         e_config->icon_theme = eina_stringshare_add(selected);
+      }
+-   eina_list_free(themes);
++   eina_list_free(themes);*/
+    return 0; /* 1 == show ui, and wait for user, 0 == just continue */
+ }
+ /*
+diff --git a/src/modules/wizard/page_080.c b/src/modules/wizard/page_080.c
+index efb9ae2..63e9a4d 100644
+--- a/src/modules/wizard/page_080.c
++++ b/src/modules/wizard/page_080.c
+@@ -17,7 +17,7 @@ wizard_page_shutdown(E_Wizard_Page *pg __UNUSED__)
+ EAPI int
+ wizard_page_show(E_Wizard_Page *pg __UNUSED__)
+ {
+-   FILE *f, *fin;
++   /*FILE *f, *fin;
+    char buf[PATH_MAX];
+ 
+    snprintf(buf, sizeof(buf), "%s/def-ibar.txt", e_wizard_dir_get());
+@@ -58,7 +58,7 @@ wizard_page_show(E_Wizard_Page *pg __UNUSED__)
+           }
+         fclose(f);
+      }
+-   fclose(fin);
++   fclose(fin);*/
+    return 0; /* 1 == show ui, and wait for user, 0 == just continue */
+ }
+ /*
+diff --git a/src/modules/wizard/page_110.c b/src/modules/wizard/page_110.c
+index 3904b1d..7ef9362 100644
+--- a/src/modules/wizard/page_110.c
++++ b/src/modules/wizard/page_110.c
+@@ -161,7 +161,7 @@ wizard_page_show(E_Wizard_Page *pg)
+         _recommend_connman(pg);
+      }
+    e_wizard_title_set(_("Checking to see if Connman exists"));
+-   return 1; /* 1 == show ui, and wait for user, 0 == just continue */
++   return 0; /* 1 == show ui, and wait for user, 0 == just continue */
+ }
+ 
+ EAPI int
+diff --git a/src/modules/wizard/page_150.c b/src/modules/wizard/page_150.c
+index 444e5cb..72e3d25 100644
+--- a/src/modules/wizard/page_150.c
++++ b/src/modules/wizard/page_150.c
+@@ -97,7 +97,7 @@ wizard_page_show(E_Wizard_Page *pg)
+    evas_object_show(of);
+    e_wizard_page_show(o);
+ 
+-   return 1; /* 1 == show ui, and wait for user, 0 == just continue */
++   return 0; /* 1 == show ui, and wait for user, 0 == just continue */
+ }
+ 
+ EAPI int
+diff --git a/src/modules/wizard/page_160.c b/src/modules/wizard/page_160.c
+index 2f202f4..5fb61a9 100644
+--- a/src/modules/wizard/page_160.c
++++ b/src/modules/wizard/page_160.c
+@@ -16,7 +16,7 @@ wizard_page_shutdown(E_Wizard_Page *pg __UNUSED__)
+ EAPI int
+ wizard_page_show(E_Wizard_Page *pg __UNUSED__)
+ {
+-   Eina_List *files;
++/*   Eina_List *files;
+    char buf[PATH_MAX], buf2[PATH_MAX], *file;
+ 
+    // make desktop dir
+@@ -32,7 +32,7 @@ wizard_page_show(E_Wizard_Page *pg __UNUSED__)
+                  efreet_desktop_dir_get(), file);
+         ecore_file_cp(buf, buf2);
+         free(file);
+-     }
++     }*/
+ 
+    return 0; /* 1 == show ui, and wait for user, 0 == just continue */
+ }
+diff --git a/src/modules/wizard/page_170.c b/src/modules/wizard/page_170.c
+index 0fe0dc1..cb67d77 100644
+--- a/src/modules/wizard/page_170.c
++++ b/src/modules/wizard/page_170.c
+@@ -58,7 +58,7 @@ wizard_page_show(E_Wizard_Page *pg)
+    evas_object_show(of);
+ 
+    e_wizard_page_show(o);
+-   return 1; /* 1 == show ui, and wait for user, 0 == just continue */
++   return 0; /* 1 == show ui, and wait for user, 0 == just continue */
+ }
+ 
+ EAPI int
+diff --git a/src/modules/wizard/page_180.c b/src/modules/wizard/page_180.c
+index ac05789..d40f660 100644
+--- a/src/modules/wizard/page_180.c
++++ b/src/modules/wizard/page_180.c
+@@ -43,7 +43,7 @@ wizard_page_show(E_Wizard_Page *pg)
+    evas_object_show(of);
+ 
+    e_wizard_page_show(o);
+-   return 1; /* 1 == show ui, and wait for user, 0 == just continue */
++   return 0; /* 1 == show ui, and wait for user, 0 == just continue */
+ }
+ /*
+ EAPI int

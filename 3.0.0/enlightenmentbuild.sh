@@ -26,6 +26,6 @@ cd /media/sda5/Bodhi/e17_debs/$1/enlightenment-$1
 make distclean
 dh_make -e jeffhoogland@linux.com -f ../enlightenment-$1.tar.gz
 
-cp -f /media/sda5/Bodhi/e17_debs/controlfiles/enlightenment/* debian/
+cp -f /media/sda5/Bodhi/bodhibuildscripts/controlfiles/enlightenment/* debian/
 dpkg-buildpackage -rfakeroot -b
 dpkg -i ../enlightenment*.deb
