@@ -20,14 +20,14 @@ index d6463b8..2f364b8 100644
 +#define BODHI_ABOUT_TITLE "About Bodhi     "
 +#define BODHI_ABOUT_TEXT "Bodhi Linux - Enlightened Linux Desktop"
 +#define BODHI_ABOUT_AUTHORS \
-+   "Jeff Hoogland (Jef91)<br>Joris van Dijk (aeonius)<br>Ken LaBuda (Trace)<br>" \
-+     "Christopher Michael (devilhorns)<br>Kristi Elvide (TheWife)<br>" \
-+     "Anthony Cervantes (AntCer)<br>Stephen Houston (okra)<br>" \
-+     "Agustin Verdegal (Agust)<br>Bob Eley<br>Jason Thomas (Tristam)<br>" \
++   "Jeff Hoogland (Jef91)<br>Joris van Dijk (aeonius)<br>Stephen Houston (okra)<br>" \
++     "Kristi Hoogland (TheWife)<br>" \
++     "Jason Thomas (Tristam)<br>" \
++     "Bob Eley<br>" \
 +     "Robert Wiley (y_lee)<br>Kaleb Elwert (belak)<br>" \
 +     "Karen Hoogland<br>Micah Denn (M1C4HTRON13)<br>" \
-+     "Gareth Williams (hippytaff)<br>Víctor Parra García (esmirlin)<br>" \
-+     "Timmy Larsson (Timmy)<br>Renato Rener (r1to)<br>" \
++     "Gareth Williams (hippytaff)<br>Víctor Parra García (esmirlin)<br>Anthony Cervantes (AntCer)<br>" \
++     "Timmy Larsson (Timmy)<br>Renato Rener (r1to)<br>Agustin Verdegal (Agust)<br>" \
 +     "David La Monaca (cercamon)<br>Alexandre Eldredge (Spoonite)<br>Jose Manimala (Ittan)<br>Erik Zervas (Tolcarael)<br>" \
 +     "Jason Peel (Jarope)<br>Andreas Pachler<br>Georg Eckert<br>Michael Rokosz (mrokosz)<br>Adrian Koryl (husarz)<br>F. Junger<br>Joao Teixeira<br>Matt Carter (Matt)<br>Hendra Kusuma"
 +
