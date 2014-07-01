@@ -19,5 +19,9 @@ CPPFLAGS =
 override_dh_auto_configure:
 	dh_auto_configure -- --with-tests=no
 
+override_dh_auto_test:
+	NOCONFIGURE=1 ./autogen.sh || exit 1
+	dh_auto_configure -- --disable-static
+
 #override_dh_strip:
 #	dh_strip --dbg-package=elementary
