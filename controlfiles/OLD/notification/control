@@ -1,0 +1,78 @@
+Source: notification
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: libcurl4-openssl-dev, debhelper (>= 7), hardening-wrapper,
+  edje,
+  libgconf2-dev,
+  m4,
+  gettext,
+  libxcb-damage0-dev,
+  evas,
+  libasound2-dev,
+  enlightenment,
+  autotools-dev,
+  libxcb-icccm1-dev,
+  libcroco3,
+  locales,
+  xserver-xorg-dev,
+  gobject-introspection,
+  efreet,
+  automake,
+  valac,
+  libxcb-xinerama0-dev,
+  eina,
+  liblua5.1-0-dev,
+  libxcb-composite0-dev,
+  libgl1-mesa-glx,
+  edbus,
+  libxcb-sync0-dev,
+  embryo,
+  libltdl-dev,
+  libnspr4-dev,
+  libudev-dev,
+  libxcb-dri2-0-dev,
+  libxcb-dpms0-dev,
+  libssl-dev,
+  libxcb-keysyms1-dev,
+  libxcb-randr0-dev,
+  libgstreamer0.10-dev,
+  gnome-doc-utils,
+  libx11-xcb-dev,
+  mime-support,
+  git-core,
+  intltool,
+  libgtk2.0-dev,
+  libxcb-xprint0-dev,
+  mawk,
+  bison,
+  eet,
+  gtk-doc-tools,
+  libxcb-image0-dev,
+  autopoint,
+  autoconf-archive,
+  libtool,
+  libfontconfig1-dev,
+  libc6-i686,
+  liblircclient-dev,
+  libxcb-render-util0-dev,
+ 
+  libxcb-xtest0-dev,
+  xfonts-utils,
+  libunistring0,
+  ecore,
+  libxcb-screensaver0-dev,
+  eeze,
+  libesd0-dev,
+  libpcre3,
+  
+  gnome-common,
+  autoconf
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: notification
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: notification
+ enlightenment notification module
