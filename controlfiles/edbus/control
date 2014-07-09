@@ -2,7 +2,7 @@ Source: edbus
 Section: unknown
 Priority: extra
 Maintainer: root <jeffhoogland@linux.com>
-Build-Depends: libdbus-1-dev,  ecore
+Build-Depends: libdbus-1-dev,  efl
 Standards-Version: 3.8.3
 Homepage: <insert the upstream URL, if relevant>
 
