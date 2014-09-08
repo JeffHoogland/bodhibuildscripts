@@ -1,5 +1,5 @@
 diff --git a/src/bin/e_int_menus.c b/src/bin/e_int_menus.c
-index d6463b8..2f364b8 100644
+index 5819ed9..1d6843f 100644
 --- a/src/bin/e_int_menus.c
 +++ b/src/bin/e_int_menus.c
 @@ -63,6 +63,9 @@ static void         _e_int_menus_item_label_set(Efreet_Menu *entry, E_Menu_Item
@@ -65,30 +65,30 @@ index d6463b8..2f364b8 100644
     if (about) e_theme_about_show(about);
  }
  
-+static void 
-+_e_int_menus_bodhi_about(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_Item *mi __UNUSED__) 
++static void
++_e_int_menus_bodhi_about(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_Item *mi __UNUSED__)
 +{
 +   E_Obj_Dialog *dlg;
-+   
++
 +   dlg = e_obj_dialog_new(m->zone->comp, BODHI_ABOUT_TITLE, "E", "_about");
 +   if (!dlg) return;
 +   e_obj_dialog_obj_theme_set(dlg, "base/theme/about", "e/widgets/about/main");
 +   e_obj_dialog_obj_part_text_set(dlg, "e.text.label", _("Close"));
-+   e_obj_dialog_obj_part_text_set(dlg, "e.text.title", 
++   e_obj_dialog_obj_part_text_set(dlg, "e.text.title",
 +                                 BODHI_ABOUT_TITLE);
-+   e_obj_dialog_obj_part_text_set(dlg, "e.text.version", 
++   e_obj_dialog_obj_part_text_set(dlg, "e.text.version",
 +                                  BODHI_VERSION);
-+   e_obj_dialog_obj_part_text_set(dlg, "e.textblock.about", 
++   e_obj_dialog_obj_part_text_set(dlg, "e.textblock.about",
 +                                  BODHI_ABOUT_TEXT);
-+   e_obj_dialog_obj_part_text_set(dlg, "e.textblock.authors", 
++   e_obj_dialog_obj_part_text_set(dlg, "e.textblock.authors",
 +                                  BODHI_ABOUT_AUTHORS);
 +
 +   e_obj_dialog_show((E_Obj_Dialog *)dlg);
-+   e_obj_dialog_icon_set((E_Obj_Dialog *)dlg, "help-about");  
++   e_obj_dialog_icon_set((E_Obj_Dialog *)dlg, "help-about");
 +}
 +
-+static void 
-+_e_int_menus_bodhi_quick_start(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_Item *mi __UNUSED__) 
++static void
++_e_int_menus_bodhi_quick_start(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_Item *mi __UNUSED__)
 +{
 +   E_Zone *zone;
 +   char buff[PATH_MAX];
@@ -103,19 +103,19 @@ index d6463b8..2f364b8 100644
     static void
     _e_int_menus_fwin_favorites_item_cb(void *data, E_Menu *m, E_Menu_Item *mi)
 diff --git a/src/modules/wizard/e_wizard.c b/src/modules/wizard/e_wizard.c
-index f2926fb..44bec7e 100644
+index 18ee7e1..43ba1e3 100644
 --- a/src/modules/wizard/e_wizard.c
 +++ b/src/modules/wizard/e_wizard.c
 @@ -149,10 +149,11 @@ e_wizard_page_show(Evas_Object *obj)
          Evas_Coord minw = 0, minh = 0;
  
          e_widget_size_min_get(obj, &minw, &minh);
--        edje_extern_object_min_size_set(obj, minw, minh);
+-        evas_object_size_hint_min_set(obj, minw, minh);
 -        edje_object_part_swallow(o_bg, "e.swallow.content", obj);
 -        evas_object_show(obj);
 -        e_widget_focus_set(obj, 1);
-+        edje_extern_object_min_size_set(obj, 0, 0);
-+	edje_extern_object_max_size_set(obj, 0, 0);
++        evas_object_size_hint_min_set(obj, 0, 0);
++        evas_object_size_hint_max_set(obj, 0, 0);
 +        //edje_object_part_swallow(o_bg, "e.swallow.content", obj);
 +        //evas_object_show(obj);
 +        //e_widget_focus_set(obj, 1);
@@ -234,12 +234,12 @@ index 8a1b33b..59534d5 100644
     e_config_profile_del(e_config_profile_get());
     e_config_load();
 diff --git a/src/modules/wizard/page_030.c b/src/modules/wizard/page_030.c
-index 7346f8b..9d3eaa4 100644
+index a878b7c..3b93190 100644
 --- a/src/modules/wizard/page_030.c
 +++ b/src/modules/wizard/page_030.c
 @@ -20,7 +20,7 @@ wizard_page_show(E_Wizard_Page *pg __UNUSED__)
  
-    snprintf(buf, sizeof(buf), "%s/etc/xdg/menus/enlightenment.menu",
+    snprintf(buf, sizeof(buf), "%s/etc/xdg/menus/e-applications.menu",
              e_prefix_get());
 -   e_config->default_system_menu = eina_stringshare_add(buf);
 +//   e_config->default_system_menu = eina_stringshare_add(buf);
@@ -381,7 +381,7 @@ index 3904b1d..7ef9362 100644
  
  EAPI int
 diff --git a/src/modules/wizard/page_150.c b/src/modules/wizard/page_150.c
-index 444e5cb..72e3d25 100644
+index 2064fa9..8a3eff4 100644
 --- a/src/modules/wizard/page_150.c
 +++ b/src/modules/wizard/page_150.c
 @@ -97,7 +97,7 @@ wizard_page_show(E_Wizard_Page *pg)
@@ -441,3 +441,34 @@ index ac05789..d40f660 100644
  }
  /*
  EAPI int
+diff --git a/src/modules/wizard/page_200.c b/src/modules/wizard/page_200.c
+index cdfbd52..a20b8b6 100644
+--- a/src/modules/wizard/page_200.c
++++ b/src/modules/wizard/page_200.c
+@@ -1,6 +1,18 @@
+ /* Delete previous copy of config profile and save new one */
+ #include "e_wizard.h"
+ 
++static void
++_e_int_menus_bodhi_quick_start(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_Item *mi __UNUSED__)
++{
++   E_Zone *zone;
++   char buff[PATH_MAX];
++
++   snprintf(buff, sizeof(buff), "enlightenment_open "
++            "file:///usr/share/bodhi/quickstart/quickstartEN/index.html");
++   zone = e_util_zone_current_get(e_manager_current_get());
++   e_exec(zone, NULL, buff, NULL, NULL);
++}
++
+ #if 0
+ EAPI int
+ wizard_page_init(E_Wizard_Page *pg __UNUSED__, Eina_Bool *need_xdg_desktops __UNUSED__, Eina_Bool *need_xdg_icons __UNUSED__)
+@@ -35,6 +47,7 @@ wizard_page_apply(E_Wizard_Page *pg __UNUSED__)
+    e_util_env_set("E_RESTART", NULL);
+    // restart e
+    e_sys_action_do(E_SYS_RESTART, NULL);
++   _e_int_menus_bodhi_quick_start(NULL, NULL, NULL);
+    return 1;
+ }
+ 
