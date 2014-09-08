@@ -233,19 +233,6 @@ index 8a1b33b..59534d5 100644
     e_config_profile_set(profile);
     e_config_profile_del(e_config_profile_get());
     e_config_load();
-diff --git a/src/modules/wizard/page_030.c b/src/modules/wizard/page_030.c
-index a878b7c..3b93190 100644
---- a/src/modules/wizard/page_030.c
-+++ b/src/modules/wizard/page_030.c
-@@ -20,7 +20,7 @@ wizard_page_show(E_Wizard_Page *pg __UNUSED__)
- 
-    snprintf(buf, sizeof(buf), "%s/etc/xdg/menus/e-applications.menu",
-             e_prefix_get());
--   e_config->default_system_menu = eina_stringshare_add(buf);
-+//   e_config->default_system_menu = eina_stringshare_add(buf);
-    return 0; /* 1 == show ui, and wait for user, 0 == just continue */
- }
- /*
 diff --git a/src/modules/wizard/page_040.c b/src/modules/wizard/page_040.c
 index 71dd1fd..e66cef6 100644
 --- a/src/modules/wizard/page_040.c
@@ -368,12 +355,24 @@ index efb9ae2..63e9a4d 100644
  }
  /*
 diff --git a/src/modules/wizard/page_110.c b/src/modules/wizard/page_110.c
-index 3904b1d..7ef9362 100644
+index 3904b1d..b2bf6fc 100644
 --- a/src/modules/wizard/page_110.c
 +++ b/src/modules/wizard/page_110.c
-@@ -161,7 +161,7 @@ wizard_page_show(E_Wizard_Page *pg)
-         _recommend_connman(pg);
+@@ -141,7 +141,7 @@ wizard_page_show(E_Wizard_Page *pg)
+         have_connman = EINA_TRUE;
+         e_wizard_button_next_enable_set(0);
       }
+-   if (!have_connman)
++   /*if (!have_connman)
+      {
+         E_Config_Module *em;
+         Eina_List *l;
+@@ -159,9 +159,9 @@ wizard_page_show(E_Wizard_Page *pg)
+           }
+         e_config_save_queue();
+         _recommend_connman(pg);
+-     }
++     }*/
     e_wizard_title_set(_("Checking to see if Connman exists"));
 -   return 1; /* 1 == show ui, and wait for user, 0 == just continue */
 +   return 0; /* 1 == show ui, and wait for user, 0 == just continue */
@@ -393,28 +392,6 @@ index 2064fa9..8a3eff4 100644
  }
  
  EAPI int
-diff --git a/src/modules/wizard/page_160.c b/src/modules/wizard/page_160.c
-index 2f202f4..5fb61a9 100644
---- a/src/modules/wizard/page_160.c
-+++ b/src/modules/wizard/page_160.c
-@@ -16,7 +16,7 @@ wizard_page_shutdown(E_Wizard_Page *pg __UNUSED__)
- EAPI int
- wizard_page_show(E_Wizard_Page *pg __UNUSED__)
- {
--   Eina_List *files;
-+/*   Eina_List *files;
-    char buf[PATH_MAX], buf2[PATH_MAX], *file;
- 
-    // make desktop dir
-@@ -32,7 +32,7 @@ wizard_page_show(E_Wizard_Page *pg __UNUSED__)
-                  efreet_desktop_dir_get(), file);
-         ecore_file_cp(buf, buf2);
-         free(file);
--     }
-+     }*/
- 
-    return 0; /* 1 == show ui, and wait for user, 0 == just continue */
- }
 diff --git a/src/modules/wizard/page_170.c b/src/modules/wizard/page_170.c
 index 0fe0dc1..cb67d77 100644
 --- a/src/modules/wizard/page_170.c
