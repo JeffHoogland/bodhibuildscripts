@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #Normal package
-cp -R /home/jeff/$2/enlightenment-$2 /media/sda5/Bodhi/e17_debs/$1/e18-$1
+cp -R ~/$2/enlightenment-$2 /media/sda5/Bodhi/e17_debs/$1/e18-$1
 
 cp /media/sda5/Bodhi/patches/e18/illume-keyboard/* /media/sda5/Bodhi/e17_debs/$1/e18-$1/src/modules/illume-keyboard/keyboards/
 
@@ -26,4 +26,4 @@ dh_make -e jeffhoogland@linux.com -f ../e18-$1.tar.gz
 
 cp -f /media/sda5/Bodhi/bodhibuildscripts/controlfiles/e18/* debian/
 dpkg-buildpackage -rfakeroot -b
-dpkg -i ../e18*.deb
+sudo dpkg -i ../e18*.deb

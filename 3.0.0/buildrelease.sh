@@ -1,15 +1,9 @@
 #!/bin/bash
-#./einabuild.sh $1 $2
-./eetbuild.sh $1 $2
-./evas-generic-loadersbuild.sh $1 $2
-./evasbuild.sh $1 $2
-./ecorebuild.sh $1 $2
-./eiobuild.sh $1 $2
-./embryobuild.sh $1 $2
-./edjebuild.sh $1 $2
-./efreetbuild.sh $1 $2
-./edbusbuild.sh $1 $2
-./eezebuild.sh $1 $2
-./emotionbuild.sh $1 $2
-./ethumbbuild.sh $1 $2
-./elementarybuild.sh $1 $2
+TODAY = `date “+%Y%m%d”`
+./eflbuild.sh $TODAY 1.11.2
+./evas-generic-loadersbuild.sh $TODAY 1.11.2
+./emotion-generic-playersbuild.sh $TODAY 1.11.0
+./elementarybuild.sh $TODAY 1.11.2
+./python-eflbuild.sh $TODAY 1.10.0
+./terminologybuild.sh $TODAY 0.6.1
+./econnmanbuild.sh $TODAY 1.1
