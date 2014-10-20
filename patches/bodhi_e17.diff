@@ -1,5 +1,5 @@
 diff --git a/src/bin/e_int_menus.c b/src/bin/e_int_menus.c
-index 5819ed9..1d6843f 100644
+index 49750bb..91679bc 100644
 --- a/src/bin/e_int_menus.c
 +++ b/src/bin/e_int_menus.c
 @@ -63,6 +63,9 @@ static void         _e_int_menus_item_label_set(Efreet_Menu *entry, E_Menu_Item
@@ -102,8 +102,21 @@ index 5819ed9..1d6843f 100644
  /*
     static void
     _e_int_menus_fwin_favorites_item_cb(void *data, E_Menu *m, E_Menu_Item *mi)
+diff --git a/src/bin/e_open.c b/src/bin/e_open.c
+index b7b3aca..705851c 100644
+--- a/src/bin/e_open.c
++++ b/src/bin/e_open.c
+@@ -508,7 +508,7 @@ main(int argc, char *argv[])
+                }
+           }
+      }
+-   else if (strstr(argv[args], "://"))
++   else if (strstr(argv[args], ":"))
+      cmds = protocol_open(argv[args]);
+    else
+      cmds = local_open(argv[args]);
 diff --git a/src/modules/wizard/e_wizard.c b/src/modules/wizard/e_wizard.c
-index 18ee7e1..43ba1e3 100644
+index 6196411..918a8f7 100644
 --- a/src/modules/wizard/e_wizard.c
 +++ b/src/modules/wizard/e_wizard.c
 @@ -165,10 +165,11 @@ e_wizard_page_show(Evas_Object *obj)
@@ -132,7 +145,7 @@ index 18ee7e1..43ba1e3 100644
  
  EAPI void
 diff --git a/src/modules/wizard/page_010.c b/src/modules/wizard/page_010.c
-index 0b2eead..12f1c53 100644
+index 6dcca78..8def18f 100644
 --- a/src/modules/wizard/page_010.c
 +++ b/src/modules/wizard/page_010.c
 @@ -206,7 +206,7 @@ wizard_page_show(E_Wizard_Page *pg)
@@ -180,7 +193,7 @@ index 0b2eead..12f1c53 100644
  }
  
 diff --git a/src/modules/wizard/page_011.c b/src/modules/wizard/page_011.c
-index 2681dfc..dbcb04d 100644
+index 22d877d..ed5b61f 100644
 --- a/src/modules/wizard/page_011.c
 +++ b/src/modules/wizard/page_011.c
 @@ -176,7 +176,7 @@ wizard_page_show(E_Wizard_Page *pg)
@@ -193,7 +206,7 @@ index 2681dfc..dbcb04d 100644
  
  EAPI int
 diff --git a/src/modules/wizard/page_020.c b/src/modules/wizard/page_020.c
-index 8a1b33b..59534d5 100644
+index 9a6f470..fa29e33 100644
 --- a/src/modules/wizard/page_020.c
 +++ b/src/modules/wizard/page_020.c
 @@ -11,7 +11,7 @@ _profile_change(void *data __UNUSED__, Evas_Object *obj __UNUSED__)
@@ -247,7 +260,7 @@ index 71dd1fd..e66cef6 100644
  
  EAPI int
 diff --git a/src/modules/wizard/page_050.c b/src/modules/wizard/page_050.c
-index e06b362..66340c6 100644
+index e16bad6..3d3ac68 100644
 --- a/src/modules/wizard/page_050.c
 +++ b/src/modules/wizard/page_050.c
 @@ -169,7 +169,7 @@ wizard_page_show(E_Wizard_Page *pg)
@@ -273,7 +286,7 @@ index e06b362..66340c6 100644
  }
  /*
 diff --git a/src/modules/wizard/page_060.c b/src/modules/wizard/page_060.c
-index 00a1bad..aec4ccb 100644
+index be88361..3a02d44 100644
 --- a/src/modules/wizard/page_060.c
 +++ b/src/modules/wizard/page_060.c
 @@ -24,7 +24,7 @@ wizard_page_show(E_Wizard_Page *pg)
@@ -355,7 +368,7 @@ index efb9ae2..63e9a4d 100644
  }
  /*
 diff --git a/src/modules/wizard/page_110.c b/src/modules/wizard/page_110.c
-index 3904b1d..447a248 100644
+index 44cef8c..4e64b07 100644
 --- a/src/modules/wizard/page_110.c
 +++ b/src/modules/wizard/page_110.c
 @@ -4,7 +4,7 @@
@@ -447,7 +460,7 @@ index 3904b1d..447a248 100644
     return 1;
  }
 diff --git a/src/modules/wizard/page_150.c b/src/modules/wizard/page_150.c
-index 2064fa9..8a3eff4 100644
+index d5e507c..ce56ece 100644
 --- a/src/modules/wizard/page_150.c
 +++ b/src/modules/wizard/page_150.c
 @@ -132,7 +132,7 @@ wizard_page_show(E_Wizard_Page *pg)
