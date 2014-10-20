@@ -1,5 +1,5 @@
 diff --git a/src/bin/e_int_menus.c b/src/bin/e_int_menus.c
-index 49750bb..91679bc 100644
+index 49750bb..b4bf516 100644
 --- a/src/bin/e_int_menus.c
 +++ b/src/bin/e_int_menus.c
 @@ -63,6 +63,9 @@ static void         _e_int_menus_item_label_set(Efreet_Menu *entry, E_Menu_Item
@@ -12,7 +12,7 @@ index 49750bb..91679bc 100644
  
  /* local subsystem globals */
  static Eina_Hash *_e_int_menus_augmentation = NULL;
-@@ -73,6 +76,22 @@ static Efreet_Menu *_e_int_menus_app_menu_default = NULL;
+@@ -73,6 +76,44 @@ static Efreet_Menu *_e_int_menus_app_menu_default = NULL;
  static Ecore_Timer *_e_int_menus_app_cleaner = NULL;
  static Eina_List *handlers = NULL;
  
@@ -20,22 +20,44 @@ index 49750bb..91679bc 100644
 +#define BODHI_ABOUT_TITLE "About Bodhi     "
 +#define BODHI_ABOUT_TEXT "Bodhi Linux - Enlightened Linux Desktop"
 +#define BODHI_ABOUT_AUTHORS \
-+   "Jeff Hoogland (Jef91)<br>Joris van Dijk (aeonius)<br>Stephen Houston (okra)<br>" \
-+     "Kristi Hoogland (TheWife)<br>" \
-+     "Jason Thomas (Tristam)<br>" \
-+     "Bob Eley<br>" \
-+     "Robert Wiley (y_lee)<br>Kaleb Elwert (belak)<br>" \
-+     "Karen Hoogland<br>Micah Denn (M1C4HTRON13)<br>" \
-+     "Gareth Williams (hippytaff)<br>Víctor Parra García (esmirlin)<br>Anthony Cervantes (AntCer)<br>" \
-+     "Timmy Larsson (Timmy)<br>Renato Rener (r1to)<br>Agustin Verdegal (Agust)<br>" \
-+     "David La Monaca (cercamon)<br>Alexandre Eldredge (Spoonite)<br>Jose Manimala (Ittan)<br>Erik Zervas (Tolcarael)<br>" \
-+     "Jason Peel (Jarope)<br>Andreas Pachler<br>Georg Eckert<br>Michael Rokosz (mrokosz)<br>Adrian Koryl (husarz)<br>F. Junger<br>Joao Teixeira<br>Matt Carter (Matt)<br>Hendra Kusuma"
++   "Jeff Hoogland (Jef91)<br>" \
++   "Joris van Dijk (aeonius)<br>" \
++   "Stephen Houston (okra)<br>" \
++   "Kristi Hoogland (TheWife)<br>" \
++   "Jason Thomas (Tristam)<br>" \
++   "Bob Eley<br>" \
++   "Robert Wiley (y_lee)<br>" \
++   "Kaleb Elwert (belak)<br>" \
++   "Karen Hoogland<br>" \
++   "Micah Denn (M1C4HTRON13)<br>" \
++   "Gareth Williams (hippytaff)<br>" \
++   "Víctor Parra García (esmirlin)<br>" \
++   "Anthony Cervantes (AntCer)<br>" \
++   "Timmy Larsson (Timmy)<br>" \
++   "Renato Rener (r1to)<br>" \
++   "Agustin Verdegal (Agust)<br>" \
++   "David La Monaca (cercamon)<br>" \
++   "Alexandre Eldredge (Spoonite)<br>" \
++   "Jose Manimala (Ittan)<br>" \
++   "Erik Zervas (Tolcarael)<br>" \
++   "Jason Peel (Jarope)<br>" \
++   "Andreas Pachler<br>" \
++   "Georg Eckert<br>" \
++   "Michael Rokosz (mrokosz)<br>" \
++   "Adrian Koryl (husarz)<br>" \
++   "F. Junger<br>" \
++   "Joao Teixeira<br>" \
++   "Matt Carter (Matt)<br>" \
++   "Hendra Kusuma<br>" \
++   "Eric Brown (feneric)<br>" \
++   "Doug Yanez (Deepspeed)<br>" \
++   "Kai Huuhko (kuuko)<br>"
 +
 +
  static Eina_List *
  _e_int_menus_augmentation_find(const char *key)
  {
-@@ -214,6 +233,25 @@ e_int_menus_main_new(void)
+@@ -214,6 +255,25 @@ e_int_menus_main_new(void)
     if (l) _e_int_menus_augmentation_add(m, l);
  
     subm = e_menu_new();
@@ -61,7 +83,7 @@ index 49750bb..91679bc 100644
     dat->enlightenment = subm;
  
     l = _e_int_menus_augmentation_find("enlightenment/0");
-@@ -598,6 +636,40 @@ _e_int_menus_themes_about(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_It
+@@ -598,6 +658,40 @@ _e_int_menus_themes_about(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_It
     if (about) e_theme_about_show(about);
  }
  
