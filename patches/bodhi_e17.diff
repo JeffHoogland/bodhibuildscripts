@@ -1,5 +1,5 @@
 diff --git a/src/bin/e_int_menus.c b/src/bin/e_int_menus.c
-index 49750bb..b4bf516 100644
+index 49750bb..392bd89 100644
 --- a/src/bin/e_int_menus.c
 +++ b/src/bin/e_int_menus.c
 @@ -63,6 +63,9 @@ static void         _e_int_menus_item_label_set(Efreet_Menu *entry, E_Menu_Item
@@ -116,7 +116,7 @@ index 49750bb..b4bf516 100644
 +   char buff[PATH_MAX];
 +
 +   snprintf(buff, sizeof(buff), "enlightenment_open "
-+            "file:///usr/share/bodhi/quickstart/quickstartEN/index.html");
++            "file:///usr/share/bodhi/e17guide/e17guideEN/index.html");
 +   zone = e_util_zone_current_get(e_manager_current_get());
 +   e_exec(zone, NULL, buff, NULL, NULL);
 +}
@@ -521,7 +521,7 @@ index ac05789..d40f660 100644
  /*
  EAPI int
 diff --git a/src/modules/wizard/page_200.c b/src/modules/wizard/page_200.c
-index cdfbd52..a20b8b6 100644
+index cdfbd52..af7aaee 100644
 --- a/src/modules/wizard/page_200.c
 +++ b/src/modules/wizard/page_200.c
 @@ -1,6 +1,18 @@
@@ -535,7 +535,7 @@ index cdfbd52..a20b8b6 100644
 +   char buff[PATH_MAX];
 +
 +   snprintf(buff, sizeof(buff), "enlightenment_open "
-+            "file:///usr/share/bodhi/quickstart/quickstartEN/index.html");
++            "file:///usr/share/bodhi/e17guide/e17guideEN/index.html");
 +   zone = e_util_zone_current_get(e_manager_current_get());
 +   e_exec(zone, NULL, buff, NULL, NULL);
 +}
