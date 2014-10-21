@@ -1,10 +1,10 @@
 diff --git a/src/bin/e_int_menus.c b/src/bin/e_int_menus.c
-index 5819ed9..1d6843f 100644
+index 49750bb..392bd89 100644
 --- a/src/bin/e_int_menus.c
 +++ b/src/bin/e_int_menus.c
 @@ -63,6 +63,9 @@ static void         _e_int_menus_item_label_set(Efreet_Menu *entry, E_Menu_Item
  static Efreet_Menu *_e_int_menus_apps_thread_new(E_Menu *m, const char *dir);
- static Eina_Bool    _e_int_menus_efreet_desktop_cache_update(void *d, int type, void *e);
+ static Eina_Bool   _e_int_menus_efreet_desktop_cache_update(void *d, int type, void *e);
  //static void _e_int_menus_apps_drag_finished(E_Drag *drag, int dropped __UNUSED__);
 +static void _e_int_menus_bodhi_about(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_Item *mi __UNUSED__);
 +static void _e_int_menus_bodhi_about(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_Item *mi __UNUSED__);
@@ -57,7 +57,7 @@ index 5819ed9..1d6843f 100644
  static Eina_List *
  _e_int_menus_augmentation_find(const char *key)
  {
-@@ -215,6 +256,25 @@ e_int_menus_main_new(void)
+@@ -214,6 +255,25 @@ e_int_menus_main_new(void)
     if (l) _e_int_menus_augmentation_add(m, l);
  
     subm = e_menu_new();
@@ -83,7 +83,7 @@ index 5819ed9..1d6843f 100644
     dat->enlightenment = subm;
  
     l = _e_int_menus_augmentation_find("enlightenment/0");
-@@ -600,6 +660,40 @@ _e_int_menus_themes_about(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_It
+@@ -598,6 +658,40 @@ _e_int_menus_themes_about(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_It
     if (about) e_theme_about_show(about);
  }
  
@@ -116,7 +116,7 @@ index 5819ed9..1d6843f 100644
 +   char buff[PATH_MAX];
 +
 +   snprintf(buff, sizeof(buff), "enlightenment_open "
-+            "file:///usr/share/bodhi/quickstart/quickstartEN/index.html");
++            "file:///usr/share/bodhi/e17guide/e17guideEN/index.html");
 +   zone = e_util_zone_current_get(e_manager_current_get());
 +   e_exec(zone, NULL, buff, NULL, NULL);
 +}
@@ -124,19 +124,32 @@ index 5819ed9..1d6843f 100644
  /*
     static void
     _e_int_menus_fwin_favorites_item_cb(void *data, E_Menu *m, E_Menu_Item *mi)
+diff --git a/src/bin/e_open.c b/src/bin/e_open.c
+index b7b3aca..705851c 100644
+--- a/src/bin/e_open.c
++++ b/src/bin/e_open.c
+@@ -508,7 +508,7 @@ main(int argc, char *argv[])
+                }
+           }
+      }
+-   else if (strstr(argv[args], "://"))
++   else if (strstr(argv[args], ":"))
+      cmds = protocol_open(argv[args]);
+    else
+      cmds = local_open(argv[args]);
 diff --git a/src/modules/wizard/e_wizard.c b/src/modules/wizard/e_wizard.c
-index 18ee7e1..43ba1e3 100644
+index 6196411..918a8f7 100644
 --- a/src/modules/wizard/e_wizard.c
 +++ b/src/modules/wizard/e_wizard.c
-@@ -149,10 +149,11 @@ e_wizard_page_show(Evas_Object *obj)
-         Evas_Coord minw = 0, minh = 0;
+@@ -165,10 +165,11 @@ e_wizard_page_show(Evas_Object *obj)
+         Evas_Coord minw, minh;
  
          e_widget_size_min_get(obj, &minw, &minh);
--        evas_object_size_hint_min_set(obj, minw, minh);
+-        edje_extern_object_min_size_set(obj, minw, minh);
 -        edje_object_part_swallow(o_bg, "e.swallow.content", obj);
 -        evas_object_show(obj);
 -        e_widget_focus_set(obj, 1);
-+        evas_object_size_hint_min_set(obj, 0, 0);
++        edje_extern_object_min_size_set(obj, 0, 0);
 +        evas_object_size_hint_max_set(obj, 0, 0);
 +        //edje_object_part_swallow(o_bg, "e.swallow.content", obj);
 +        //evas_object_show(obj);
@@ -144,7 +157,7 @@ index 18ee7e1..43ba1e3 100644
          edje_object_signal_emit(o_bg, "e,action,page,new", "e");
       }
  }
-@@ -207,7 +208,7 @@ e_wizard_button_next_enable_set(int enable)
+@@ -223,7 +224,7 @@ e_wizard_button_next_enable_set(int enable)
  EAPI void
  e_wizard_title_set(const char *title)
  {
@@ -154,10 +167,10 @@ index 18ee7e1..43ba1e3 100644
  
  EAPI void
 diff --git a/src/modules/wizard/page_010.c b/src/modules/wizard/page_010.c
-index 0b2eead..12f1c53 100644
+index 6dcca78..8def18f 100644
 --- a/src/modules/wizard/page_010.c
 +++ b/src/modules/wizard/page_010.c
-@@ -219,7 +219,7 @@ wizard_page_show(E_Wizard_Page *pg)
+@@ -206,7 +206,7 @@ wizard_page_show(E_Wizard_Page *pg)
     evas_object_show(of);
     e_wizard_page_show(o);
  //   pg->data = o;
@@ -166,7 +179,7 @@ index 0b2eead..12f1c53 100644
  }
  
  EAPI int
-@@ -227,14 +227,14 @@ wizard_page_hide(E_Wizard_Page *pg __UNUSED__)
+@@ -214,14 +214,14 @@ wizard_page_hide(E_Wizard_Page *pg __UNUSED__)
  {
  //   evas_object_del(pg->data);
  /* special - language inits its stuff the moment it goes away */
@@ -186,7 +199,7 @@ index 0b2eead..12f1c53 100644
     return 1;
  }
  
-@@ -242,10 +242,10 @@ EAPI int
+@@ -229,10 +229,10 @@ EAPI int
  wizard_page_apply(E_Wizard_Page *pg __UNUSED__)
  {
     // do this again as we want it to apply to the new profile
@@ -202,10 +215,10 @@ index 0b2eead..12f1c53 100644
  }
  
 diff --git a/src/modules/wizard/page_011.c b/src/modules/wizard/page_011.c
-index 2681dfc..dbcb04d 100644
+index 22d877d..ed5b61f 100644
 --- a/src/modules/wizard/page_011.c
 +++ b/src/modules/wizard/page_011.c
-@@ -182,7 +182,7 @@ wizard_page_show(E_Wizard_Page *pg)
+@@ -176,7 +176,7 @@ wizard_page_show(E_Wizard_Page *pg)
     evas_object_show(ob);
     evas_object_show(of);
     e_wizard_page_show(o);
@@ -215,7 +228,7 @@ index 2681dfc..dbcb04d 100644
  
  EAPI int
 diff --git a/src/modules/wizard/page_020.c b/src/modules/wizard/page_020.c
-index 8a1b33b..59534d5 100644
+index 9a6f470..fa29e33 100644
 --- a/src/modules/wizard/page_020.c
 +++ b/src/modules/wizard/page_020.c
 @@ -11,7 +11,7 @@ _profile_change(void *data __UNUSED__, Evas_Object *obj __UNUSED__)
@@ -236,7 +249,7 @@ index 8a1b33b..59534d5 100644
     of = e_widget_framelist_add(pg->evas, _("Select one"), 0);
  
     ob = e_widget_ilist_add(pg->evas, 32 * e_scale, 32 * e_scale, &profile);
-@@ -130,7 +130,8 @@ wizard_page_show(E_Wizard_Page *pg)
+@@ -126,7 +126,8 @@ wizard_page_show(E_Wizard_Page *pg)
     e_wizard_page_show(o);
  //   pg->data = o;
     e_wizard_button_next_enable_set(0);
@@ -246,7 +259,7 @@ index 8a1b33b..59534d5 100644
  }
  
  EAPI int
-@@ -138,7 +139,7 @@ wizard_page_hide(E_Wizard_Page *pg __UNUSED__)
+@@ -134,7 +135,7 @@ wizard_page_hide(E_Wizard_Page *pg __UNUSED__)
  {
  //   evas_object_del(pg->data);
  // actually apply profile
@@ -269,7 +282,7 @@ index 71dd1fd..e66cef6 100644
  
  EAPI int
 diff --git a/src/modules/wizard/page_050.c b/src/modules/wizard/page_050.c
-index e06b362..66340c6 100644
+index e16bad6..3d3ac68 100644
 --- a/src/modules/wizard/page_050.c
 +++ b/src/modules/wizard/page_050.c
 @@ -169,7 +169,7 @@ wizard_page_show(E_Wizard_Page *pg)
@@ -295,7 +308,7 @@ index e06b362..66340c6 100644
  }
  /*
 diff --git a/src/modules/wizard/page_060.c b/src/modules/wizard/page_060.c
-index 00a1bad..aec4ccb 100644
+index be88361..3a02d44 100644
 --- a/src/modules/wizard/page_060.c
 +++ b/src/modules/wizard/page_060.c
 @@ -24,7 +24,7 @@ wizard_page_show(E_Wizard_Page *pg)
@@ -305,7 +318,7 @@ index 00a1bad..aec4ccb 100644
 -   e_wizard_title_set(_("Window Focus"));
 +   e_wizard_title_set(_("Please Wait As We Are Loading Enlightenment Settings!"));
  
-    of = e_widget_framelist_add(pg->evas, _("Focus:"), 0);
+    of = e_widget_framelist_add(pg->evas, _("Focus by ..."), 0);
  
 @@ -42,13 +42,13 @@ wizard_page_show(E_Wizard_Page *pg)
  
@@ -323,10 +336,10 @@ index 00a1bad..aec4ccb 100644
       {
          e_config->focus_policy = E_FOCUS_CLICK;
          e_config->focus_setting = E_FOCUS_NEW_WINDOW;
-@@ -74,7 +74,7 @@ wizard_page_hide(E_Wizard_Page *pg __UNUSED__)
+@@ -69,7 +69,7 @@ wizard_page_hide(E_Wizard_Page *pg __UNUSED__)
+         e_config->always_click_to_focus = 0;
+         e_config->focus_last_focused_per_desktop = 1;
          e_config->pointer_slide = 1;
-         e_config->use_auto_raise = 1;
-         e_config->auto_raise_delay = 0.5;
 -     }
 +     }*/
  //   evas_object_del(pg->data);
@@ -377,11 +390,11 @@ index efb9ae2..63e9a4d 100644
  }
  /*
 diff --git a/src/modules/wizard/page_110.c b/src/modules/wizard/page_110.c
-index 3904b1d..447a248 100644
+index 44cef8c..4e64b07 100644
 --- a/src/modules/wizard/page_110.c
 +++ b/src/modules/wizard/page_110.c
 @@ -4,7 +4,7 @@
- #include <Eldbus.h>
+ #include <E_DBus.h>
  #endif
  
 -static void
@@ -396,9 +409,8 @@ index 3904b1d..447a248 100644
 -}
 +}*/
  
--static Eldbus_Connection *conn;
-+/*static Eldbus_Connection *conn;
- static Eldbus_Pending *pending_connman;
+ #ifdef HAVE_ECONNMAN
+ static DBusPendingCall *pending_connman;
 -static Ecore_Timer *connman_timeout = NULL;
 +static Ecore_Timer *connman_timeout = NULL;*/
  
@@ -407,49 +419,40 @@ index 3904b1d..447a248 100644
  _connman_fail(void *data)
  {
     E_Wizard_Page *pg = data;
-@@ -67,16 +67,16 @@ _connman_fail(void *data)
+@@ -71,9 +71,9 @@ _connman_fail(void *data)
     connman_timeout = NULL;
     _recommend_connman(pg);
     return EINA_FALSE;
 -}
 +}*/
  
--static Eina_Bool
-+/*static Eina_Bool
- _page_next_call(void *data EINA_UNUSED)
- {
-    e_wizard_next();
-    return ECORE_CALLBACK_CANCEL;
--}
-+}*/
- 
 -static void
 +/*static void
- _check_connman_owner(void *data, const Eldbus_Message *msg,
-                      Eldbus_Pending *pending __UNUSED__)
+ _check_connman_owner(void *data, DBusMessage *msg,
+                      DBusError *err __UNUSED__)
  {
-@@ -104,7 +104,7 @@ _check_connman_owner(void *data, const Eldbus_Message *msg,
-    
- fail:
-    _connman_fail(data);
+@@ -93,7 +93,7 @@ _check_connman_owner(void *data, DBusMessage *msg,
+ 
+    e_wizard_button_next_enable_set(1);
+    e_wizard_next();
 -}
 +}*/
+ #endif
  /*
- 
  EAPI int
-@@ -120,9 +120,9 @@ wizard_page_shutdown(E_Wizard_Page *pg __UNUSED__)
+@@ -109,9 +109,9 @@ wizard_page_shutdown(E_Wizard_Page *pg __UNUSED__)
  }
  */
  EAPI int
 -wizard_page_show(E_Wizard_Page *pg)
 +wizard_page_show(E_Wizard_Page *pg EINA_UNUSED)
  {
--   Eina_Bool have_connman = EINA_FALSE;
-+   /*Eina_Bool have_connman = EINA_FALSE;
- 
+-   int have_connman = 0;
++   /*int have_connman = 0;
  #ifdef HAVE_ECONNMAN
-    eldbus_init();
-@@ -159,15 +159,15 @@ wizard_page_show(E_Wizard_Page *pg)
+    E_DBus_Connection *c;
+ 
+@@ -152,16 +152,16 @@ wizard_page_show(E_Wizard_Page *pg)
            }
          e_config_save_queue();
          _recommend_connman(pg);
@@ -463,28 +466,29 @@ index 3904b1d..447a248 100644
  EAPI int
  wizard_page_hide(E_Wizard_Page *pg __UNUSED__)
  {
+ #ifdef HAVE_ECONNMAN
 -   if (pending_connman)
 +   /*if (pending_connman)
       {
-         eldbus_pending_cancel(pending_connman);
+         dbus_pending_call_cancel(pending_connman);
          pending_connman = NULL;
-@@ -183,7 +183,7 @@ wizard_page_hide(E_Wizard_Page *pg __UNUSED__)
- 
- #ifdef HAVE_ECONNMAN
-    eldbus_shutdown();
+@@ -171,7 +171,7 @@ wizard_page_hide(E_Wizard_Page *pg __UNUSED__)
+         ecore_timer_del(connman_timeout);
+         connman_timeout = NULL;
+      }
 -#endif
 +#endif*/
  
     return 1;
  }
 diff --git a/src/modules/wizard/page_150.c b/src/modules/wizard/page_150.c
-index 2064fa9..8a3eff4 100644
+index d5e507c..ce56ece 100644
 --- a/src/modules/wizard/page_150.c
 +++ b/src/modules/wizard/page_150.c
-@@ -97,7 +97,7 @@ wizard_page_show(E_Wizard_Page *pg)
-    evas_object_show(of);
-    e_wizard_page_show(o);
+@@ -132,7 +132,7 @@ wizard_page_show(E_Wizard_Page *pg)
  
+    e_wizard_page_show(o);
+ //   pg->data = o;
 -   return 1; /* 1 == show ui, and wait for user, 0 == just continue */
 +   return 0; /* 1 == show ui, and wait for user, 0 == just continue */
  }
@@ -517,7 +521,7 @@ index ac05789..d40f660 100644
  /*
  EAPI int
 diff --git a/src/modules/wizard/page_200.c b/src/modules/wizard/page_200.c
-index cdfbd52..a20b8b6 100644
+index cdfbd52..af7aaee 100644
 --- a/src/modules/wizard/page_200.c
 +++ b/src/modules/wizard/page_200.c
 @@ -1,6 +1,18 @@
@@ -531,7 +535,7 @@ index cdfbd52..a20b8b6 100644
 +   char buff[PATH_MAX];
 +
 +   snprintf(buff, sizeof(buff), "enlightenment_open "
-+            "file:///usr/share/bodhi/quickstart/quickstartEN/index.html");
++            "file:///usr/share/bodhi/e17guide/e17guideEN/index.html");
 +   zone = e_util_zone_current_get(e_manager_current_get());
 +   e_exec(zone, NULL, buff, NULL, NULL);
 +}
