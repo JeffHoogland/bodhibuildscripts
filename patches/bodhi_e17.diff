@@ -92,7 +92,7 @@ index 49750bb..392bd89 100644
 +{
 +   E_Obj_Dialog *dlg;
 +
-+   dlg = e_obj_dialog_new(m->zone->comp, BODHI_ABOUT_TITLE, "E", "_about");
++   dlg = e_obj_dialog_new(m->zone->container, BODHI_ABOUT_TITLE, "E", "_about");
 +   if (!dlg) return;
 +   e_obj_dialog_obj_theme_set(dlg, "base/theme/about", "e/widgets/about/main");
 +   e_obj_dialog_obj_part_text_set(dlg, "e.text.label", _("Close"));
