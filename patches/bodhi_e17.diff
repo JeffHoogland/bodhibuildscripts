@@ -25,8 +25,11 @@ index 49750bb..f361189 100644
 +   "Stephen Houston (okra)<br>" \
 +   "Kristi Hoogland (TheWife)<br>" \
 +   "Jason Thomas (Tristam)<br>" \
-+   "Bob Eley<br>" \
++   "Kai Huuhko (kuuko)<br>" \
 +   "Robert Wiley (y_lee)<br>" \
++   "Doug Yanez (Deepspeed)<br>" \
++   "Eric Brown (feneric)<br>" \
++   "Bob Eley<br>" \
 +   "Kaleb Elwert (belak)<br>" \
 +   "Karen Hoogland<br>" \
 +   "Micah Denn (M1C4HTRON13)<br>" \
@@ -48,10 +51,7 @@ index 49750bb..f361189 100644
 +   "F. Junger<br>" \
 +   "Joao Teixeira<br>" \
 +   "Matt Carter (Matt)<br>" \
-+   "Hendra Kusuma<br>" \
-+   "Eric Brown (feneric)<br>" \
-+   "Doug Yanez (Deepspeed)<br>" \
-+   "Kai Huuhko (kuuko)<br>"
++   "Hendra Kusuma<br>"
 +
 +
  static Eina_List *
