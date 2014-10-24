@@ -1,20 +1,26 @@
 Source: enlightenment
 Section: unknown
-Priority: extra
-Maintainer: root <jeffhoogland@linux.com>
-Depends: bodhi-profiles
-Build-Depends: efl, libasound2-dev [linux-any], libxext-dev, libpam0g-dev, libxcb-shape0-dev, dbus-x11, libxcb-keysyms1-dev, edbus
-Standards-Version: 3.8.3
-Homepage: <insert the upstream URL, if relevant>
-
+Priority: optional
+Maintainer: Deepspeed <deepspeed@bodhilinux.com>
+Build-Depends: debhelper (>= 8.0.0), efl, libasound2-dev [linux-any], libxext-dev, libpam0g-dev, libxcb-shape0-dev, dbus-x11, libxcb-keysyms1-dev, edbus
+Standards-Version: 3.9.4
+Homepage: http://www.enlightenment.org/
+#Vcs-Git: git://git.debian.org/collab-maint/enlightenment.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/enlightenment.git;a=summary
+ 
 Package: enlightenment
-Architecture: any
+Architecture: i386
 Provides: e17
 Replaces: e17, e19
 Conflicts: e17, e19
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: The Enlightenment DR17 Window Manager
+Depends: bodhi-profiles-extra-e17, ${shlibs:Depends}, ${misc:Depends}
+Description: Enlightenment DR17 WM (Bodhi Custom)
  Enlightenment is an advanced window manager for X11. Unique
  features include: a fully animated background, nice drop shadows
  around windows, backed by an extremely clean and optimized
  foundation of APIs.
+ 
+Package: enlightenment-doc
+Architecture: all
+Description: documentation for enlightenment
+ Documentation - This is exactly what it looks like.
