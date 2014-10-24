@@ -264,7 +264,7 @@ index 9a6f470..fa29e33 100644
  //   evas_object_del(pg->data);
  // actually apply profile
 -   if (!profile) profile = "standard";
-+   if (!profile) profile = "bodhi";
++   if (!profile) profile = "Laptop";
     e_config_profile_set(profile);
     e_config_profile_del(e_config_profile_get());
     e_config_load();
