@@ -19,8 +19,3 @@ Description: Enlightenment DR17 WM (Bodhi Custom)
  features include: a fully animated background, nice drop shadows
  around windows, backed by an extremely clean and optimized
  foundation of APIs.
- 
-Package: enlightenment-doc
-Architecture: all
-Description: documentation for enlightenment
- Documentation - This is exactly what it looks like.
