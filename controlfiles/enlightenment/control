@@ -13,9 +13,22 @@ Architecture: i386
 Provides: e17
 Replaces: e17, e19
 Conflicts: e17, e19
-Depends: bodhi-profiles-extra-e17, ${shlibs:Depends}, ${misc:Depends}
+Depends: bodhi-profiles-extra-e17, ${misc:Depends}
 Description: Enlightenment DR17 WM (Bodhi Custom)
  Enlightenment is an advanced window manager for X11. Unique
  features include: a fully animated background, nice drop shadows
  around windows, backed by an extremely clean and optimized
  foundation of APIs.
+ 
+Package: enlightenment-dbg
+Architecture: any
+Section: debug
+Priority: extra
+Depends: enlightenment (= ${binary:Version}), ${misc:Depends}
+Description: Debugging symbols for Enlightenment DR17 WM (Bodhi Custom)
+ Enlightenment is an advanced window manager for X11. Unique
+ features include: a fully animated background, nice drop shadows
+ around windows, backed by an extremely clean and optimized
+ foundation of APIs.
+ .
+ This package contains the debugging symbols for enlightenment
