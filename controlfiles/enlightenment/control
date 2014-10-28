@@ -1,13 +1,13 @@
 Source: enlightenment
-Section: unknown
+Section: x11
 Priority: optional
-Maintainer: Deepspeed <deepspeed@bodhilinux.com>
+Maintainer: #USERNAME# <#EMAIL#>
 Build-Depends: debhelper (>= 8.0.0), efl, libasound2-dev [linux-any], libxext-dev, libpam0g-dev, libxcb-shape0-dev, dbus-x11, libxcb-keysyms1-dev, edbus
-Standards-Version: 3.9.4
+Standards-Version: #POLICY#
 Homepage: http://www.enlightenment.org/
-#Vcs-Git: git://git.debian.org/collab-maint/enlightenment.git
-#Vcs-Browser: http://git.debian.org/?p=collab-maint/enlightenment.git;a=summary
- 
+Vcs-Git: git://git.enlightenment.org/core/enlightenment.git
+Vcs-Browser: http://git.enlightenment.org/core/enlightenment.git/?h=enlightenment-0.17
+
 Package: enlightenment
 Architecture: i386
 Provides: e17
@@ -19,7 +19,7 @@ Description: Enlightenment DR17 WM (Bodhi Custom)
  features include: a fully animated background, nice drop shadows
  around windows, backed by an extremely clean and optimized
  foundation of APIs.
- 
+
 Package: enlightenment-dbg
 Architecture: any
 Section: debug
