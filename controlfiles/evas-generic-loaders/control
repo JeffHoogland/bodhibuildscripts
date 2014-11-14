@@ -1,15 +1,14 @@
 Source: evas-generic-loaders
 Section: unknown
 Priority: extra
-Maintainer: root <jeffhoogland@linux.com>
+Maintainer: Eric W. Brown
+Uploaders: Jeff Hoogland, Doug Yanez
 Build-Depends: debhelper (>= 8.0.0), autotools-dev
 Standards-Version: 3.9.2
-Homepage: <insert the upstream URL, if relevant>
-#Vcs-Git: git://git.debian.org/collab-maint/evas-generic-loaders.git
-#Vcs-Browser: http://git.debian.org/?p=collab-maint/evas-generic-loaders.git;a=summary
 
 Package: evas-generic-loaders
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
 Description: Evas Generic Loaders
  Additional "generic" loaders for Evas

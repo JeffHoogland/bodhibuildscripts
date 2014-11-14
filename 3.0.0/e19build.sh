@@ -14,7 +14,7 @@ tar czvf e19-$1.tar.gz e19-$1/
 cd /media/sda5/Bodhi/e17_debs/$1/e19-$1
 autoreconf
 make distclean
-dh_make -e jeffhoogland@linux.com -f ../e19-$1.tar.gz
+dh_make -e "Eric W. Brown <feneric@bodhilinux.com>" -f ../e19-$1.tar.gz
 
 cp -f /media/sda5/Bodhi/bodhibuildscripts/controlfiles/e19/* debian/
 dpkg-buildpackage -rfakeroot -b

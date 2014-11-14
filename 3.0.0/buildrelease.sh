@@ -4,6 +4,6 @@ TODAY = `date “+%Y%m%d”`
 ./evas-generic-loadersbuild.sh $TODAY 1.11.2
 ./emotion-generic-playersbuild.sh $TODAY 1.11.0
 ./elementarybuild.sh $TODAY 1.11.2
-./python-eflbuild.sh $TODAY 1.10.0
+./python-eflbuild.sh $TODAY 1.11.0
 ./terminologybuild.sh $TODAY 0.6.1
 ./econnmanbuild.sh $TODAY 1.1

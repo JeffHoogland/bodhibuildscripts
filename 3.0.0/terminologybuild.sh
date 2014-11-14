@@ -9,7 +9,7 @@ tar czvf /media/sda5/Bodhi/e17_debs/$1/terminology-$1.tar.gz terminology-$1/
 
 cd /media/sda5/Bodhi/e17_debs/$1/terminology-$1
 make distclean
-dh_make -e jeffhoogland@linux.com -f ../terminology-$1.tar.gz
+dh_make -e "Eric W. Brown <feneric@bodhilinux.com>" -f ../terminology-$1.tar.gz
 
 cp /media/sda5/Bodhi/bodhibuildscripts/controlfiles/terminology/control debian/
 dpkg-buildpackage -rfakeroot
