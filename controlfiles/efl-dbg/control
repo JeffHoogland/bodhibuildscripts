@@ -12,6 +12,6 @@ Provides: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, 
 Replaces: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics, efl
 Conflicts: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics, efl
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
+#Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
 Description: EFLs with Debug Symbols
  Enlightenment Desktop core package

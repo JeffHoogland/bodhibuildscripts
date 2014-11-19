@@ -12,6 +12,6 @@ Provides: python-ecore, python-edbus, python-edje, python-elementary, python-emo
 Replaces: python-ecore, python-edbus, python-edje, python-elementary, python-emotion, python-epdf, python-ethumb, python-evas
 Conflicts: python-ecore, python-edbus, python-edje, python-elementary, python-emotion, python-epdf, python-ethumb, python-evas
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
+#Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
 Description: Python EFLs
  Python bindings for the EFLs

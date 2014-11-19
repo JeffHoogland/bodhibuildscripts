@@ -12,7 +12,7 @@ Provides: elementary
 Replaces: elementary
 Conflicts: elementary
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
+#Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
 Description: EFL-based widget set library with Debug Symbols
  Elementary is a widget set based on the Enlightenment Foundation Libraries,
  primarily aimed at creating graphical user interfaces for mobile and embedded

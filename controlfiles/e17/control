@@ -12,7 +12,7 @@ Architecture: any
 Provides: enlightenment
 Conflicts: e18, e19
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Vcs-Browser: https://github.com/Deepspeed/bodhibuildscripts.git
+#Vcs-Browser: https://github.com/Deepspeed/bodhibuildscripts.git
 Description: The Enlightenment DR17 Window Manager
  Enlightenment is an advanced window manager for X11. Unique
  features include: a fully animated background, nice drop shadows

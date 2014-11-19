@@ -9,6 +9,6 @@ Standards-Version: 3.9.2
 Package: evas-generic-loaders
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
+#Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
 Description: Evas Generic Loaders
  Additional "generic" loaders for Evas
