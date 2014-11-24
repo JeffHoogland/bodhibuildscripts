@@ -1,2 +1,8 @@
 #!/bin/sh
-apt-get install xterm make gcc bison flex subversion cvs automake1.10 autoconf autotools-dev autoconf-archive libtool gettext libpam0g-dev libfreetype6-dev libpng12-dev zlib1g-dev libjpeg-dev libtiff4-dev libungif4-dev librsvg2-dev libx11-dev libxcursor-dev libxrender-dev libxrandr-dev libxfixes-dev libxdamage-dev libxcomposite-dev libxss-dev libxp-dev libxext-dev libxinerama-dev libxft-dev libxfont-dev libxi-dev libxv-dev libxkbfile-dev libxres-dev libxtst-dev libltdl7-dev xserver-xephyr libdbus-1-dev liblua5.1-0-dev libasound2-dev libudev-dev libxcb-shape0-dev libglu1-mesa-dev libxml2-dev
+
+# install build tools
+apt-get install aptitude curl git dh-make pkg-config doxygen autoconf fakeroot dialog sudo fish vim
+# these dependencies must be installed separately due to conflicts
+aptitude install libdbus-1-dev udev dbus
+# now install the rest of the dependencies
+aptitude install libssl-dev libjpeg-dev libtiff4-dev libxpm-dev libgif-dev libwebp-dev libraw-dev librsvg2-dev libglu1-mesa-dev libsdl2-dev libluajit-5.1-dev libfreetype6-dev libfontconfig-dev libpoppler-dev libfribidi-dev libx11-dev  libxcursor-dev libxrender-dev libxrandr-dev libxfixes-dev libxdamage-dev libxcomposite-dev libxss-dev libxp-dev libxext-dev libxinerama-dev libxft-dev libxfont-dev libxi-dev libxv-dev libxkbfile-dev libxres-dev libxtst-dev libx11-xcb-dev libxcb-shape0-dev libxcb-image0-dev libxcb-keysyms1-dev xserver-xephyr libasound-dev libdbus-1-dev libltdl7-dev libxml2-dev libpam0g-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-good1.0-dev libgstreamer-plugins-bad1.0-dev libpulse-dev libsndfile-dev libudev-dev libmount-dev libblkid-dev libbullet-dev libgnutls-dev libcurl4-gnutls-dev libc-ares-dev libharfbuzz-dev libspectre-dev libvlc-dev util-linux dbus-x11 alsa pulseaudio python-all-dev python-pillow python-pyrex python-dbus python-dbus-dev uuid-runtime
