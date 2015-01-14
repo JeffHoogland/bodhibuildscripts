@@ -2,6 +2,9 @@
 
 mkdir -p ../../bodhi_debs/$1
 
+cd ~/$2/enlightenment-$2
+autoreconf
+
 #Normal package
 cp -R ~/$2/enlightenment-$2 ../../bodhi_debs/$1/e19-$1
 
