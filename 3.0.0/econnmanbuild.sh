@@ -1,16 +1,18 @@
 #!/bin/sh
 
+mkdir -p ../../bodhi_debs/$1
+
 cd ~/$2/econnman-$2 && make distclean
 ./autogen.sh
-cp -R ~/$2/econnman-$2 /media/sda5/Bodhi/e17_debs/$1/econnman-$1
-cd /media/sda5/Bodhi/e17_debs/$1
-tar czvf /media/sda5/Bodhi/e17_debs/$1/econnman-$1.tar.gz econnman-$1/
+cp -R ~/$2/econnman-$2 ../../bodhi_debs/$1/econnman-$1
+cd ../../bodhi_debs/$1
+tar czvf ../../bodhi_debs/$1/econnman-$1.tar.gz econnman-$1/
 
 
-cd /media/sda5/Bodhi/e17_debs/$1/econnman-$1
+cd ../../bodhi_debs/$1/econnman-$1
 make distclean
 dh_make -e "Eric W. Brown (Feneric)" -f ../econnman-$1.tar.gz
 
-cp /media/sda5/Bodhi/bodhibuildscripts/controlfiles/econnman/control debian/
+cp ../controlfiles/econnman/control debian/
 dpkg-buildpackage -rfakeroot
 #sudo dpkg -i ../econnman*.deb
