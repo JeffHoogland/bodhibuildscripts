@@ -4,6 +4,7 @@ mkdir -p ../../bodhi_debs/$1
 
 cd ../../$2/epulse-$2
 autoreconf
+./autogen.sh
 
 cp -R ../../$2/epulse-$2 ../../bodhi_debs/$1/epulse-e19_$1
 cd ../../bodhi_debs/$1
