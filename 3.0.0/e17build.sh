@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cp -R ~/$2/e17-$2 /media/sda5/Bodhi/e17_debs/$1/e17-$1
+cp -R ~/$2/enlightenment-$2 /media/sda5/Bodhi/e17_debs/$1/e17-$1
 
 cp /media/sda5/Bodhi/patches/e17/illume-keyboard/* /media/sda5/Bodhi/e17_debs/$1/e17-$1/src/modules/illume-keyboard/keyboards/
 
