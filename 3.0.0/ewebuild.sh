@@ -2,10 +2,10 @@
 
 mkdir -p ../../bodhi_debs/$1
 
-cd ~/$2/ewe-$2
+cd ../../$2/ewe-$2
 autoreconf
 
-cp -R ~/$2/ewe-$2 ../../bodhi_debs/$1/ewe-$1
+cp -R ../../$2/ewe-$2 ../../bodhi_debs/$1/ewe-$1
 cd ../../bodhi_debs/$1
 tar czvf ../../bodhi_debs/$1/ewe-$1.tar.gz ewe-$1/
 
@@ -16,7 +16,7 @@ cp ../controlfiles/ewe/* debian/
 dpkg-buildpackage -rfakeroot -b
 dpkg -i ../ewe*.deb
 
-#cp -R ~//$2/ewe-$2 ../../bodhi_debs/$1/ewe-dbg_$1
+#cp -R ../..//$2/ewe-$2 ../../bodhi_debs/$1/ewe-dbg_$1
 #cd ../../bodhi_debs/$1
 #tar czvf ../../bodhi_debs/$1/ewe-dbg_$1.tar.gz ewe-dbg_$1/
 
