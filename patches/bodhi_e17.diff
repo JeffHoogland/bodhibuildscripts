@@ -236,7 +236,7 @@ index 9a6f470..fa29e33 100644
     Efreet_Desktop *desk = NULL;
  
 -   e_prefix_data_snprintf(buf, sizeof(buf), "data/config/%s", profile);
-+   e_prefix_data_snprintf(buf, sizeof(buf), "data/config/Laptop");
++   e_prefix_data_snprintf(buf, sizeof(buf), "data/config/bodhi");
     dir = strdupa(buf);
     snprintf(buf, sizeof(buf), "%s/profile.desktop", dir);
     desk = efreet_desktop_new(buf);
