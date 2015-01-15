@@ -1,5 +1,5 @@
 diff --git a/src/bin/e_int_menus.c b/src/bin/e_int_menus.c
-index 49750bb..392bd89 100644
+index 49750bb..f361189 100644
 --- a/src/bin/e_int_menus.c
 +++ b/src/bin/e_int_menus.c
 @@ -63,6 +63,9 @@ static void         _e_int_menus_item_label_set(Efreet_Menu *entry, E_Menu_Item
@@ -25,8 +25,11 @@ index 49750bb..392bd89 100644
 +   "Stephen Houston (okra)<br>" \
 +   "Kristi Hoogland (TheWife)<br>" \
 +   "Jason Thomas (Tristam)<br>" \
-+   "Bob Eley<br>" \
++   "Kai Huuhko (kuuko)<br>" \
 +   "Robert Wiley (y_lee)<br>" \
++   "Doug Yanez (Deepspeed)<br>" \
++   "Eric Brown (feneric)<br>" \
++   "Bob Eley<br>" \
 +   "Kaleb Elwert (belak)<br>" \
 +   "Karen Hoogland<br>" \
 +   "Micah Denn (M1C4HTRON13)<br>" \
@@ -48,10 +51,7 @@ index 49750bb..392bd89 100644
 +   "F. Junger<br>" \
 +   "Joao Teixeira<br>" \
 +   "Matt Carter (Matt)<br>" \
-+   "Hendra Kusuma<br>" \
-+   "Eric Brown (feneric)<br>" \
-+   "Doug Yanez (Deepspeed)<br>" \
-+   "Kai Huuhko (kuuko)<br>"
++   "Hendra Kusuma<br>"
 +
 +
  static Eina_List *
@@ -92,7 +92,7 @@ index 49750bb..392bd89 100644
 +{
 +   E_Obj_Dialog *dlg;
 +
-+   dlg = e_obj_dialog_new(m->zone->comp, BODHI_ABOUT_TITLE, "E", "_about");
++   dlg = e_obj_dialog_new(m->zone->container, BODHI_ABOUT_TITLE, "E", "_about");
 +   if (!dlg) return;
 +   e_obj_dialog_obj_theme_set(dlg, "base/theme/about", "e/widgets/about/main");
 +   e_obj_dialog_obj_part_text_set(dlg, "e.text.label", _("Close"));
@@ -236,7 +236,7 @@ index 9a6f470..fa29e33 100644
     Efreet_Desktop *desk = NULL;
  
 -   e_prefix_data_snprintf(buf, sizeof(buf), "data/config/%s", profile);
-+   e_prefix_data_snprintf(buf, sizeof(buf), "data/config/bodhi");
++   e_prefix_data_snprintf(buf, sizeof(buf), "data/config/Laptop");
     dir = strdupa(buf);
     snprintf(buf, sizeof(buf), "%s/profile.desktop", dir);
     desk = efreet_desktop_new(buf);
@@ -264,7 +264,7 @@ index 9a6f470..fa29e33 100644
  //   evas_object_del(pg->data);
  // actually apply profile
 -   if (!profile) profile = "standard";
-+   if (!profile) profile = "bodhi";
++   if (!profile) profile = "Laptop";
     e_config_profile_set(profile);
     e_config_profile_del(e_config_profile_get());
     e_config_load();
@@ -390,7 +390,7 @@ index efb9ae2..63e9a4d 100644
  }
  /*
 diff --git a/src/modules/wizard/page_110.c b/src/modules/wizard/page_110.c
-index 44cef8c..4e64b07 100644
+index 44cef8c..ad93e06 100644
 --- a/src/modules/wizard/page_110.c
 +++ b/src/modules/wizard/page_110.c
 @@ -4,7 +4,7 @@
@@ -409,7 +409,8 @@ index 44cef8c..4e64b07 100644
 -}
 +}*/
  
- #ifdef HAVE_ECONNMAN
+-#ifdef HAVE_ECONNMAN
++/*#ifdef HAVE_ECONNMAN
  static DBusPendingCall *pending_connman;
 -static Ecore_Timer *connman_timeout = NULL;
 +static Ecore_Timer *connman_timeout = NULL;*/
@@ -431,15 +432,17 @@ index 44cef8c..4e64b07 100644
  _check_connman_owner(void *data, DBusMessage *msg,
                       DBusError *err __UNUSED__)
  {
-@@ -93,7 +93,7 @@ _check_connman_owner(void *data, DBusMessage *msg,
+@@ -93,8 +93,8 @@ _check_connman_owner(void *data, DBusMessage *msg,
  
     e_wizard_button_next_enable_set(1);
     e_wizard_next();
 -}
+-#endif
 +}*/
- #endif
++/*#endif*/
  /*
  EAPI int
+ wizard_page_init(E_Wizard_Page *pg __UNUSED__, Eina_Bool *need_xdg_desktops __UNUSED__, Eina_Bool *need_xdg_icons __UNUSED__)
 @@ -109,9 +109,9 @@ wizard_page_shutdown(E_Wizard_Page *pg __UNUSED__)
  }
  */
@@ -452,7 +455,7 @@ index 44cef8c..4e64b07 100644
  #ifdef HAVE_ECONNMAN
     E_DBus_Connection *c;
  
-@@ -152,16 +152,16 @@ wizard_page_show(E_Wizard_Page *pg)
+@@ -152,15 +152,15 @@ wizard_page_show(E_Wizard_Page *pg)
            }
          e_config_save_queue();
          _recommend_connman(pg);
@@ -466,12 +469,11 @@ index 44cef8c..4e64b07 100644
  EAPI int
  wizard_page_hide(E_Wizard_Page *pg __UNUSED__)
  {
- #ifdef HAVE_ECONNMAN
--   if (pending_connman)
-+   /*if (pending_connman)
+-#ifdef HAVE_ECONNMAN
++/*#ifdef HAVE_ECONNMAN
+    if (pending_connman)
       {
          dbus_pending_call_cancel(pending_connman);
-         pending_connman = NULL;
 @@ -171,7 +171,7 @@ wizard_page_hide(E_Wizard_Page *pg __UNUSED__)
          ecore_timer_del(connman_timeout);
          connman_timeout = NULL;
@@ -550,4 +552,3 @@ index cdfbd52..af7aaee 100644
 +   _e_int_menus_bodhi_quick_start(NULL, NULL, NULL);
     return 1;
  }
- 
