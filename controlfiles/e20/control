@@ -1,0 +1,21 @@
+Source: e20
+Section: unknown
+Priority: extra
+Maintainer: Eric W. Brown
+Uploaders: Jeff Hoogland, Doug Yanez
+Build-Depends: efl, elementary, libasound2-dev [linux-any], libxext-dev, libpam0g-dev, libxcb-shape0-dev, dbus-x11, libxcb-keysyms1-dev
+Standards-Version: 3.8.3
+Homepage: http://enlightenment.org
+
+Package: e20
+Architecture: any
+Provides: enlightenment, e19
+Replaces: enlightenment, e17, e18, e19
+Conflicts: e17, e18, e19
+Depends: ${shlibs:Depends}, ${misc:Depends}
+#Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
+Description: The Enlightenment Window Manager
+ Enlightenment is an advanced window manager for X11. Unique
+ features include: a fully animated background, nice drop shadows
+ around windows, backed by an extremely clean and optimized
+ foundation of APIs.
