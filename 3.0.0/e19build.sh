@@ -12,6 +12,9 @@ cd ../../bodhi_debs/$1/e19-$1
 rm -rf src/modules/wizard
 cp -a ../../../bodhibuildscripts/patches/wizard-e19 src/modules/wizard
 
+rm src/modules/systray/e_mod_main.c
+cp ../../../bodhibuildscripts/patches/e_mod_main-e19-systray.c src/modules/systray/e_mod_main.c
+
 rm -rf src/bin/e_int_menus.c
 cp ../../../bodhibuildscripts/patches/e_int_menus-e19.c src/bin/e_int_menus.c
 
