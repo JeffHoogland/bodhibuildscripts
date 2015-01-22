@@ -8,11 +8,11 @@ autoreconf
 #Normal package
 cp -R ../../$2/enlightenment-$2 ../../bodhi_debs/$1/e19-$1
 
-cd ../../bodhi_debs/$1/e19-$1
-patch -p1 < ../../../bodhibuildscripts/patches/bodhi_e19.diff
-
 rm -rf src/modules/wizard
 cp -a ../../../bodhibuildscripts/patches/wizard-e19 src/modules/wizard
+
+cd ../../bodhi_debs/$1/e19-$1
+patch -p1 < ../../../bodhibuildscripts/patches/bodhi_e19.diff
 
 cd ..
 tar czvf e19-$1.tar.gz e19-$1/
