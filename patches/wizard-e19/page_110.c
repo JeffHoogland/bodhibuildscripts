@@ -4,7 +4,7 @@
 #include <Eldbus.h>
 #endif
 
-static void
+/*static void
 _recommend_connman(E_Wizard_Page *pg)
 {
    Evas_Object *o, *of, *ob;
@@ -36,13 +36,13 @@ _recommend_connman(E_Wizard_Page *pg)
 //   pg->data = o;
 
    e_wizard_button_next_enable_set(1);
-}
+}*/
 
-static Eldbus_Connection *conn;
+/*static Eldbus_Connection *conn;
 static Eldbus_Pending *pending_connman;
-static Ecore_Timer *connman_timeout = NULL;
+static Ecore_Timer *connman_timeout = NULL;*/
 
-static Eina_Bool
+/*static Eina_Bool
 _connman_fail(void *data)
 {
    E_Wizard_Page *pg = data;
@@ -67,16 +67,16 @@ _connman_fail(void *data)
    connman_timeout = NULL;
    _recommend_connman(pg);
    return EINA_FALSE;
-}
+}*/
 
-static Eina_Bool
+/*static Eina_Bool
 _page_next_call(void *data EINA_UNUSED)
 {
    e_wizard_next();
    return ECORE_CALLBACK_CANCEL;
-}
+}*/
 
-static void
+/*static void
 _check_connman_owner(void *data, const Eldbus_Message *msg,
                      Eldbus_Pending *pending __UNUSED__)
 {
@@ -104,7 +104,7 @@ _check_connman_owner(void *data, const Eldbus_Message *msg,
    
 fail:
    _connman_fail(data);
-}
+}*/
 /*
 
 EAPI int
@@ -120,9 +120,9 @@ wizard_page_shutdown(E_Wizard_Page *pg __UNUSED__)
 }
 */
 EAPI int
-wizard_page_show(E_Wizard_Page *pg)
+wizard_page_show(E_Wizard_Page *pg EINA_UNUSED)
 {
-   Eina_Bool have_connman = EINA_FALSE;
+   /*Eina_Bool have_connman = EINA_FALSE;
 
 #ifdef HAVE_ECONNMAN
    eldbus_init();
@@ -159,15 +159,15 @@ wizard_page_show(E_Wizard_Page *pg)
           }
         e_config_save_queue();
         _recommend_connman(pg);
-     }
+     }*/
    e_wizard_title_set(_("Checking to see if Connman exists"));
-   return 1; /* 1 == show ui, and wait for user, 0 == just continue */
+   return 0; /* 1 == show ui, and wait for user, 0 == just continue */
 }
 
 EAPI int
 wizard_page_hide(E_Wizard_Page *pg __UNUSED__)
 {
-   if (pending_connman)
+   /*if (pending_connman)
      {
         eldbus_pending_cancel(pending_connman);
         pending_connman = NULL;
@@ -183,7 +183,7 @@ wizard_page_hide(E_Wizard_Page *pg __UNUSED__)
 
 #ifdef HAVE_ECONNMAN
    eldbus_shutdown();
-#endif
+#endif*/
 
    return 1;
 }
