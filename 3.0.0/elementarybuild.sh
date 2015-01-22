@@ -10,7 +10,7 @@ cd ../../bodhi_debs/$1
 tar czvf ../../bodhi_debs/$1/elementary-$1.tar.gz elementary-$1/
 
 cd ../../bodhi_debs/$1/elementary-$1
-dh_make -e "Eric W. Brown (Feneric)" -f ../elementary-$1.tar.gz
+dh_make -e "Jeff Hoogland" -f ../elementary-$1.tar.gz
 make distclean
 cp ../controlfiles/elementary/* debian/
 dpkg-buildpackage -rfakeroot -b
@@ -21,7 +21,7 @@ sudo dpkg -i ../elementary*.deb
 #tar czvf ../../bodhi_debs/$1/elementary-dbg_$1.tar.gz elementary-dbg_$1/
 
 #cd ../../bodhi_debs/$1/elementary-dbg_$1
-#dh_make -p elementary-dbg_$1 -e "Eric W. Brown (Feneric)" -f ../elementary-dbg_$1.tar.gz
+#dh_make -p elementary-dbg_$1 -e "Jeff Hoogland" -f ../elementary-dbg_$1.tar.gz
 #make distclean
 #cp ../controlfiles/elementary-dbg/* debian/
 #dpkg-buildpackage -rfakeroot -b

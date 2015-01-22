@@ -11,7 +11,7 @@ tar czvf ../../bodhi_debs/$1/econnman-$1.tar.gz econnman-$1/
 
 cd ../../bodhi_debs/$1/econnman-$1
 make distclean
-dh_make -e "Eric W. Brown (Feneric)" -f ../econnman-$1.tar.gz
+dh_make -e "Jeff Hoogland" -f ../econnman-$1.tar.gz
 
 cp ../controlfiles/econnman/control debian/
 dpkg-buildpackage -rfakeroot

@@ -11,7 +11,7 @@ tar czvf ../../bodhi_debs/$1/terminology-$1.tar.gz terminology-$1/
 
 cd ../../bodhi_debs/$1/terminology-$1
 make distclean
-dh_make -e "Eric W. Brown (Feneric)" -f ../terminology-$1.tar.gz
+dh_make -e "Jeff Hoogland" -f ../terminology-$1.tar.gz
 
 cp ../controlfiles/terminology/control debian/
 dpkg-buildpackage -rfakeroot
