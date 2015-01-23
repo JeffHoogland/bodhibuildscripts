@@ -1,4 +1,4 @@
-Source: places
+Source: desksanity
 Section: unknown
 Priority: extra
 Maintainer: root <jeffhoogland@linux.com>
@@ -7,8 +7,8 @@ Conflicts: e17
 Standards-Version: 3.8.3
 Homepage: <insert the upstream URL, if relevant>
 
-Package: places
+Package: desksanity
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Places Modules for E19
- A module that allows you to integrate non-EFM file managers into the Enlightenment desktop
+Description: desksanity Module for E19
+ Adds extra fancy effects to your e19 desktop
