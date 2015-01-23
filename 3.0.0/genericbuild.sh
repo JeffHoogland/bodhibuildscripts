@@ -2,10 +2,20 @@
 
 mkdir -p ../../bodhi_debs/$1
 
-cd ../../$2/$3-$2
-autoreconf
+#If we are building from git, folder name is different structure
+if test "$2" = "git"
+then
+    cd ../../$2/$3
+    autoreconf
 
-cp -R ../../$2/$3-$2 ../../bodhi_debs/$1/$3-$1
+    cp -R ../../$2/$3 ../../bodhi_debs/$1/$3-$1
+else
+    cd ../../$2/$3-$2
+    autoreconf
+
+    cp -R ../../$2/$3-$2 ../../bodhi_debs/$1/$3-$1
+fi
+
 cd ../../bodhi_debs/$1
 tar czvf ../../bodhi_debs/$1/$3-$1.tar.gz $3-$1/
 
