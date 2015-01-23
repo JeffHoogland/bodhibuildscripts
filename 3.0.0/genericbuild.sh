@@ -1,6 +1,8 @@
 #!/bin/sh
 #Usage:
 # genericbuild.sh <output version> <source version> <source name>
+#Example:
+# sh genericbuild.sh 20150101 git enlightenment
 
 mkdir -p ../../bodhi_debs/$1
 
