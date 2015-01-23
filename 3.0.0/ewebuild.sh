@@ -15,13 +15,3 @@ make distclean
 cp ../controlfiles/ewe/* debian/
 dpkg-buildpackage -rfakeroot -b
 dpkg -i ../ewe*.deb
-
-#cp -R ../..//$2/ewe-$2 ../../bodhi_debs/$1/ewe-dbg_$1
-#cd ../../bodhi_debs/$1
-#tar czvf ../../bodhi_debs/$1/ewe-dbg_$1.tar.gz ewe-dbg_$1/
-
-#cd ../../bodhi_debs/$1/ewe-dbg_$1
-#dh_make -p ewe-dbg_$1 -e jeffhoogland@linux.com -f ../ewe-dbg_$1.tar.gz
-#make distclean
-#cp ../controlfiles/ewe-dbg/* debian/
-#dpkg-buildpackage -rfakeroot -b
