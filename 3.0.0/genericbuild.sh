@@ -27,6 +27,6 @@ cd $3-$1
 dh_make -e "Jeff Hoogland <jeffhoogland@linux.com>" -f ../$3-$1.tar.gz
 
 rm debian/control
-cp ../../controlfiles/$3/control debian/
+cp ../../../controlfiles/$3/control debian/
 dpkg-buildpackage -rfakeroot -b
 dpkg -i ../$3*.deb
