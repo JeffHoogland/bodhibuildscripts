@@ -14,7 +14,7 @@ cd ..
 tar czvf e17-$1.tar.gz e17-$1/
 
 cd e17-$1
-dh_make -e "Doug Yanez <deepspeed@bodhilinux.com>" -f ../e17-$1.tar.gz
+dh_make -e "Jeff Hoogland <jeffhoogland@linux.com>" -f ../e17-$1.tar.gz
 
 cp -f ../../../bodhibuildscripts/controlfiles/e17/* debian/
 dpkg-buildpackage -rfakeroot -b
