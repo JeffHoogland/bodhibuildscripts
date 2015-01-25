@@ -10,7 +10,7 @@ mkdir -p ../../bodhi_debs/$1
 if test "$2" = "git"
 then
     cd ../../$2/$3
-    ./autogen.sh
+    #./autogen.sh
 
     cp -R ../../$2/$3 ../../bodhi_debs/$1/$3-$1
 else
