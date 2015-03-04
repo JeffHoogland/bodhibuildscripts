@@ -1,0 +1,9 @@
+ 
+
+DIRECTORY="/usr/lib/python2.7/dist-packages/efl/ecore"
+
+if [ -d "$DIRECTORY" ]; then
+  # Control will enter here if $DIRECTORY exists.
+  rm -rf $DIRECTORY
+fi
+
