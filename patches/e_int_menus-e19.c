@@ -64,7 +64,6 @@ static Efreet_Menu *_e_int_menus_apps_thread_new(E_Menu *m, const char *dir);
 static Eina_Bool    _e_int_menus_efreet_desktop_cache_update(void *d, int type, void *e);
 //static void _e_int_menus_apps_drag_finished(E_Drag *drag, int dropped __UNUSED__);
 static void _e_int_menus_bodhi_about(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_Item *mi __UNUSED__);
-static void _e_int_menus_bodhi_about(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_Item *mi __UNUSED__);
 static void _e_int_menus_bodhi_quick_start(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_Item *mi __UNUSED__);
 
 /* local subsystem globals */
@@ -113,7 +112,6 @@ static Eina_List *handlers = NULL;
    "Doug Yanez (Deepspeed)<br>" \
    "Kai Huuhko (kuuko)<br>"
 
-
 static Eina_List *
 _e_int_menus_augmentation_find(const char *key)
 {
@@ -151,7 +149,7 @@ _TEST(void *d __UNUSED__, E_Menu *m, E_Menu_Item *mi __UNUSED__)
    Evas *e;
 
    dia = e_dialog_normal_win_new(m->zone->comp, "E", "_widget_playground_dialog");
-   e = e_win_evas_get(dia->win);
+   e = evas_object_evas_get(dia->win);
    o_list = e_widget_ilist_add(e, 32, 32, NULL);
    e_dialog_button_add(dia, "Add", NULL, _TEST_ADD, o_list);
    e_dialog_button_add(dia, "Del", NULL, _TEST_DEL, o_list);
@@ -256,6 +254,10 @@ e_int_menus_main_new(void)
    if (l) _e_int_menus_augmentation_add(m, l);
 
    subm = e_menu_new();
+
+   l = _e_int_menus_augmentation_find("enlightenment/0");
+   if (l) _e_int_menus_augmentation_add(subm, l);
+
    mi = e_menu_item_new(m);
    e_menu_item_label_set(mi, _("Bodhi Linux"));
    e_util_menu_item_theme_icon_set(mi, "bodhi");
@@ -271,14 +273,8 @@ e_int_menus_main_new(void)
    e_util_menu_item_theme_icon_set(mi, "help-faq");
    e_menu_item_callback_set(mi, _e_int_menus_bodhi_quick_start, NULL);
 
-   mi = e_menu_item_new(subm);
-   e_menu_item_separator_set(mi, 1);
-
    subm = e_menu_new();
    dat->enlightenment = subm;
-
-   l = _e_int_menus_augmentation_find("enlightenment/0");
-   if (l) _e_int_menus_augmentation_add(subm, l);
 
    mi = e_menu_item_new(m);
    e_menu_item_label_set(mi, _("Enlightenment"));
@@ -1168,9 +1164,9 @@ _e_int_menus_desktops_free_hook(void *obj)
 }
 
 static void
-_e_int_menus_desk_item_cb(void *data __UNUSED__, E_Menu *m, E_Menu_Item *mi __UNUSED__)
+_e_int_menus_desk_item_cb(void *data __UNUSED__, E_Menu *m EINA_UNUSED, E_Menu_Item *mi __UNUSED__)
 {
-   e_configure_registry_call("screen/virtual_desktops", m->zone->comp, NULL);
+   e_configure_registry_call("screen/virtual_desktops", NULL, NULL);
 }
 
 static void
@@ -1206,9 +1202,9 @@ _e_int_menus_virtuals_icon_cb(void *data, E_Menu *m, E_Menu_Item *mi)
 }
 
 static void
-_e_e_int_menus_conf_comp_cb(void *data EINA_UNUSED, E_Menu *m, E_Menu_Item *mi EINA_UNUSED)
+_e_e_int_menus_conf_comp_cb(void *data EINA_UNUSED, E_Menu *m EINA_UNUSED, E_Menu_Item *mi EINA_UNUSED)
 {
-   e_int_config_comp(e_comp_get(m), NULL);
+   e_int_config_comp(NULL, NULL);
 }
 
 static void
@@ -1570,7 +1566,7 @@ _e_int_menus_clients_pre_cb(void *data __UNUSED__, E_Menu *m)
    e_util_menu_item_theme_icon_set(mi, "preferences-system-windows");
    e_menu_item_callback_set(mi, _e_int_menus_clients_cleanup_cb, zone);
 
-   if ((dat) && (e_config->screen_limits == E_SCREEN_LIMITS_COMPLETELY))
+   if ((dat) && (e_config->screen_limits == E_CLIENT_OFFSCREEN_LIMIT_ALLOW_FULL))
      {
         mi = e_menu_item_new(m);
         e_menu_item_separator_set(mi, 1);
@@ -1934,9 +1930,9 @@ _e_int_menus_shelves_add_cb(void *data __UNUSED__, E_Menu *m __UNUSED__, E_Menu_
 }
 
 static void
-_e_int_menus_shelves_del_cb(void *data __UNUSED__, E_Menu *m, E_Menu_Item *mi __UNUSED__)
+_e_int_menus_shelves_del_cb(void *data __UNUSED__, E_Menu *m EINA_UNUSED, E_Menu_Item *mi __UNUSED__)
 {
-   e_configure_registry_call("extensions/shelves", m->zone->comp, NULL);
+   e_configure_registry_call("extensions/shelves", NULL, NULL);
 }
 
 static void
