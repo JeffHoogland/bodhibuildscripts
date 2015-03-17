@@ -20,3 +20,6 @@ override_dh_strip:
 
 override_dh_auto_configure:
 	dh_auto_configure -- --with-tests=none --disable-static --enable-xinput22 --enable-fb --disable-tslib --enable-multisense --enable-harfbuzz --prefix=/usr
+
+override_dh_auto_install:
+	dh_auto_install --destdir=debian/efl
