@@ -15,3 +15,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 #Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
 Description: EFLs
  Enlightenment Desktop core package
+
+Package: efl-dbg
+Architecture: any
+Section: debug

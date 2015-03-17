@@ -16,3 +16,7 @@ Description: EFL-based widget set library
  Elementary is a widget set based on the Enlightenment Foundation Libraries,
  primarily aimed at creating graphical user interfaces for mobile and embedded
  devices.
+
+Package: elementary-dbg
+Architecture: any
+Section: debug

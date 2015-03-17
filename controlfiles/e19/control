@@ -19,3 +19,7 @@ Description: The Enlightenment Window Manager
  features include: a fully animated background, nice drop shadows
  around windows, backed by an extremely clean and optimized
  foundation of APIs.
+ 
+Package: e19-dbg
+Architecture: any
+Section: debug
