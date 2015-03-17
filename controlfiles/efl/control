@@ -9,13 +9,17 @@ Standards-Version: 3.8.3
 Package: efl
 Architecture: any
 Provides: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics
-Replaces: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics, efl-dbg
-Conflicts: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics, efl-dbg
+Replaces: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics
+Conflicts: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics
 Depends: ${shlibs:Depends}, ${misc:Depends}
 #Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
 Description: EFLs
- Enlightenment Desktop core package
+ Enlightenment Foundation Libraries
 
 Package: efl-dbg
 Architecture: any
 Section: debug
+Priority: extra
+Depends: efl (= ${binary:Version}), ${misc:Depends}
+Description: Debugging symbols for EFL
+ This package contains the debugging symbols for EFLs
