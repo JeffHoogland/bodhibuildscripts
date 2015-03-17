@@ -8,8 +8,6 @@ Standards-Version: 3.8.3
 
 Package: elementary
 Architecture: any
-Replaces: elementary-dbg
-Conflicts: elementary-dbg
 Depends: ${shlibs:Depends}, ${misc:Depends}
 #Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
 Description: EFL-based widget set library
@@ -20,3 +18,7 @@ Description: EFL-based widget set library
 Package: elementary-dbg
 Architecture: any
 Section: debug
+Priority: extra
+Depends: elementary (= ${binary:Version}), ${misc:Depends}
+Description: Debugging symbols for Elementary
+ This package contains the debugging symbols for Elementary

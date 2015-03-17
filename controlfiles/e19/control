@@ -23,3 +23,7 @@ Description: The Enlightenment Window Manager
 Package: e19-dbg
 Architecture: any
 Section: debug
+Priority: extra
+Depends: e19 (= ${binary:Version}), ${misc:Depends}
+Description: Debugging symbols for E19
+ This package contains the debugging symbols for E19
