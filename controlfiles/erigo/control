@@ -1,0 +1,14 @@
+Source: erigo
+Section: unknown
+Priority: extra
+Maintainer: Jeff Hoogland
+Build-Depends: efl, elementary
+Standards-Version: 3.8.3
+
+Package: erigo
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+#Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
+Description: Erigo GUI Builder
+ GUI builder for Elementary Applications
+ 
