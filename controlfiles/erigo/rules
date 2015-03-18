@@ -11,10 +11,12 @@
 
 # This has to be exported to make some magic below work.
 export DH_OPTIONS
-export DCMAKE_BUILD_TYPE=release
 
 %:
 	dh $@  --with autotools-dev
+
+override_dh_auto_configure:
+	dh_auto_configure -- -DCMAKE_BUILD_TYPE=release
 
 override_dh_auto_install:
 	dh_auto_install --destdir=debian/erigo
