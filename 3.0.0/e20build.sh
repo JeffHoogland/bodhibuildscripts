@@ -15,7 +15,7 @@ else
     cp -R ../../$2/enlightenment-$2 ../../bodhi_debs/$1/e20-$1
 fi
 
-cd ../../bodhi_debs/$1/e19-$1
+cd ../../bodhi_debs/$1/e20-$1
 rm -rf src/modules/wizard
 cp -a ../../../bodhibuildscripts/patches/wizard-e19 src/modules/wizard
 
