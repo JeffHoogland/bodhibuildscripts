@@ -19,3 +19,11 @@ Description: The Enlightenment Window Manager
  features include: a fully animated background, nice drop shadows
  around windows, backed by an extremely clean and optimized
  foundation of APIs.
+ 
+Package: e20-dbg
+Architecture: any
+Section: debug
+Priority: extra
+Depends: e20 (= ${binary:Version}), ${misc:Depends}
+Description: Debugging symbols for E20
+ This package contains the debugging symbols for E20
