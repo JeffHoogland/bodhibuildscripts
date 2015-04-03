@@ -16,6 +16,9 @@ CPPFLAGS =
 %:
 	dh  $@
 
+override_dh_auto_install:
+        python3 setup.py install
+
 #override_dh_auto_configure:
 #	dh_auto_configure -- --with-tests=none
 
