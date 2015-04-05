@@ -19,7 +19,7 @@ override_dh_strip:
 	dh_strip --dbg-package=efl-dbg
 
 override_dh_auto_configure:
-	dh_auto_configure -- --with-tests=none --disable-static --enable-xinput22 --enable-fb --disable-tslib --enable-multisense --enable-harfbuzz --prefix=/usr
+	dh_auto_configure -- --with-tests=none --disable-static --enable-xinput22 --enable-fb --disable-tslib --enable-multisense --enable-harfbuzz --prefix=/usr --with-api=both
 
 override_dh_auto_install:
 	dh_auto_install --destdir=debian/efl
