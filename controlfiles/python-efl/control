@@ -11,7 +11,12 @@ Architecture: any
 Provides: python-ecore, python-edbus, python-edje, python-elementary, python-emotion, python-epdf, python-ethumb, python-evas
 Replaces: python-ecore, python-edbus, python-edje, python-elementary, python-emotion, python-epdf, python-ethumb, python-evas
 Conflicts: python-ecore, python-edbus, python-edje, python-elementary, python-emotion, python-epdf, python-ethumb, python-evas
-Depends: ${shlibs:Depends}, ${misc:Depends}
-#Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
+Depends: ${python:Depends}, ${misc:Depends}
 Description: Python EFLs
  Python bindings for the EFLs
+ 
+Package: python3-efl
+Architecture: any
+Depends: ${python3:Depends}, ${misc:Depends}
+Description: Python3 EFLs
+ Python3 bindings for the EFLs
