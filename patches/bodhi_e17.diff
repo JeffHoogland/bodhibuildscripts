@@ -116,7 +116,7 @@ index 49750bb..f361189 100644
 +   char buff[PATH_MAX];
 +
 +   snprintf(buff, sizeof(buff), "enlightenment_open "
-+            "file:///usr/share/bodhi/e17guide/e17guideEN/index.html");
++            "file:///usr/share/bodhi/quickstart/quickstartEN/index.html");
 +   zone = e_util_zone_current_get(e_manager_current_get());
 +   e_exec(zone, NULL, buff, NULL, NULL);
 +}
@@ -537,7 +537,7 @@ index cdfbd52..af7aaee 100644
 +   char buff[PATH_MAX];
 +
 +   snprintf(buff, sizeof(buff), "enlightenment_open "
-+            "file:///usr/share/bodhi/e17guide/e17guideEN/index.html");
++            "file:///usr/share/bodhi/quickstart/quickstartEN/index.html");
 +   zone = e_util_zone_current_get(e_manager_current_get());
 +   e_exec(zone, NULL, buff, NULL, NULL);
 +}
@@ -552,4 +552,3 @@ index cdfbd52..af7aaee 100644
 +   _e_int_menus_bodhi_quick_start(NULL, NULL, NULL);
     return 1;
  }
- 

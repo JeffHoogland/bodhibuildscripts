@@ -13,8 +13,16 @@ CXXFLAGS = -g -O2
 LDFLAGS = 
 CPPFLAGS = 
 
+export PYBUILD_NAME = efl
+
 %:
-	dh  $@
+	dh $@ --with python2,python3 --buildsystem=pybuild
+        
+override_dh_python3:
+	dh_python3 --shebang=/usr/bin/python3
+
+#override_dh_auto_install:
+#	python3 setup.py install
 
 #override_dh_auto_configure:
 #	dh_auto_configure -- --with-tests=none

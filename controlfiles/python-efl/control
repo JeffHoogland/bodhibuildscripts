@@ -1,16 +1,22 @@
 Source: python-efl
 Section: unknown
 Priority: extra
-Maintainer: root <jeffhoogland@linux.com>
+Maintainer: Eric W. Brown
+Uploaders: Jeff Hoogland, Doug Yanez
 Build-Depends: efl, elementary, python-pyrex, python-all-dev
 Standards-Version: 3.8.3
-Homepage: <insert the upstream URL, if relevant>
 
 Package: python-efl
 Architecture: any
 Provides: python-ecore, python-edbus, python-edje, python-elementary, python-emotion, python-epdf, python-ethumb, python-evas
 Replaces: python-ecore, python-edbus, python-edje, python-elementary, python-emotion, python-epdf, python-ethumb, python-evas
 Conflicts: python-ecore, python-edbus, python-edje, python-elementary, python-emotion, python-epdf, python-ethumb, python-evas
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${python:Depends}, ${misc:Depends}
 Description: Python EFLs
  Python bindings for the EFLs
+ 
+Package: python3-efl
+Architecture: any
+Depends: ${python3:Depends}, ${misc:Depends}
+Description: Python3 EFLs
+ Python3 bindings for the EFLs

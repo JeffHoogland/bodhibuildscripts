@@ -2,12 +2,13 @@ Source: forecasts
 Section: unknown
 Priority: extra
 Maintainer: Jeff Hoogland <jeffhoogland@linux.com>
-Build-Depends: enlightenment
+Build-Depends: e19
+Conflicts: e17
 Standards-Version: 3.8.3
 Homepage: <insert the upstream URL, if relevant>
 
 Package: forecasts
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Forecasts Module
+Description: Forecasts Module E19
  Get weather updates on your desktop! Enlightenment Module.

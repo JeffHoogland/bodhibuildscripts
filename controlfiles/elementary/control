@@ -1,15 +1,24 @@
 Source: elementary
 Section: unknown
 Priority: extra
-Maintainer: root <jeffhoogland@linux.com>
-Build-Depends: efl | efl-dbg
+Maintainer: Eric W. Brown
+Uploaders: Jeff Hoogland, Doug Yanez
+Build-Depends: efl
 Standards-Version: 3.8.3
-Homepage: <insert the upstream URL, if relevant>
 
 Package: elementary
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+#Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
 Description: EFL-based widget set library
  Elementary is a widget set based on the Enlightenment Foundation Libraries,
  primarily aimed at creating graphical user interfaces for mobile and embedded
  devices.
+
+Package: elementary-dbg
+Architecture: any
+Section: debug
+Priority: extra
+Depends: elementary (= ${binary:Version}), ${misc:Depends}
+Description: Debugging symbols for Elementary
+ This package contains the debugging symbols for Elementary

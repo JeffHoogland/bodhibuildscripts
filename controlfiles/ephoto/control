@@ -2,7 +2,7 @@ Source: ephoto
 Section: unknown
 Priority: extra
 Maintainer: root <jeffhoogland@linux.com>
-Build-Depends: elementary, emotion, efreet, ethumb
+Build-Depends: elementary
 Standards-Version: 3.8.3
 Homepage: <insert the upstream URL, if relevant>
 

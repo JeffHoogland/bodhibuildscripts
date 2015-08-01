@@ -1,10 +1,10 @@
 Source: efl
 Section: unknown
 Priority: extra
-Maintainer: root <jeffhoogland@linux.com>
+Maintainer: Eric W. Brown
+Uploaders: Jeff Hoogland, Doug Yanez
 Build-Depends: libgnutls-dev, libcurl4-gnutls-dev, libxcursor-dev, libxss-dev, libxinerama-dev, libxrandr-dev, libxext-dev, libxp-dev, libxcomposite-dev, libxi-dev, libxdamage-dev, libxtst-dev, libglib2.0-dev, libc-ares-dev, libfreetype6-dev, libpng12-dev, libx11-dev, libxrender-dev, x11proto-xext-dev, libtiff4-dev, libgif-dev, libfontconfig1-dev, libglu1-mesa-dev [!armel], mesa-common-dev, libxpm-dev, libgles2-mesa-dev [armel], librsvg2-dev, libfribidi-dev, libpixman-1-dev, libxcb-shm0-dev, libxcb-image0-dev, libxcb1-dev, libmount-dev, libharfbuzz-dev, doxygen, libssl-dev, libgstreamer1.0-dev, libpulse-dev, libsndfile1-dev, libudev-dev, libblkid-dev, libbullet-dev, libluajit-5.1-dev, automake, libgstreamer-plugins-base1.0-dev
 Standards-Version: 3.8.3
-Homepage: <insert the upstream URL, if relevant>
 
 Package: efl
 Architecture: any
@@ -12,5 +12,14 @@ Provides: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, 
 Replaces: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics
 Conflicts: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics
 Depends: ${shlibs:Depends}, ${misc:Depends}
+#Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
 Description: EFLs
- Enlightenment Desktop core package
+ Enlightenment Foundation Libraries
+
+Package: efl-dbg
+Architecture: any
+Section: debug
+Priority: extra
+Depends: efl (= ${binary:Version}), ${misc:Depends}
+Description: Debugging symbols for EFL
+ This package contains the debugging symbols for EFLs

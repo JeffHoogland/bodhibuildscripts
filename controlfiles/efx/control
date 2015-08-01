@@ -1,0 +1,14 @@
+Source: efx
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: e19
+Conflicts: e17
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: efx
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: efx package for E19
+ Adds extras that desksanity requires for e19

@@ -8,16 +8,15 @@
 
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
-CFLAGS = -g -O2 -fvisibility=hidden -ffast-math
-CXXFLAGS = -g -O2
-LDFLAGS = 
-CPPFLAGS = 
+
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
 
 %:
-	dh  $@
+	dh $@  --with autotools-dev
 
-#override_dh_auto_configure:
-#	dh_auto_configure -- --with-tests=none
+override_dh_strip:
+	dh_strip --dbg-package=elementary-dbg
 
-#override_dh_strip:
-#	dh_strip --dbg-package=elementary
+override_dh_auto_install:
+	dh_auto_install --destdir=debian/elementary

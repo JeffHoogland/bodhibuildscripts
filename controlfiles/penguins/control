@@ -2,12 +2,13 @@ Source: penguins
 Section: unknown
 Priority: extra
 Maintainer: root <jeffhoogland@linux.com>
-Build-Depends: enlightenment
+Build-Depends: e19
+Conflicts: e17
 Standards-Version: 3.8.3
 Homepage: <insert the upstream URL, if relevant>
 
 Package: penguins
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: penguins
- Have penguins crawl all over your E desktop!
+Description: penguins Module for E19
+ Adds configurable penguins to your e19 desktop

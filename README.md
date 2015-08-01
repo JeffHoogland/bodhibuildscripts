@@ -1,1 +1,4 @@
-Build scripts/control files for Bodhi packages
+Build scripts/control files for [Bodhi Linux](http://www.bodhilinux.com/) packages
+
+Credits: 
+- [Jeff Hoogland](http://www.jeffhoogland.com/)

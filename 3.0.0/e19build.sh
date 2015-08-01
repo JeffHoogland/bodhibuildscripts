@@ -1,21 +1,39 @@
 #!/bin/sh
 
-#Normal package
-cp -R /home/jeff/$2/enlightenment-$2 /media/sda5/Bodhi/e17_debs/$1/e19-$1
+mkdir -p ../../bodhi_debs/$1
 
-cd /media/sda5/Bodhi/e17_debs/$1/e19-$1
-patch -p1 < /media/sda5/Bodhi/bodhibuildscripts/patches/bodhi_e19.diff
+if test "$2" = "git"
+then
+    cd ../../$2/enlightenment
+    ./autogen.sh
 
-./autogen.sh
+    cp -R ../../$2/enlightenment ../../bodhi_debs/$1/e19-$1
+else
+    cd ../../$2/enlightenment-$2
+    autoreconf
 
-cd /media/sda5/Bodhi/e17_debs/$1
+    cp -R ../../$2/enlightenment-$2 ../../bodhi_debs/$1/e19-$1
+fi
+
+cd ../../bodhi_debs/$1/e19-$1
+rm -rf src/modules/wizard
+cp -a ../../../bodhibuildscripts/patches/wizard-e19 src/modules/wizard
+
+rm src/modules/systray/e_mod_main.c
+cp ../../../bodhibuildscripts/patches/e_mod_main-e19-systray.c src/modules/systray/e_mod_main.c
+
+rm -rf src/bin/e_int_menus.c
+cp ../../../bodhibuildscripts/patches/e_int_menus-e19.c src/bin/e_int_menus.c
+
+#cd ../../bodhi_debs/$1/e19-$1
+#patch -p1 < ../../../bodhibuildscripts/patches/bodhi_e19.diff
+
+cd ..
 tar czvf e19-$1.tar.gz e19-$1/
 
-cd /media/sda5/Bodhi/e17_debs/$1/e19-$1
-autoreconf
-make distclean
-dh_make -e jeffhoogland@linux.com -f ../e19-$1.tar.gz
+cd e19-$1
+dh_make -e "Jeff Hoogland" -f ../e19-$1.tar.gz
 
-cp -f /media/sda5/Bodhi/bodhibuildscripts/controlfiles/e19/* debian/
+cp -f ../../../bodhibuildscripts/controlfiles/e19/* debian/
 dpkg-buildpackage -rfakeroot -b
-dpkg -i ../e19*.deb
+sudo dpkg -i ../e19*.deb

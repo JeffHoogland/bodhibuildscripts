@@ -1,9 +1,0 @@
-Package: efl
-Version: 20121218
-Section: main
-Priority: optional
-Architecture: all
-Depends: eio, ecore, eet, eina, embryo, eobj, evas
-Maintainer: Jeff Hoogland
-Description: EFL
- A meta package to grab a bunch of EFLs
