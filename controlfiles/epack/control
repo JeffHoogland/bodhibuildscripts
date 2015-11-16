@@ -1,0 +1,12 @@
+Source: epack
+Section: unknown
+Priority: extra
+Maintainer: Jeff Hoogland <jeffhoogland@linux.com>
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: epack
+Architecture: any
+Depends: python-efl, python-magic, libarchive13, python-elm-extensions
+Description: EPack Archive Manager
+ A small, fast Archive written in Python and Elementary
