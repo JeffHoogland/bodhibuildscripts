@@ -4,17 +4,17 @@
 #Example:
 # sh genericbuild.sh 20150101 git enlightenment
 
-mkdir -p ../../bodhi_debs/$1
+mkdir -p ../bodhi_debs/$1
 
 #If we are building from git, folder name is different structure
 if test "$2" = "git"
 then
-    cd ../../$2/$3
+    cd ../$2/$3
     #./autogen.sh
 
     cp -R ../../$2/$3 ../../bodhi_debs/$1/$3-$1
 else
-    cd ../../$2/$3-$2
+    cd ../$2/$3-$2
     autoreconf
 
     cp -R ../../$2/$3-$2 ../../bodhi_debs/$1/$3-$1
