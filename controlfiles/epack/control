@@ -7,6 +7,6 @@ Homepage: <insert the upstream URL, if relevant>
 
 Package: epack
 Architecture: any
-Depends: python-efl, python-magic, libarchive13, python-elm-extensions, p7zip-full
+Depends: python-efl, python-magic, libarchive-dev, python-elm-extensions, p7zip-full
 Description: EPack Archive Manager
  A small, fast Archive written in Python and Elementary
