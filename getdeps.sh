@@ -4,7 +4,7 @@
 # get list of libs for application
 # if package is installed check /usr/bin/
 
-PKG=$1
+PKG="$(which $1)"
 objdump -p /usr/bin/$1 | grep NEEDED | sed -e 's/NEEDED//g' > tmp
 LIB="$(cat tmp)"
 dpkg -S $LIB > list
