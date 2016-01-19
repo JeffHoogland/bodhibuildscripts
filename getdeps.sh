@@ -4,7 +4,7 @@
 # get list of libs for application and find package names for deps
 #
 # Todo
-# implement readelf for ELF binaries or sudo apt-get source?
+# implement dll for binaries > getelf sucks
 # add i686 for list parse > array
 # check for sudo > sigh
 
@@ -25,9 +25,9 @@ fi
 
 # Vars
 PKG="$(which $1)"
-
+CHARSET="$(file --mime $1 | grep binary)"
 # check if package is installed, interrogate with objdump and parse
-if [ -e $PKG ]; then
+if [ -e $PKG ] || [ $CHARSET != "binary" ]; then
     objdump -p $PKG | grep NEEDED | sed -e 's/NEEDED//g' > tmp
     LIB="$(cat tmp)"
     dpkg -S $LIB > list
@@ -35,7 +35,8 @@ if [ -e $PKG ]; then
     awk '{ print $1 }' list | sort | uniq | sed -e 's/i386://g'
     rm list
 else
-    echo "Package $1 not installed, or not specified...can't get dependecy list..."
-    echo "USAGE: sudo ./getdebs.sh {package-name}"
+    echo "do ldd.."
+#    echo "Package $1 not installed, or not specified...can't get dependecy list..."
+#    echo "USAGE: sudo ./getdebs.sh {package-name}"
 fi
 
