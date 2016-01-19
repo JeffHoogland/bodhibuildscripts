@@ -25,7 +25,9 @@ getlist() {
 }
 # binary
 getlistbin() {
-    sudo apt-get build-dep "$1"
+    sudo apt-get build-dep $1 | cat tmp | grep NEEDED
+#    readelf -d "$pkg" | grep NEEDED
+#    ldd $pkg
 }
 # error
 geterr() {
@@ -47,8 +49,8 @@ if [ -e configure ]; then
 fi
 
 # check if file binary
-objdump -p $pkg > /dev/null 2>&1
-if [ $? -eq 0 ]; then
+objdump -p "$pkg" > /dev/null 2>&1
+if [ "$?" -eq 0 ]; then
     getlist
     else
     getlistbin
