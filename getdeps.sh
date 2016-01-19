@@ -4,7 +4,7 @@
 # get list of libs for application and find package names for deps
 #
 # Todo
-# - Implement dll for binaries and  elf binary support > get elf/dll file to test and work out parse params
+# - Implement ldd for binaries and  elf binary support > get elf/ldd file to test and work out parse params
 # - Add i686 for list parse > array
 # - Odness - test $file -v /usr/bin/esudo --wtf?
 #
@@ -22,7 +22,7 @@ getlist() {
 	rm list
 	rm tmp
 	else
-	gelitshbin
+	geterr
 	fi
 }
 # binary
@@ -38,7 +38,7 @@ getlistbin() {
 }
 # error
 geterr() {
-    echo "Binary type not supported or not recognised..."
+    echo "File type not supported or not recognised..."
 exit
 }
 # Start #
@@ -61,3 +61,4 @@ if [ "$?" -eq 0 ]; then
     else
     getlistbin
 fi
+
