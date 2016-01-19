@@ -10,17 +10,10 @@
 # check for sudo > sigh
 # test file -v /usr/bin/esudo --wtf?
 #
-# Check for sudo
-chksu="$(whoami)"
-if [ "$chksu" != "root" ]; then
-    echo "Needs to be run as sudo..."
-    echo "USAGE: sudo ./getdebs.sh {package-name}"
-    exit
-fi
 
 # Vars
 pkg="$(which "$1")"
-charset="$(file --mime /usr/bin/"$1" | grep binary | awk '{ print $3 }' | sed -e 's/charset=//g')"
+#charset="$(file --mime /usr/bin/"$1" | grep binary | awk '{ print $3 }' | sed -e 's/charset=//g')"
 
 getlist() {
     objdump -p "$pkg" | grep NEEDED | sed -e 's/NEEDED//g' > tmp
@@ -29,12 +22,10 @@ getlist() {
     awk '{ print $1 }' list | sed -e 's/i386://g' | sort | uniq
     rm list
     rm tmp
-exit
 }
 # binary
 getlistbin() {
-echo "works"
-#    sudo apt-get build-dep "$1"
+    sudo apt-get build-dep "$1"
 }
 # error
 geterr() {
@@ -42,20 +33,23 @@ geterr() {
     echo "USAGE: sudo ./getdebs.sh {package-name}"
 exit
 }
-# check for ./configure in source dir and interrogate.
+# Start #
+# Check for sudo
+chksu="$(whoami)"
+if [ "$chksu" != "root" ]; then
+    echo "Needs to be run as sudo..."
+    echo "USAGE: sudo ./getdebs.sh {package-name}"
+    exit
+fi
+
 if [ -e configure ]; then
     sudo dpkg-depcheck -d ./configure
 fi
-# check if package is installed, interrogate and parse
-if [ -e "$pkg" ]; then
-    echo "Checking file type..."
-getlist
-else
-geterr "$@"
-fi
-# check for binary
-if [ "$charset" = "binary" ]; then
-getlistbin "$@"
-else
-getlist "$0"
+
+# check if file binary
+objdump -p $pkg > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    getlist
+    else
+    getlistbin
 fi
