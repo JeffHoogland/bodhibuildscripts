@@ -7,7 +7,7 @@
 # implement dll for binaries > getelf sucks
 # add i686 for list parse > array
 # check for sudo > sigh
-
+# test file -v /usr/bin/esudo --wtf?
 # Check for sudo
 CHKSU="$(whoami)"
 if [ "$CHKSU" != "root" ]; then
@@ -25,18 +25,31 @@ fi
 
 # Vars
 PKG="$(which $1)"
-CHARSET="$(file --mime $1 | grep binary)"
+CHARSET="$(file --mime /usr/bin/$1 | grep binary)"
 # check if package is installed, interrogate with objdump and parse
-if [ -e $PKG ] || [ $CHARSET != "binary" ]; then
+if [ -e $PKG ]; then
+    echo "Checking file type..."
+fi
+
+if [ $CHARSET = "binary" ]; then
+getlistbin
+else
+getlist
+
+
+getlist(){
     objdump -p $PKG | grep NEEDED | sed -e 's/NEEDED//g' > tmp
     LIB="$(cat tmp)"
     dpkg -S $LIB > list
     rm tmp
     awk '{ print $1 }' list | sort | uniq | sed -e 's/i386://g'
     rm list
-else
-    echo "do ldd.."
+}
+# binary
+getlistbin(){
+    dll $PKG
+}
+fi
 #    echo "Package $1 not installed, or not specified...can't get dependecy list..."
 #    echo "USAGE: sudo ./getdebs.sh {package-name}"
-fi
 
