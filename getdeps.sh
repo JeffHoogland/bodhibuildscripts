@@ -17,22 +17,28 @@ pkg="$(which "$1")"
 
 getlist() {
     objdump -p "$pkg" | grep NEEDED | sed -e 's/NEEDED//g' > tmp
-    sed "s/^[ \t]*//" -i tmp
-    list=($(<tmp)); dpkg -S "${list[@]}" > list
-    awk '{ print $1 }' list | sed -e 's/i386://g' | sort | uniq
-    rm list
-    rm tmp
+	if [ $? = 0 ]; then
+    	sed "s/^[ \t]*//" -i tmp
+    	list=($(<tmp)); dpkg -S "${list[@]}" > list
+    	awk '{ print $1 }' list | sed -e 's/i386://g' | sort | uniq
+	rm list
+	rm tmp
+	else
+	gelitshbin
+	fi
 }
 # binary
 getlistbin() {
 #    sudo apt-get build-dep $1 | cat tmp | grep NEEDED
     readelf -d "$pkg" | grep NEEDED
+	if [ $? = 1 ]; then
+	geterr
+	fi
 #    ldd $pkg
 }
 # error
 geterr() {
-    echo "Package $1 not installed, or not specified...can't get dependecy list..."
-    echo "USAGE: sudo ./getdebs.sh {package-name}"
+    echo "Binary type not supported or not recognised..."
 exit
 }
 # Start #
