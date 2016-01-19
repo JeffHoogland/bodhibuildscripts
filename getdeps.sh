@@ -4,34 +4,38 @@
 # get list of libs for application and find package names for deps
 #
 # Todo
-# objdump for bins - http://www.askrprojects.net/software/objdump.html
-# check ./configure first
-# add i686 for list parse
+# implement readelf for ELF binaries or sudo apt-get source?
+# add i686 for list parse > array
+# check for sudo > sigh
+
+# Check for sudo
+CHKSU="$(whoami)"
+if [ "$CHKSU" != "root" ]; then
+    echo "Needs to be run as sudo..."
+    echo "USAGE: sudo ./getdebs.sh {package-name}"
+    exit
+fi
+
 
 # check for ./configure in source dir and interrogate.
-#if [ -f 
+
+if [ -e configure ]; then
+    sudo dpkg-depcheck -d ./configure
+fi
 
 # Vars
 PKG="$(which $1)"
 
 # check if package is installed, interrogate with objdump and parse
-if [ -z $PKG ]; then
-    echo "Package $1 not installed, or not specified...can't check get dependecy list..."
-    exit
-    else
-    objdump -p /usr/bin/$1 | grep NEEDED | sed -e 's/NEEDED//g' > tmp
+if [ -e $PKG ]; then
+    objdump -p $PKG | grep NEEDED | sed -e 's/NEEDED//g' > tmp
     LIB="$(cat tmp)"
-	if [ $? != 0 ]; then
-	touch temp.c
-	gcc -c -o temp.o temp.c
-	objcopy --add-section raw=$1.bin temp.o
-	objcopy -R .comment temp.o
-	objdump -d temp.o
-	else
     dpkg -S $LIB > list
     rm tmp
     awk '{ print $1 }' list | sort | uniq | sed -e 's/i386://g'
     rm list
-	fi
+else
+    echo "Package $1 not installed, or not specified...can't get dependecy list..."
+    echo "USAGE: sudo ./getdebs.sh {package-name}"
 fi
 
