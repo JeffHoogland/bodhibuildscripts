@@ -4,11 +4,9 @@
 # get list of libs for application and find package names for deps
 #
 # Todo
-# implement dll for binaries
-# elf binary support
-# add i686 for list parse > array
-# check for sudo > sigh
-# test file -v /usr/bin/esudo --wtf?
+# - Implement dll for binaries and  elf binary support > get elf/dll file to test and work out parse params
+# - Add i686 for list parse > array
+# - Odness - test $file -v /usr/bin/esudo --wtf?
 #
 
 # Vars
@@ -17,7 +15,7 @@ pkg="$(which "$1")"
 
 getlist() {
     objdump -p "$pkg" | grep NEEDED | sed -e 's/NEEDED//g' > tmp
-	if [ $? = 0 ]; then
+	if [ $? -eq 0 ]; then
     	sed "s/^[ \t]*//" -i tmp
     	list=($(<tmp)); dpkg -S "${list[@]}" > list
     	awk '{ print $1 }' list | sed -e 's/i386://g' | sort | uniq
@@ -29,12 +27,14 @@ getlist() {
 }
 # binary
 getlistbin() {
-#    sudo apt-get build-dep $1 | cat tmp | grep NEEDED
+#sudo apt-get build-dep $1 | cat tmp | grep NEEDED
     readelf -d "$pkg" | grep NEEDED
-	if [ $? = 1 ]; then
+	if [ $? -eq 1 ]; then
+	    ldd "$pkg"
+	    if [ $? -eq 1 ]; then
 	geterr
+	    fi
 	fi
-#    ldd $pkg
 }
 # error
 geterr() {
