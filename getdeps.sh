@@ -33,7 +33,8 @@ exit
 }
 # binary
 getlistbin() {
-    dll "$pkg"
+echo "works"
+#    sudo apt-get build-dep "$1"
 }
 # error
 geterr() {
