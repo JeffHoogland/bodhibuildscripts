@@ -1,32 +1,85 @@
 #!/bin/sh
-#Usage:
-# genericbuild.sh <output version> <source version> <source name>
-#Example:
-# sh genericbuild.sh 20150101 git enlightenment
+# Usage:
+#  genericbuild.sh <package name> <version number>
+# Example:
+#  sh genericbuild.sh terminology enlightenment
+#
+# Todo
+# - call and add results of getdeps.sh to add to control file()
+#
+# Updated 20/01/15
+# Hipptaff
 
-mkdir -p ../bodhi_debs/$1
+err() {
+    echo "USAGE: sudo ./genericbuild.sh <package name> <version number>"
+    exit
+}
 
-#If we are building from git, folder name is different structure
-if test "$2" = "git"
-then
-    cd ../$2/$3
-    ./autogen.sh
-
-    cp -R ../../$2/$3 ../../bodhi_debs/$1/$3-$1
-else
-    cd ../$2/$3-$2
+# Check process (autogen/autoreconf)
+chkproc() {
+sudo /$1./autogen.sh
+if [ $? = 1 ]; then
     autoreconf
-
-    cp -R ../../$2/$3-$2 ../../bodhi_debs/$1/$3-$1
+    if [ $? = 1 ]; then
+    echo "No autogen,sh or autoreconf...bailing"
+    echo "Are you in /home?"
+    else
+    dhmake
+    exit 1
+    fi
 fi
+}
 
-cd ../../bodhi_debs/$1
-tar czvf $3-$1.tar.gz $3-$1/
+# Make tar and folder structure (add maintainer name - make var?)
+dhmake() {
+dh_make -e "Gareth Williams <hippytaff@gmail.com>" -f $1-$2.tar.gz
+if [ $? = 1 ]; then
+    echo "dh_make failed..."
+    err
+else
+    cpctrl
+fi
+}
 
-cd $3-$1
-dh_make -e "Gareth Williams <hippytaff@gmail.com>" -f ../$3-$1.tar.gz
+# Copy control file to /debain - Add check /debian for new control (timestamp?)
+cpctrl() {
+cp -f controlfiles/$1/* debian/
+if [ $? = 1 ]; then
+    echo "Failed to copy comtrol file..."
+    err
+else
+    build
+fi
+}
 
-cp -f ../../../bodhibuildscripts/controlfiles/$3/* debian/
-
+# Build .deb
+build() {
 dpkg-buildpackage -rfakeroot -b
-dpkg -i ../$3*.deb
+if [ $? = 1 ]; then
+    echo "Build failed..."
+    err
+else
+    test
+fi
+}
+
+# Test .deb
+test() {
+dpkg -i ../$1*.deb
+if [ $? = 1 ]; then
+    echo "Failed to copy comtrol file..."
+    err
+else
+    echo "Success..."
+fi
+}
+
+# Check for sudo
+suchk="$(whoami)"
+if [ $suchk = "root" ]; then
+    chkproc
+else
+    err
+fi
+exit
+
