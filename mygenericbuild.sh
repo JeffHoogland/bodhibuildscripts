@@ -1,61 +1,45 @@
 #!/bin/sh
 # Usage:
-#  genericbuild.sh <package name> <version number>
+#   genericbuild.sh <package name> <version number> <maintainer>
 # Example:
-#  sh genericbuild.sh terminology enlightenment
+#   genericbuild.sh terminology enlightenment Gareth Williams
+#
+# Notes:
+# - Needs /control, getdeps.sh and installdeps.sh
 #
 # Todo
-# - call and add results of getdeps.sh to add to control file()
-#
+# - Call and add results of getdeps.sh to add to control file()
+# - Maintainer var
+# -
 # Updated 20/01/15
 # Hipptaff
 
+# Vars
+pkg="$1"
+ver="$2"
+mail="$3"
+
 err() {
-    echo "USAGE: sudo ./genericbuild.sh <package name> <version number>"
+    echo "Usage: sudo ./genericbuild.sh <package name> <version number> <maintainer>"
+    echo
     exit
 }
 
-# Check process (autogen/autoreconf)
-chkproc() {
-sudo /$1./autogen.sh
-if [ $? = 1 ]; then
-    autoreconf
-    if [ $? = 1 ]; then
-    echo "No autogen,sh or autoreconf...bailing"
-    echo "Are you in /home?"
-    else
-    dhmake
-    exit 1
-    fi
-fi
-}
-
-# Make tar and folder structure (add maintainer name - make var?)
-dhmake() {
-dh_make -e "Gareth Williams <hippytaff@gmail.com>" -f $1-$2.tar.gz
-if [ $? = 1 ]; then
-    echo "dh_make failed..."
+# Test .deb
+test() {
+dpkg -i ../"$pkg*".deb
+if [ "$?" -eq 1 ]; then
+    echo "Failed to install "$1"..."
     err
 else
-    cpctrl
-fi
-}
-
-# Copy control file to /debain - Add check /debian for new control (timestamp?)
-cpctrl() {
-cp -f controlfiles/$1/* debian/
-if [ $? = 1 ]; then
-    echo "Failed to copy comtrol file..."
-    err
-else
-    build
+    echo "Success..."
 fi
 }
 
 # Build .deb
 build() {
-dpkg-buildpackage -rfakeroot -b
-if [ $? = 1 ]; then
+dpkg-buildpackage -r fakeroot -b
+if [ "$?" -eq 1 ]; then
     echo "Build failed..."
     err
 else
@@ -63,23 +47,60 @@ else
 fi
 }
 
-# Test .deb
-test() {
-dpkg -i ../$1*.deb
-if [ $? = 1 ]; then
-    echo "Failed to copy comtrol file..."
+# Copy control file to /debain
+cpctrl() {
+cp -f controlfiles/"$pkg"/* debian/
+if [ "$?" -eq 1 ]; then
+    echo "Failed to copy control file..."
     err
 else
-    echo "Success..."
+    cat debian/control sed -e 's/root/"$1"/s'
+    build
+fi
+}
+
+# Make tar and folder structure (add maintainer name - make var?)
+dhmake() {
+dh_make -e "<"$mail"@bodhilinux.com>" -f "$pkg"*.tar.gz
+if [ "$?" -eq 1 ]; then
+    echo "dh_make failed..."
+    err
+else
+    cpctrl
+fi
+}
+
+# Check for autogen and autoreconf
+chkproc() {
+./autogen.sh
+if [ "$?" -eq 1 ]; then
+    echo "No autogen.sh...bailing"
+    echo "Are you in the right directory?"
+else
+autoreconf
+fi
+if [ "$?" -eq 1 ]; then
+    echo "No autoreconf...bailing"
+    echo "Are you in the right directory?"
+else
+    dhmake
+fi
+}
+
+# Check input vars
+reqvar() {
+if [ -z "$pkg" ]; then
+    err
+    else
+    chkproc
 fi
 }
 
 # Check for sudo
 suchk="$(whoami)"
-if [ $suchk = "root" ]; then
-    chkproc
-else
+if [ "$suchk" != "root" ]; then
+    echo "Needs to be run as root..."
     err
+    else
+    reqvar
 fi
-exit
-
