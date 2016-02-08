@@ -1,34 +1,36 @@
 #!/bin/bash
 # Script to get dependencies for building deb fils
-
+#
 # get list of libs for application and find package names for deps
 #
 # Todo
-# - Implement ldd for binaries and  elf binary support > get elf/ldd file to test and work out parse params
 # - Add i686 for list parse > array
-# - Odness - test $file -v /usr/bin/esudo --wtf?
+# - Integrate with genericbuild.sh to polulate control file deps.
 #
+# Note: As far as I know all readable bin types are supported by this script. Some binary's cannot be interrogated
+#	 commonly used tools, if at all without decompiling, which is unlikey to happen for this script. For those
+#	 files and old fasioned search for dependancies will have to do.
+
 
 # Vars
 pkg="$(which "$1")"
-#charset="$(file --mime /usr/bin/"$1" | grep binary | awk '{ print $3 }' | sed -e 's/charset=//g')"
+chksu="$(whoami)"
 
 getlist() {
     objdump -p "$pkg" | grep NEEDED | sed -e 's/NEEDED//g' > tmp
 	if [ $? -eq 0 ]; then
     	sed "s/^[ \t]*//" -i tmp
     	list=($(<tmp)); dpkg -S "${list[@]}" > list
-    	awk '{ print $1 }' list | sed -e 's/i386://g' | sort | uniq
+    	awk '{ print $1 }' list | sed -e 's/i386://g' | sed -e 's/i686://g' | sort | uniq
 	rm list
 	rm tmp
 	else
 	geterr
 	fi
 }
-# binary
+# ELF binary
 getlistbin() {
-#sudo apt-get build-dep $1 | cat tmp | grep NEEDED
-    readelf -d "$pkg" | grep NEEDED
+    readelf -V "$pkg" | grep lib*
 	if [ $? -eq 1 ]; then
 	    ldd "$pkg"
 	    if [ $? -eq 1 ]; then
@@ -43,7 +45,6 @@ exit
 }
 # Start #
 # Check for sudo
-chksu="$(whoami)"
 if [ "$chksu" != "root" ]; then
     echo "Needs to be run as sudo..."
     echo "USAGE: sudo ./getdebs.sh {package-name}"
@@ -54,7 +55,7 @@ if [ -e configure ]; then
     sudo dpkg-depcheck -d ./configure
 fi
 
-# check if file binary
+# check if objdump can interrogate bin, if not try getelf and ldd
 objdump -p "$pkg" > /dev/null 2>&1
 if [ "$?" -eq 0 ]; then
     getlist
