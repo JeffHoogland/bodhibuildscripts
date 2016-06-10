@@ -24,7 +24,7 @@ cd ../../bodhi_debs/$1
 tar czvf $3-$1.tar.gz $3-$1/
 
 cd $3-$1
-dh_make -e "Gareth Williams <hippytaff@gmail.com>" -f ../$3-$1.tar.gz
+dh_make -e "Jeff Hoogland <jeffhoogland@gmail.com>" -f ../$3-$1.tar.gz
 
 cp -f ../../../bodhibuildscripts/controlfiles/$3/* debian/
 
