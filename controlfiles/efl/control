@@ -8,9 +8,9 @@ Standards-Version: 3.8.3
 
 Package: efl
 Architecture: any
-Provides: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics
-Replaces: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics
-Conflicts: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics
+Provides: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics, elementary, evas-generic-loaders, emotion-generic-players
+Replaces: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics, elementary, evas-generic-loaders, emotion-generic-players
+Conflicts: eio, ecore, eet, eina, eio, embryo, eobj, evas, ethumb, edje, efreet, emotion, eeze, ephysics, elementary, evas-generic-loaders, emotion-generic-players
 Depends: ${shlibs:Depends}, ${misc:Depends}
 #Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
 Description: EFLs
