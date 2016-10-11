@@ -28,5 +28,5 @@ dh_make -e "Jeff Hoogland <jeffhoogland@gmail.com>" -f ../$3-$1.tar.gz
 
 cp -f ../../../bodhibuildscripts/controlfiles/$3/* debian/
 
-dpkg-buildpackage -rfakeroot -b
+dpkg-buildpackage -b
 dpkg -i ../$3*.deb
