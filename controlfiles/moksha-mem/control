@@ -1,0 +1,13 @@
+Source: moksha-mem
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: efl
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: moksha-mem
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Memory Module for Moksha
+ Adds configurable memory usage tracking to your Moksha desktop

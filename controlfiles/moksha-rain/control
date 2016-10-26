@@ -1,0 +1,13 @@
+Source: moksha-rain
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: efl
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: moksha-rain
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Rain Module for Moksha
+ Adds rain to your Moksha desktop

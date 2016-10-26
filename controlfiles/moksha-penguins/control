@@ -1,14 +1,13 @@
-Source: penguins
+Source: moksha-penguins
 Section: unknown
 Priority: extra
 Maintainer: root <jeffhoogland@linux.com>
-Build-Depends: e19
-Conflicts: e17
+Build-Depends: efl
 Standards-Version: 3.8.3
 Homepage: <insert the upstream URL, if relevant>
 
-Package: penguins
+Package: moksha-penguins
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: penguins Module for E19
- Adds configurable penguins to your e19 desktop
+Description: Penguins Module for Moksha
+ Adds configurable penguins to your Moksha desktop
