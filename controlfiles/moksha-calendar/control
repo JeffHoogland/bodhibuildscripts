@@ -1,0 +1,13 @@
+Source: moksha-calendar
+Section: unknown
+Priority: extra
+Maintainer: root <jeffhoogland@linux.com>
+Build-Depends: efl
+Standards-Version: 3.8.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: moksha-flame
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Calendar Module for Moksha
+ Displays the current date on your Moksha desktop
