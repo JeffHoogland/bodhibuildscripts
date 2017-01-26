@@ -1,0 +1,12 @@
+Source: e22
+Section: unknown
+Priority: extra
+Maintainer: Jeff Hoogland
+Build-Depends: efl, libasound2-dev [linux-any], libxext-dev, libpam0g-dev, libxcb-shape0-dev, dbus-x11, libxcb-keysyms1-dev
+Standards-Version: 3.8.3
+
+Package: e22
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, bodhi-background-edj
+Description: The Enlightenment DR22 Desktop
+ Enlightenment is an advanced window manager for X11.
