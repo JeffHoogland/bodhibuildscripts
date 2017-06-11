@@ -1,4 +1,4 @@
-Source: ephoto
+Source: moksha-cpu
 Section: unknown
 Priority: extra
 Maintainer: root <jeffhoogland@linux.com>
@@ -6,8 +6,8 @@ Build-Depends: efl
 Standards-Version: 3.8.3
 Homepage: <insert the upstream URL, if relevant>
 
-Package: ephoto
+Package: moksha-cpu
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: ephoto
- A simple image view writte in EFL. Support slide shows
+Description: CPU Module for Moksha
+ Adds configurable CPU usage display to your Moksha desktop

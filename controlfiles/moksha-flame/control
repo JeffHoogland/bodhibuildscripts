@@ -1,4 +1,4 @@
-Source: ephoto
+Source: moksha-flame
 Section: unknown
 Priority: extra
 Maintainer: root <jeffhoogland@linux.com>
@@ -6,8 +6,8 @@ Build-Depends: efl
 Standards-Version: 3.8.3
 Homepage: <insert the upstream URL, if relevant>
 
-Package: ephoto
+Package: moksha-flame
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: ephoto
- A simple image view writte in EFL. Support slide shows
+Description: Flame Module for Moksha
+ Adds hot fire to your Moksha desktop

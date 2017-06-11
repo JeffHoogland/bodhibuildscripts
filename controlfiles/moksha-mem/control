@@ -1,4 +1,4 @@
-Source: ephoto
+Source: moksha-mem
 Section: unknown
 Priority: extra
 Maintainer: root <jeffhoogland@linux.com>
@@ -6,8 +6,8 @@ Build-Depends: efl
 Standards-Version: 3.8.3
 Homepage: <insert the upstream URL, if relevant>
 
-Package: ephoto
+Package: moksha-mem
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: ephoto
- A simple image view writte in EFL. Support slide shows
+Description: Memory Module for Moksha
+ Adds configurable memory usage tracking to your Moksha desktop

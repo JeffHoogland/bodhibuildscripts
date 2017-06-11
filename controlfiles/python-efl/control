@@ -3,7 +3,7 @@ Section: unknown
 Priority: extra
 Maintainer: Eric W. Brown
 Uploaders: Jeff Hoogland, Doug Yanez
-Build-Depends: efl, elementary, python-pyrex, python-all-dev
+Build-Depends: efl, python-pyrex, python-all-dev
 Standards-Version: 3.8.3
 
 Package: python-efl
