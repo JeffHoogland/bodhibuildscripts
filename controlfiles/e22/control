@@ -4,9 +4,24 @@ Priority: extra
 Maintainer: Jeff Hoogland
 Build-Depends: efl, libasound2-dev [linux-any], libxext-dev, libpam0g-dev, libxcb-shape0-dev, dbus-x11, libxcb-keysyms1-dev
 Standards-Version: 3.8.3
+Homepage: http://enlightenment.org
 
 Package: e22
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, bodhi-background-edj
-Description: The Enlightenment DR22 Desktop
- Enlightenment is an advanced window manager for X11.
+Provides: enlightenment, moksha
+Replaces: enlightenment, moksha
+Depends: ${shlibs:Depends}, ${misc:Depends}
+#Vcs-Browser: https://github.com/Feneric/bodhibuildscripts
+Description: The Enlightenment Window Manager
+ Enlightenment is an advanced window manager for X11. Unique
+ features include: a fully animated background, nice drop shadows
+ around windows, backed by an extremely clean and optimized
+ foundation of APIs.
+ 
+Package: e22-dbg
+Architecture: any
+Section: debug
+Priority: extra
+Depends: e22 (= ${binary:Version}), ${misc:Depends}
+Description: Debugging symbols for e22
+ This package contains the debugging symbols for e22
