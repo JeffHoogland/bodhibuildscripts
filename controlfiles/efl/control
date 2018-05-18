@@ -1,9 +1,26 @@
 Source: efl
 Section: unknown
 Priority: extra
-Maintainer: Eric W. Brown
-Uploaders: Jeff Hoogland, Doug Yanez
-Build-Depends: libgnutls-dev, libcurl4-gnutls-dev, libxcursor-dev, libxss-dev, libxinerama-dev, libxrandr-dev, libxext-dev, libxcomposite-dev, libxi-dev, libxdamage-dev, libxtst-dev, libglib2.0-dev, libc-ares-dev, libfreetype6-dev, libpng12-dev, libx11-dev, libxrender-dev, x11proto-xext-dev, libtiff5-dev, libgif-dev, libfontconfig1-dev, libglu1-mesa-dev [!armel], mesa-common-dev, libxpm-dev, libgles2-mesa-dev [armel], librsvg2-dev, libfribidi-dev, libpixman-1-dev, libxcb-shm0-dev, libxcb-image0-dev, libxcb1-dev, libmount-dev, libharfbuzz-dev, doxygen, libssl-dev, libgstreamer1.0-dev, libpulse-dev, libsndfile1-dev, libudev-dev, libblkid-dev, libbullet-dev, libluajit-5.1-dev, automake, libgstreamer-plugins-base1.0-dev
+Maintainer: Jeff Hoogland
+Build-Depends: pkg-config, autopoint,
+ zlib1g-dev, libjpeg-dev, libpng-dev, libtiff-dev, libgif-dev, libxpm-dev,
+ libfreetype6-dev, libfontconfig1-dev,
+ libx11-dev, x11proto-xext-dev, , libglu1-mesa-dev, mesa-common-dev,
+ libfribidi-dev,
+ libgl1-mesa-dev [!armel !armhf], libgles2-mesa-dev [armel armhf],
+ libpixman-1-dev, libxcb-shm0-dev, libxcb-image0-dev, libxcb1-dev,
+ libxcursor-dev, libxss-dev, libxrender-dev, libxinerama-dev,
+ libxrandr-dev, libxext-dev, libxcomposite-dev, libxi-dev,
+ libxdamage-dev, libxtst-dev, libglib2.0-dev,
+ libluajit-5.1-dev [!arm64 !s390x], liblua5.2-dev [arm64 s390x], libdbus-1-dev,
+ libsndfile-dev,
+ libgnutls28-dev, libcurl4-gnutls-dev,
+ libudev-dev [linux-any], libmount-dev [linux-any], libblkid-dev [linux-any],
+ libgstreamer1.0-dev, libgstreamer-plugins-base1.0-dev, libgcrypt-dev,
+ libbullet-dev, libpulse-dev, liblz4-dev, libwebp-dev, libharfbuzz-dev,
+ libavahi-client-dev, libvlc-dev, libraw-dev,
+ libpoppler-cpp-dev, libspectre-dev, librsvg2-dev, libgbm-dev, libxkbcommon-dev, libinput-dev,
+ libscim-dev, libibus-1.0-dev
 Standards-Version: 3.8.3
 
 Package: efl
