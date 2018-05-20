@@ -2,12 +2,12 @@ Source: ephoto
 Section: unknown
 Priority: extra
 Maintainer: root <jeffhoogland@linux.com>
-Build-Depends: efl
+Build-Depends: libefl-dev
 Standards-Version: 3.8.3
 Homepage: <insert the upstream URL, if relevant>
 
 Package: ephoto
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: libefl
 Description: ephoto
  A simple image view writte in EFL. Support slide shows
