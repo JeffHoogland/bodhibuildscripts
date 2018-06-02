@@ -1,12 +1,11 @@
-Source: screenshot-moksha
+Source: moksha-module-screenshot
 Section: unknown
 Priority: extra
 Maintainer: Jeff Hoogland <jeffhoogland@linux.com>
 Build-Depends: moksha
 Standards-Version: 3.8.4
-Homepage: https://github.com/thewaiter/Clipboard
 
-Package: screenshot-moksha
+Package: moksha-module-screenshot
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, emprint
 Description: Advanced Screenshot Module
